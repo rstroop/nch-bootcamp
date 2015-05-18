@@ -2,7 +2,7 @@
 ##Prerequisites##
 ###Accounts###
 * Red Hat Access Portal Account (https://access.redhat.com)
-* An OpenShift Online Account (use your RH email address)
+* An OpenShift Online Account (https://www.openshift.com/app/account/new -- use your RH email address)
 
 ###Installations###
 Install | URL
