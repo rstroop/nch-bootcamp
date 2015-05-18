@@ -12,4 +12,13 @@ Apache Maven (Latest) | [link](http://maven.apache.org/download.cgi)
 JBoss EAP 6.4.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=appplatform&version=6.1.0&productChanged=yes)
 JBoss BPM Suite 6.1.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&productChanged=yes)
 
+##Day 1 - OpenShift Application Management##
+
+##Day 2 - Business Rules and Process Modeling##
+
+##Day 3 - Integrating Services with Camel##
+
+##Day 4 - Continuous Integration and Delivery##
+
+##Day 5 - To Infinity and Beyond##
 
