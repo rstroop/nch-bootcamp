@@ -3,6 +3,7 @@
 ###Accounts###
 * Red Hat Access Portal Account (https://access.redhat.com)
 * An OpenShift Online Account (use your RH email address)
+
 ###Installations###
 Install | URL
 -------- | ----------
