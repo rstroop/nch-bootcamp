@@ -21,7 +21,8 @@ JBoss BPM Suite 6.1.0 | [link](https://access.redhat.com/jbossnetwork/restricted
 2. Run the following on the command line to create a BPM Suite project in OpenShift:
 
 <code>$ rhc create-app -g medium bpmsuite https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-bpms/master/metadata/manifest.yml</code>
- * This will output the generated users and passwords for Business Central, which you can use to login into Business Central or BAM applications.
+
+This will output the generated users and passwords for Business Central, which you can use to login into Business Central or BAM applications.
 
 
 ##Day 2 - Business Rules and Process Modeling##
