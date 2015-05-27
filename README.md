@@ -17,8 +17,11 @@ JBoss EAP 6.4.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listS
 JBoss BPM Suite 6.1.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&productChanged=yes)
 
 ##Day 1 - OpenShift Application Management##
-1. Install OpenShift command line tools (below is the install for Fedora. For all OS, see [here](https://developers.openshift.com/en/getting-started-fedora.html#client-tools)
-1.1 <code>$ sudo yum install rubygems</code>
+1. Install OpenShift command line tools -- follow the instructions [here](https://developers.openshift.com/en/managing-client-tools.html)
+2. Run the following on the command line to create a BPM Suite project in OpenShift:
+  <code>$ rhc create-app -g medium bpmsuite https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-bpms/master/metadata/manifest.yml</code>
+# This will output the generated users and passwords for Business Central, which you can use to login into Business Central or BAM applications.
+
 
 ##Day 2 - Business Rules and Process Modeling##
 
