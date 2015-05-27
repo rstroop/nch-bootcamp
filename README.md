@@ -7,7 +7,7 @@
 ###Installations###
 Install | URL
 -------- | ----------
-Java Development Kit 7 | [link 1](http://openjdk.java.net/install/), [link 2](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
+Java Development Kit 7 | [OpenJDK](http://openjdk.java.net/install/), [Oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
 Apache Maven (Latest) | [link](http://maven.apache.org/download.cgi)
 JBoss EAP 6.4.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=appplatform&version=6.1.0&productChanged=yes)
 JBoss BPM Suite 6.1.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&productChanged=yes)
