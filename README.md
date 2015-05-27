@@ -17,6 +17,8 @@ JBoss EAP 6.4.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listS
 JBoss BPM Suite 6.1.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&productChanged=yes)
 
 ##Day 1 - OpenShift Application Management##
+1. Install OpenShift command line tools (below is the install for Fedora. For all OS, see [here](https://developers.openshift.com/en/getting-started-fedora.html#client-tools)
+1.1 <code>$ sudo yum install rubygems</code>
 
 ##Day 2 - Business Rules and Process Modeling##
 
