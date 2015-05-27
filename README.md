@@ -15,10 +15,10 @@ Java Development Kit 7 | [OpenJDK](http://openjdk.java.net/install/), [Oracle JD
 Apache Maven (Latest) | [link](http://maven.apache.org/download.cgi)
 JBoss EAP 6.4.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=appplatform&version=6.1.0&productChanged=yes)
 JBoss BPM Suite 6.1.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&productChanged=yes)
+OpenShift Command Line Tools | [link](https://developers.openshift.com/en/managing-client-tools.html)
 
 ##Day 1 - OpenShift Application Management##
-1. Install OpenShift command line tools -- follow the instructions [here](https://developers.openshift.com/en/managing-client-tools.html)
-2. Run the following on the command line to create a BPM Suite project in OpenShift:
+1. Run the following on the command line to create a BPM Suite project in OpenShift:
 
 <code>$ rhc create-app -g medium bpmsuite https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-bpms/master/metadata/manifest.yml</code>
 
