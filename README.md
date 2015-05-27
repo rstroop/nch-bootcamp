@@ -1,10 +1,14 @@
 # NCH Bootcamp #
 ##Prerequisites##
 ###Accounts###
+Each new hire will need to set up the following accounts to start the lab content provided in this repository.
+
 * Red Hat Access Portal Account (https://access.redhat.com)
 * An OpenShift Online Account (https://www.openshift.com/app/account/new -- use your RH email address)
 
 ###Installations###
+Each new hire will need the following installations downloaded and unzipped prior to the start of the New Hire Bootcamp.
+
 Install | URL
 -------- | ----------
 Java Development Kit 7 | [OpenJDK](http://openjdk.java.net/install/), [Oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
