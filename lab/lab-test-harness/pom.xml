@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.rhc</groupId>
-		<artifactId>bootcamp-parent</artifactId>
+		<artifactId>lab-parent</artifactId>
 		<version>1.0</version>
-		<relativePath>../bootcamp-parent/pom.xml</relativePath>
+		<relativePath>../lab-parent/pom.xml</relativePath>
 	</parent>
-	<artifactId>bootcamp-test-harness</artifactId>
-	<name>RHC Bootcamp :: Test Harness</name>
+	<artifactId>lab-test-harness</artifactId>
+	<name>Associate Bootcamp Lab :: Test Harness</name>
 	<dependencies>
 		<!-- Cucumber Dependencies -->
 		<dependency>

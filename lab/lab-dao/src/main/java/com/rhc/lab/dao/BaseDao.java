@@ -1,4 +1,4 @@
-package com.rhc.bootcamp.dao;
+package com.rhc.lab.dao;
 
 public interface BaseDao {
     

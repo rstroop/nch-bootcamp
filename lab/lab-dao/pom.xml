@@ -3,12 +3,17 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.rhc</groupId>
-		<artifactId>bootcamp-parent</artifactId>
+		<artifactId>lab-parent</artifactId>
 		<version>1.0</version>
-		<relativePath>../bootcamp-parent/pom.xml</relativePath>
+		<relativePath>../lab-parent/pom.xml</relativePath>
 	</parent>
-	<artifactId>bootcamp-domain</artifactId>
-	<name>RHC Bootcamp :: Domain</name>
+	<artifactId>lab-dao</artifactId>
+	<name>Associate Bootcamp Lab :: Data Access Layer</name>
 
-	<!-- XXX Tip: Avoid adding dependencies to the domain model as much as possible -->
+	<dependencies>
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+		</dependency>
+	</dependencies>
 </project>

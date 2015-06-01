@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.rhc</groupId>
-		<artifactId>bootcamp</artifactId>
+		<artifactId>lab</artifactId>
 		<version>1.0</version>
 	</parent>
-	<artifactId>bootcamp-parent</artifactId>
+	<artifactId>lab-parent</artifactId>
 	<packaging>pom</packaging>
-	<name>RHC Bootcamp :: Parent</name>
+	<name>Associate Bootcamp Lab :: Parent</name>
 
 
 	<properties>
@@ -20,20 +20,20 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- Bootcamp Project Dependencies -->
+			<!-- lab Project Dependencies -->
 			<dependency>
 				<groupId>com.rhc</groupId>
-				<artifactId>bootcamp-domain</artifactId>
+				<artifactId>lab-domain</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.rhc</groupId>
-				<artifactId>bootcamp-dao</artifactId>
+				<artifactId>lab-dao</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.rhc</groupId>
-				<artifactId>bootcamp-test-harness</artifactId>
+				<artifactId>lab-test-harness</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 

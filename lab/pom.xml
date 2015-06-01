@@ -2,16 +2,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.rhc</groupId>
-	<artifactId>bootcamp</artifactId>
+	<artifactId>lab</artifactId>
 	<version>1.0</version>
 	<packaging>pom</packaging>
-	<name>RHC Bootcamp :: Root</name>
+	<name>Associate Bootcamp Lab :: Root</name>
 
 	<modules>
-		<module>bootcamp-parent</module>
-		<module>bootcamp-domain</module>
-		<module>bootcamp-test-harness</module>
-		<module>bootcamp-dao</module>
+		<module>lab-parent</module>
+		<module>lab-domain</module>
+		<module>lab-test-harness</module>
+		<module>lab-dao</module>
 	</modules>
 
 </project>

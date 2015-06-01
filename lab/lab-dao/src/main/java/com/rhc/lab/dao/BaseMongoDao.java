@@ -1,4 +1,4 @@
-package com.rhc.bootcamp.dao;
+package com.rhc.lab.dao;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
