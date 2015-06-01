@@ -9,13 +9,14 @@ Each new hire will need to set up the following accounts to start the lab conten
 ###Installations###
 Each new hire will need the following installations downloaded and unzipped prior to the start of the New Hire Bootcamp.
 
-Install | URL
--------- | ----------
-Java Development Kit 7 | [OpenJDK](http://openjdk.java.net/install/), [Oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
-Apache Maven (Latest) | [link](http://maven.apache.org/download.cgi)
-JBoss EAP 6.4.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=appplatform&version=6.1.0&productChanged=yes)
-JBoss BPM Suite 6.1.0 | [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&productChanged=yes)
-OpenShift Command Line Tools | [link](https://developers.openshift.com/en/managing-client-tools.html)
+Install				| URL
+------------------------------- | ----------
+Java Development Kit 7 		| [OpenJDK](http://openjdk.java.net/install/), [Oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
+Apache Maven (Latest) 		| [link](http://maven.apache.org/download.cgi)
+Git 				| [link](https://git-scm.com/downloads)
+JBoss EAP 6.4.0 		| [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=appplatform&version=6.1.0&productChanged=yes)
+JBoss BPM Suite 6.1.0 		| [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&productChanged=yes)
+OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/managing-client-tools.html)
 
 ##Day 1 - OpenShift Application Management##
 1. Run the following on the command line to create a BPM Suite project in OpenShift:
