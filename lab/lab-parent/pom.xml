@@ -12,10 +12,11 @@
 
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>1.7</java.version>
 		<junit.version>4.12</junit.version>
-		<cucumber.version>1.1.5</cucumber.version>
+		<cucumber.version>1.2.2</cucumber.version>
 		<mongo.driver.version>2.10.1</mongo.driver.version>
+		<spring.version>4.1.6.RELEASE</spring.version>
 	</properties>
 
 	<dependencyManagement>
@@ -43,7 +44,7 @@
 				<artifactId>mongo-java-driver</artifactId>
 				<version>${mongo.driver.version}</version>
 			</dependency>
-			
+
 			<!-- Cucumber Dependencies -->
 			<dependency>
 				<groupId>info.cukes</groupId>
@@ -67,6 +68,19 @@
 				<groupId>info.cukes</groupId>
 				<artifactId>cucumber-spring</artifactId>
 				<version>${cucumber.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<!-- Spring Dependencies -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
 				<scope>test</scope>
 			</dependency>
 
