@@ -10,5 +10,13 @@
 	<artifactId>lab-domain</artifactId>
 	<name>Associate Bootcamp Lab :: Domain</name>
 
-	<!-- XXX Tip: Avoid adding dependencies to the domain model as much as possible -->
+	<!-- XXX Tip: Avoid adding dependencies to the domain model as much as possible 
+		(Except Joda Time when Java Version < 8) -->
+	<!-- Joda Dependencies -->
+	<dependencies>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+	</dependencies>
 </project>

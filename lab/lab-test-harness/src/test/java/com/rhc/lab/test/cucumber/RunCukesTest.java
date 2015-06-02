@@ -1,4 +1,4 @@
-package com.rhc.lab.test;
+package com.rhc.lab.test.cucumber;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
