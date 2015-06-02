@@ -1,5 +1,10 @@
 package com.rhc.lab.domain;
 
+/**
+ * 
+ * This class represents the domain model for a Concert Performance
+ *
+ */
 public class Performance {
 
     private String name;

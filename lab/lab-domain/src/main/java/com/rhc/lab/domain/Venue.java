@@ -2,6 +2,11 @@ package com.rhc.lab.domain;
 
 import java.util.List;
 
+/**
+ * 
+ * This class represents the domain model for a Concert Venue
+ *
+ */
 public class Venue {
 
     private String name;

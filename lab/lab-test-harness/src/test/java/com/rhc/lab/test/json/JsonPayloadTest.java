@@ -17,10 +17,16 @@ import com.rhc.lab.domain.Performance;
 import com.rhc.lab.domain.PerformanceType;
 import com.rhc.lab.domain.Venue;
 
+/**
+ * 
+ * This JUnit test class tests Jackson mapping of JSON to and from the Java
+ * domain model
+ *
+ */
 public class JsonPayloadTest {
 
     @Test
-    public void testJsonMarshalAndUnmarshal() throws IOException {
+    public void shouldMarshalAndUnmarshalJson() throws IOException {
 	ObjectMapper om = new ObjectMapper();
 	om.registerModule(new JodaModule());
 
@@ -51,8 +57,9 @@ public class JsonPayloadTest {
 	String requestString = om.writer().writeValueAsString(request);
 
 	assertNotNull(requestString);
-	System.out.println(om.writerWithDefaultPrettyPrinter().writeValueAsString(request));	
-	
+	System.out.println(om.writerWithDefaultPrettyPrinter()
+		.writeValueAsString(request));
+
 	BookingRequest r = om.readValue(requestString, BookingRequest.class);
 	assertNotNull(r.getOpen());
 	assertNotNull(r.getClose());

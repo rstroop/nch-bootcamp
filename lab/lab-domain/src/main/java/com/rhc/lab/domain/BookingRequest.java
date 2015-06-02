@@ -4,6 +4,12 @@ import org.joda.time.DateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * This class represents the domain model for a booking request that will go
+ * through our Concert Booking application for artists and venue matching
+ *
+ */
 public class BookingRequest {
 
     private Venue venue;
