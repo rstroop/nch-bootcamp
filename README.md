@@ -1,4 +1,4 @@
-# NCH Bootcamp #
+# Associate Consultant Bootcamp #
 ##Prerequisites##
 ###Accounts###
 Each new hire will need to set up the following accounts to start the lab content provided in this repository.
