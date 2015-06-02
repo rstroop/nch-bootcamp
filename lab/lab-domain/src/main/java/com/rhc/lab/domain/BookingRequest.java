@@ -8,54 +8,54 @@ import java.util.List;
  * 
  * This class represents the domain model for a booking request that will go
  * through our Concert Booking application for artists and venue matching
- *
+ * 
  */
 public class BookingRequest {
 
-    private Venue venue;
-    private DateTime open;
-    private DateTime close;
-    private List<Performance> performances = new ArrayList<Performance>();
-    private String description;
+	private Venue venue;
+	private DateTime open;
+	private DateTime close;
+	private List<Performance> performances = new ArrayList<Performance>();
+	private String description;
 
-    public Venue getVenue() {
-	return venue;
-    }
+	public Venue getVenue() {
+		return venue;
+	}
 
-    public void setVenue(Venue venue) {
-	this.venue = venue;
-    }
+	public void setVenue(Venue venue) {
+		this.venue = venue;
+	}
 
-    public DateTime getOpen() {
-	return open;
-    }
+	public DateTime getOpen() {
+		return open;
+	}
 
-    public void setOpen(DateTime open) {
-	this.open = open;
-    }
+	public void setOpen(DateTime open) {
+		this.open = open;
+	}
 
-    public DateTime getClose() {
-	return close;
-    }
+	public DateTime getClose() {
+		return close;
+	}
 
-    public void setClose(DateTime close) {
-	this.close = close;
-    }
+	public void setClose(DateTime close) {
+		this.close = close;
+	}
 
-    public List<Performance> getPerformances() {
-	return performances;
-    }
+	public List<Performance> getPerformances() {
+		return performances;
+	}
 
-    public void setPerformances(List<Performance> performances) {
-	this.performances = performances;
-    }
+	public void setPerformances(List<Performance> performances) {
+		this.performances = performances;
+	}
 
-    public String getDescription() {
-	return description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-	this.description = description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 }

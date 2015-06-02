@@ -5,6 +5,7 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "classpath:features/", plugin = { "pretty", "html:target/cucumber" }, glue = { "com.rhc" })
+@CucumberOptions(features = "classpath:features/", plugin = {"pretty",
+		"html:target/cucumber"}, glue = {"com.rhc"})
 public class RunCukesTest {
 }

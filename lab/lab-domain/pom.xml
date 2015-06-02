@@ -12,6 +12,8 @@
 
 	<!-- XXX Tip: Avoid adding dependencies to the domain model as much as possible 
 		(Except Joda Time when Java Version < 8) -->
+
+
 	<!-- Joda Dependencies -->
 	<dependencies>
 		<dependency>
