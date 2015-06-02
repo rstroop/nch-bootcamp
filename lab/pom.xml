@@ -12,6 +12,9 @@
 		<module>lab-domain</module>
 		<module>lab-test-harness</module>
 		<module>lab-dao</module>
+		<module>lab-web</module>
+		<module>lab-camel-services</module>
+		<module>lab-kie-services</module>
 	</modules>
 
 	<build>
