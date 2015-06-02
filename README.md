@@ -24,6 +24,7 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 1. To get familiar with both the UI and CLI experience in OpenShift
 1. To get familiar with the format for the lab content in the remaining days of the Bootcamp
 1. TODO
+
 ###Instructions###
 1. Run the following on the command line to create a BPM Suite project in OpenShift:
 
@@ -37,20 +38,24 @@ This will output the generated users and passwords for Business Central, which y
 1. Learn how to write Business Rules, and touch integration endpoints in Business Processes
 1. To get familiar with BDD (Behavior-Driven-Development) by using the Cucumber test Framework
 1. TODO
+
 ###Instructions###
 ##Day 3 - Integrating Services with Camel##
 ###Goals###
 1. Learn how to write Camel routes for code-less integration
 1. Learn how to expose and consume Web Services with Camel
 1. TODO
+
 ###Instructions
 ##Day 4 - Continuous Integration and Delivery##
 ###Goals###
 1. Learn how to add and use plugins in Jenkins on top of OpenShift
 1. Deploy our completed web application to OpenShift with Jenkins CI (Continuous Integration)
 1. TODO
+
 ###Instructions###
 ##Day 5 - To Infinity and Beyond##
 ###Goals###
 1. TODO
+
 ###Instructions###
