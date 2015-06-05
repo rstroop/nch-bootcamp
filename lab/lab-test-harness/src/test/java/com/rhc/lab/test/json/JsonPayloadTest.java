@@ -30,6 +30,28 @@ public class JsonPayloadTest {
 		ObjectMapper om = new ObjectMapper();
 		om.registerModule(new JodaModule());
 
+		BookingRequest request = populateBookingRequest();
+
+		String requestString = om.writer().writeValueAsString(request);
+
+		assertNotNull(requestString);
+		System.out.println(om.writerWithDefaultPrettyPrinter()
+				.writeValueAsString(request));
+
+		BookingRequest r = om.readValue(requestString, BookingRequest.class);
+		assertNotNull(r.getOpen());
+		assertNotNull(r.getClose());
+		for (Performance p : r.getPerformances()) {
+			assertNotNull(p.getName(), p.getType());
+			if (p.getName().equals("The Velvet Underground")) {
+				assertEquals(PerformanceType.BAND, p.getType());
+			} else if (p.getName().equals("Brooklyn Symphony Orchestra")) {
+				assertEquals(PerformanceType.ORCHESTRA, p.getType());
+			}
+		}
+	}
+
+	public BookingRequest populateBookingRequest() {
 		BookingRequest request = new BookingRequest();
 		Performance performance1 = new Performance();
 		Performance performance2 = new Performance();
@@ -54,23 +76,7 @@ public class JsonPayloadTest {
 		request.getPerformances().add(performance1);
 		request.getPerformances().add(performance2);
 
-		String requestString = om.writer().writeValueAsString(request);
-
-		assertNotNull(requestString);
-		System.out.println(om.writerWithDefaultPrettyPrinter()
-				.writeValueAsString(request));
-
-		BookingRequest r = om.readValue(requestString, BookingRequest.class);
-		assertNotNull(r.getOpen());
-		assertNotNull(r.getClose());
-		for (Performance p : r.getPerformances()) {
-			assertNotNull(p.getName(), p.getType());
-			if (p.getName().equals("The Velvet Underground")) {
-				assertEquals(PerformanceType.BAND, p.getType());
-			} else if (p.getName().equals("Brooklyn Symphony Orchestra")) {
-				assertEquals(PerformanceType.ORCHESTRA, p.getType());
-			}
-		}
+		return request;
 	}
 
 }
