@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.joda.time.DateTime;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,10 +26,16 @@ import com.rhc.lab.domain.Venue;
  */
 public class JsonPayloadTest {
 
+	private ObjectMapper om;
+
+	@Before
+	public void init() {
+		om = new ObjectMapper();
+		om.registerModule(new JodaModule());
+	}
+
 	@Test
 	public void shouldMarshalAndUnmarshalJson() throws IOException {
-		ObjectMapper om = new ObjectMapper();
-		om.registerModule(new JodaModule());
 
 		BookingRequest request = populateBookingRequest();
 
