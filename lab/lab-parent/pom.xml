@@ -12,6 +12,7 @@
 
 
 	<properties>
+		<camel.version>2.15.2</camel.version>
 		<cucumber.version>1.2.2</cucumber.version>
 		<formatter.version>0.4</formatter.version>
 		<jackson.version>2.5.3</jackson.version>
@@ -24,7 +25,7 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- lab Project Dependencies -->
+			<!-- IntraProject Dependencies -->
 			<dependency>
 				<groupId>com.rhc</groupId>
 				<artifactId>lab-domain</artifactId>
@@ -33,6 +34,21 @@
 			<dependency>
 				<groupId>com.rhc</groupId>
 				<artifactId>lab-dao</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.rhc</groupId>
+				<artifactId>lab-camel-services</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.rhc</groupId>
+				<artifactId>lab-kie-services</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.rhc</groupId>
+				<artifactId>lab-web</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -109,6 +125,39 @@
 				<version>${jackson.version}</version>
 			</dependency>
 
+			<!-- Camel Dependencies -->
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-core</artifactId>
+				<version>${camel.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-spring</artifactId>
+				<version>${camel.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-servlet</artifactId>
+				<version>${camel.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-http</artifactId>
+				<version>${camel.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-test</artifactId>
+				<version>${camel.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-test-spring</artifactId>
+				<version>${camel.version}</version>
+				<scope>test</scope>
+			</dependency>
 
 			<!-- Joda Dependencies -->
 			<dependency>
@@ -124,7 +173,7 @@
 				<version>${junit.version}</version>
 				<scope>test</scope>
 			</dependency>
-			
+
 		</dependencies>
 	</dependencyManagement>
 

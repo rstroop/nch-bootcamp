@@ -10,7 +10,7 @@
 	<artifactId>lab-test-harness</artifactId>
 	<name>Associate Bootcamp Lab :: Test Harness</name>
 	<dependencies>
-		<!-- lab Project Dependencies -->
+		<!-- IntraProject Dependencies -->
 		<dependency>
 			<groupId>com.rhc</groupId>
 			<artifactId>lab-domain</artifactId>

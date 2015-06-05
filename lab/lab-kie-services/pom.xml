@@ -9,4 +9,18 @@
 	</parent>
 	<artifactId>lab-kie-services</artifactId>
 	<name>Associate Bootcamp Lab :: Business Process and Rules</name>
+
+	<dependencies>
+		<!-- IntraProject Dependencies -->
+		<dependency>
+			<groupId>com.rhc</groupId>
+			<artifactId>lab-domain</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.rhc</groupId>
+			<artifactId>lab-dao</artifactId>
+		</dependency>
+		
+		<!-- TODO add KIE Dependencies -->
+	</dependencies>
 </project>

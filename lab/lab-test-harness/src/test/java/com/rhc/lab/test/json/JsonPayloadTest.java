@@ -41,7 +41,7 @@ public class JsonPayloadTest {
 		venue.setAccomodations(new ArrayList<PerformanceType>(Arrays.asList(
 				PerformanceType.BAND, PerformanceType.ORCHESTRA,
 				PerformanceType.RALLY)));
-		performance1.setName("Foo Fighters");
+		performance1.setName("The Velvet Underground");
 		performance1.setType(PerformanceType.BAND);
 		performance2.setName("Brooklyn Symphony Orchestra");
 		performance2.setType(PerformanceType.ORCHESTRA);
@@ -65,7 +65,7 @@ public class JsonPayloadTest {
 		assertNotNull(r.getClose());
 		for (Performance p : r.getPerformances()) {
 			assertNotNull(p.getName(), p.getType());
-			if (p.getName().equals("Foo Fighters")) {
+			if (p.getName().equals("The Velvet Underground")) {
 				assertEquals(PerformanceType.BAND, p.getType());
 			} else if (p.getName().equals("Brooklyn Symphony Orchestra")) {
 				assertEquals(PerformanceType.ORCHESTRA, p.getType());
