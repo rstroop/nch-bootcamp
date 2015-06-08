@@ -3,9 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.rhc</groupId>
-		<artifactId>lab-parent</artifactId>
+		<artifactId>lab</artifactId>
 		<version>1.0</version>
-		<relativePath>../lab-parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>lab-domain</artifactId>
 	<name>Associate Bootcamp Lab :: Domain</name>

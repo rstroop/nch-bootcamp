@@ -3,12 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.rhc</groupId>
-		<artifactId>lab-parent</artifactId>
+		<artifactId>lab</artifactId>
 		<version>1.0</version>
-		<relativePath>../lab-parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>lab-kie-services</artifactId>
-	<name>Associate Bootcamp Lab :: Business Process and Rules</name>
+	<name>Associate Bootcamp Lab :: Business Process + Rules</name>
 
 	<dependencies>
 		<!-- IntraProject Dependencies -->
