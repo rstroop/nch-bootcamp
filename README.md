@@ -26,11 +26,14 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 1. TODO
 
 ###Instructions###
-1. Run the following on the command line to create a BPM Suite project in OpenShift:
+1. Run the following commands on the command line to create a new EAP 6 project in OpenShift and configure a MongoDB cartridge:
 
-<code>$ rhc create-app -g medium bpmsuite https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-bpms/master/metadata/manifest.yml</code>
+<code>
+	$> rhc app-create lab-web jbosseap 
+	$> rhc cartridge add mongodb-2.4 -a lab-web
+</code>
 
-This will output the generated users and passwords for Business Central, which you can use to login into Business Central or BAM applications.
+This will output the generated users and passwords for MongoDB and the EAP Admin Console, which you can use to configure persistence in the webapp.
 
 1. TODO
 ##Day 2 - Business Rules and Process Modeling##
