@@ -23,8 +23,12 @@
 		<jackson.version>2.5.3</jackson.version>
 		<java.version>1.7</java.version>
 		<joda.version>2.8</joda.version>
+		<jstl.version>1.2</jstl.version>
 		<junit.version>4.12</junit.version>
+		<logback.version>1.1.2</logback.version>
 		<mongo.driver.version>2.10.1</mongo.driver.version>
+		<servletapi.version>2.5</servletapi.version>
+		<slf4j.version>1.7.6</slf4j.version>
 		<spring.version>4.1.6.RELEASE</spring.version>
 	</properties>
 
@@ -98,6 +102,31 @@
 			<!-- Spring Dependencies -->
 			<dependency>
 				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
@@ -105,7 +134,13 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
 				<version>${spring.version}</version>
-				<scope>test</scope>
+			</dependency>
+
+			<!-- JSTL Dependencies -->
+			<dependency>
+				<groupId>jstl</groupId>
+				<artifactId>jstl</artifactId>
+				<version>${jstl.version}</version>
 			</dependency>
 
 			<!-- Jackson Dependencies -->
@@ -143,12 +178,12 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.camel</groupId>
-				<artifactId>camel-servlet</artifactId>
+				<artifactId>camel-http</artifactId>
 				<version>${camel.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.camel</groupId>
-				<artifactId>camel-http</artifactId>
+				<artifactId>camel-mongodb</artifactId>
 				<version>${camel.version}</version>
 			</dependency>
 			<dependency>
@@ -159,9 +194,17 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.camel</groupId>
-				<artifactId>camel-test-spring</artifactId>
+				<artifactId>camel-spring-test</artifactId>
 				<version>${camel.version}</version>
 				<scope>test</scope>
+			</dependency>
+
+			<!-- Servlet Dependencies -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servletapi.version}</version>
+				<scope>provided</scope>
 			</dependency>
 
 			<!-- Joda Dependencies -->
@@ -205,6 +248,13 @@
 							</goals>
 						</execution>
 					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.camel</groupId>
+					<artifactId>camel-maven-plugin</artifactId>
+					<configuration>
+						<userDot>true</userDot>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>

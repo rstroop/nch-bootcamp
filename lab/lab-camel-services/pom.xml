@@ -19,6 +19,10 @@
 			<groupId>com.rhc</groupId>
 			<artifactId>lab-kie-services</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.rhc</groupId>
+			<artifactId>lab-dao</artifactId>
+		</dependency>
 
 		<!-- Camel Dependencies -->
 		<dependency>
@@ -31,21 +35,15 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-servlet</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-http</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-test-spring</artifactId>
-			<scope>test</scope>
+			<artifactId>camel-mongodb</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
