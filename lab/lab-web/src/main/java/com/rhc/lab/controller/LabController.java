@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/index")
+@RequestMapping("/welcome")
 public class LabController {
 
 	@RequestMapping(method = RequestMethod.GET)

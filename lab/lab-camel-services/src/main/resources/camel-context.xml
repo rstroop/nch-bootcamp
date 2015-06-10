@@ -11,7 +11,7 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 	
 	<camelContext xmlns="http://camel.apache.org/schema/spring">
 		<route>
-			<from uri="timer://foo?fixedRate=true&amp;period=5000" />
+			<from uri="timer://foo?fixedRate=true&amp;period=60000" />
 			<log message="Saving a sample record in Mongo!" />
 			<setBody>
 				<constant>{"name": "test"}</constant>
