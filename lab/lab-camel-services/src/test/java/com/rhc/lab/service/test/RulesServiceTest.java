@@ -8,6 +8,12 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
+/**
+ * 
+ * This class is an example Camel test showing mock endpoints and a Java DSL
+ * mock route to process a message
+ * 
+ */
 public class RulesServiceTest extends CamelTestSupport {
 
 	@EndpointInject(uri = "mock:result")
