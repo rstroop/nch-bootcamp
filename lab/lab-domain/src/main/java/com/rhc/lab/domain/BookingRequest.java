@@ -1,6 +1,8 @@
 package com.rhc.lab.domain;
 
 import org.joda.time.DateTime;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +12,11 @@ import java.util.List;
  * through our Concert Booking application for artists and venue matching
  * 
  */
-public class BookingRequest {
+public class BookingRequest implements Serializable {
+	/**
+   * 
+   */
+	private static final long serialVersionUID = 1086652316465244736L;
 
 	private Venue venue;
 	private DateTime open;

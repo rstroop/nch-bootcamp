@@ -1,5 +1,6 @@
 package com.rhc.lab.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,11 @@ import java.util.List;
  * This class represents the domain model for a Concert Venue
  * 
  */
-public class Venue {
+public class Venue implements Serializable {
+	/**
+   * 
+   */
+	private static final long serialVersionUID = -6165217833968313884L;
 
 	private String name;
 	private String city;

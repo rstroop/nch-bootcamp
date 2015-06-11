@@ -1,11 +1,17 @@
 package com.rhc.lab.domain;
 
+import java.io.Serializable;
+
 /**
  * 
  * This class represents the domain model for a Concert Performance
  * 
  */
-public class Performance {
+public class Performance implements Serializable {
+	/**
+   * 
+   */
+	private static final long serialVersionUID = 4851772661932654506L;
 
 	private String name;
 	private PerformanceType type;
