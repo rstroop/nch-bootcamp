@@ -25,7 +25,7 @@ public class LabController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView printHello(ModelMap model) {
 		labProxySender.submit(new BookingRequest());
-		return new ModelAndView("index", "message", "Hello World");
+		return new ModelAndView("index", "message", "Associate Consulting Bootcamp");
 	}
 
 	public void setSender(LabProxySender sender) {
