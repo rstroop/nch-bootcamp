@@ -18,7 +18,7 @@ JBoss EAP 6.4.0 		| [link](https://access.redhat.com/jbossnetwork/restricted/lis
 JBoss BPM Suite 6.1.0 		| [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&productChanged=yes)
 OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/managing-client-tools.html)
 
-##Day 1 - OpenShift Application Management## 
+##Day 1 - OpenShift Application Management##
 ###Goals###
 1. Learn how to use OpenShift Online to enable quick POCs (Proof-of-Concepts)
 1. To get familiar with both the UI and CLI experience in OpenShift
@@ -35,7 +35,7 @@ $> rhc cartridge add mongodb-2.4 -a lab-web
 
 This will output the generated users and passwords for MongoDB and the EAP Admin Console, which you can use to configure persistence in the webapp.
 
-##Day 2 - Business Rules and Process Modeling## 
+##Day 2 - Business Rules and Process Modeling##
 ###Goals###
 1. Learn how to write Business Rules, and touch integration endpoints in Business Processes
 1. To get familiar with BDD (Behavior-Driven-Development) by using the Cucumber test Framework
