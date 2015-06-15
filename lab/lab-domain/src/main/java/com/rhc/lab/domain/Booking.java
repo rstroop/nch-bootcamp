@@ -2,27 +2,24 @@ package com.rhc.lab.domain;
 
 import org.joda.time.DateTime;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * 
- * This class represents the domain model for a booking request that will go
- * through our Concert Booking application for artists and venue matching
- * 
- */
-public class BookingRequest implements Serializable {
-	/**
-   * 
-   */
-	private static final long serialVersionUID = 1086652316465244736L;
+public class Booking {
 
 	private Venue venue;
+	private Performance performance;
 	private DateTime open;
 	private DateTime close;
-	private Performance performance;
 	private String description;
+
+	public Booking() {
+	}
+
+	public Booking(BookingRequest request) {
+		this.venue = request.getVenue();
+		this.performance = request.getPerformance();
+		this.description = request.getDescription();
+		this.open = request.getOpen();
+		this.close = request.getClose();
+	}
 
 	public Venue getVenue() {
 		return venue;
@@ -30,6 +27,14 @@ public class BookingRequest implements Serializable {
 
 	public void setVenue(Venue venue) {
 		this.venue = venue;
+	}
+
+	public Performance getPerformance() {
+		return performance;
+	}
+
+	public void setPerformance(Performance performance) {
+		this.performance = performance;
 	}
 
 	public DateTime getOpen() {
@@ -46,14 +51,6 @@ public class BookingRequest implements Serializable {
 
 	public void setClose(DateTime close) {
 		this.close = close;
-	}
-
-	public Performance getPerformance() {
-		return performance;
-	}
-
-	public void setPerformance(Performance performance) {
-		this.performance = performance;
 	}
 
 	public String getDescription() {

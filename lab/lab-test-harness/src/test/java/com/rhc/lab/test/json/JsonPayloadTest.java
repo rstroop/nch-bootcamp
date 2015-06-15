@@ -48,20 +48,20 @@ public class JsonPayloadTest {
 		BookingRequest r = om.readValue(requestString, BookingRequest.class);
 		assertNotNull(r.getOpen());
 		assertNotNull(r.getClose());
-		for (Performance p : r.getPerformances()) {
-			assertNotNull(p.getName(), p.getType());
-			if (p.getName().equals("The Velvet Underground")) {
-				assertEquals(PerformanceType.BAND, p.getType());
-			} else if (p.getName().equals("Brooklyn Symphony Orchestra")) {
-				assertEquals(PerformanceType.ORCHESTRA, p.getType());
-			}
+		assertNotNull(r.getPerformance().getName(), r.getPerformance()
+				.getType());
+		if (r.getPerformance().getName().equals("The Velvet Underground")) {
+			assertEquals(PerformanceType.BAND, r.getPerformance().getType());
+		} else if (r.getPerformance().getName()
+				.equals("Brooklyn Symphony Orchestra")) {
+			assertEquals(PerformanceType.ORCHESTRA, r.getPerformance()
+					.getType());
 		}
 	}
 
 	public BookingRequest populateBookingRequest() {
 		BookingRequest request = new BookingRequest();
-		Performance performance1 = new Performance();
-		Performance performance2 = new Performance();
+		Performance performance = new Performance();
 		Venue venue = new Venue();
 
 		venue.setName("Brooklyn Bowl");
@@ -70,18 +70,15 @@ public class JsonPayloadTest {
 		venue.setAccomodations(new ArrayList<PerformanceType>(Arrays.asList(
 				PerformanceType.BAND, PerformanceType.ORCHESTRA,
 				PerformanceType.RALLY)));
-		performance1.setName("The Velvet Underground");
-		performance1.setType(PerformanceType.BAND);
-		performance2.setName("Brooklyn Symphony Orchestra");
-		performance2.setType(PerformanceType.ORCHESTRA);
+		performance.setName("The Velvet Underground");
+		performance.setType(PerformanceType.BAND);
 
 		request.setVenue(venue);
 		DateTime d1 = DateTime.now();
 		DateTime d2 = DateTime.now().plusHours(4);
 		request.setOpen(d1);
 		request.setClose(d2);
-		request.getPerformances().add(performance1);
-		request.getPerformances().add(performance2);
+		request.setPerformance(performance);
 
 		return request;
 	}
