@@ -8,7 +8,7 @@ import java.util.List;
  * This class represents the domain model for a Concert Venue
  * 
  */
-public class Venue implements Serializable {
+public class Venue implements Serializable, Comparable<Venue> {
 	/**
    * 
    */
@@ -49,6 +49,29 @@ public class Venue implements Serializable {
 
 	public void setAccomodations(List<PerformanceType> accomodations) {
 		this.accomodations = accomodations;
+	}
+
+	/**
+	 * Cleans up the leading "The" in band name for more accurate sorting
+	 */
+	@Override
+	public int compareTo(Venue o) {
+		String thisName = "";
+		String otherName = "";
+
+		if (this.getName().startsWith("The")
+				|| this.getName().startsWith("the")) {
+			thisName = this.getName().substring(3).trim();
+		} else {
+			thisName = this.getName();
+		}
+		if (o.getName().startsWith("The") || o.getName().startsWith("the")) {
+			otherName = o.getName().substring(3).trim();
+		} else {
+			otherName = o.getName();
+		}
+
+		return thisName.compareTo(otherName);
 	}
 
 }
