@@ -1,6 +1,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:camel="http://camel.apache.org/schema/spring"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:camel="http://camel.apache.org/schema/spring" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
 http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
@@ -8,19 +8,22 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 
 	<!-- Spring Imports -->
 	<import resource="classpath:camel-beans.xml" />
-	
+
 	<camel:proxy id="labProxySender" serviceUrl="direct:start"
-			serviceInterface="com.rhc.lab.service.proxy.LabProxySender" />
+		serviceInterface="com.rhc.lab.service.proxy.LabProxySender" />
 
 	<camelContext xmlns="http://camel.apache.org/schema/spring">
+
+		<dataFormats>
+			<json id="jack" library="Jackson" prettyPrint="true"
+				disableFeatures="FAIL_ON_UNKNOWN_PROPERTIES" />
+		</dataFormats>
+
 		<route>
 			<from uri="direct:start" />
 			<log message="Saving a sample record in Mongo!" />
-			<setBody>
-				<constant>{"name": "test"}</constant>
-			</setBody>
-			<to
-				uri="mongodb:testDb?database=test&amp;collection=tickets&amp;operation=save" />
+			<to uri="mock:end"/>
 		</route>
+		
 	</camelContext>
 </beans>

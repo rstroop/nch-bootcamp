@@ -13,8 +13,15 @@
 		(Except Joda Time when Java Version < 8) -->
 
 
-	<!-- Joda Dependencies -->
 	<dependencies>
+	
+		<!-- Spring Data Dependencies -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+		</dependency>
+
+		<!-- Joda Dependencies -->
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>

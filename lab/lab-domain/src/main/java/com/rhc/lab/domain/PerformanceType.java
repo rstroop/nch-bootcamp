@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 public enum PerformanceType implements Serializable {
 
-	BALLET("Dance"), BAND("Band"), COMEDIAN("Comedian"), MUSICAL("Musical"), ORCHESTRA(
+	BALLET("Dance"), BAND("Band"), COMIC("Comic"), MUSICAL("Musical"), ORCHESTRA(
 			"Orchestra"), PLAY("Play"), RALLY("Rally"), SCREENING(
 			"Film Screening");
 

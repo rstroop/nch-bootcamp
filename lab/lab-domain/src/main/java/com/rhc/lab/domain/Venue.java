@@ -3,21 +3,35 @@ package com.rhc.lab.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * 
  * This class represents the domain model for a Concert Venue
  * 
  */
+@Document(collection = "venues")
 public class Venue implements Serializable, Comparable<Venue> {
 	/**
    * 
    */
 	private static final long serialVersionUID = -6165217833968313884L;
 
+	@Id
+	private String id;
 	private String name;
 	private String city;
 	private Integer capacity;
 	private List<PerformanceType> accomodations;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;

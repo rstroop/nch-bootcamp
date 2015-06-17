@@ -19,7 +19,6 @@ public interface LabProxySender {
 	 * of the venue booking
 	 * 
 	 * @param request
-	 * @return
 	 */
 	public void submit(BookingRequest request);
 

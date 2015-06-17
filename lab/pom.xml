@@ -30,6 +30,7 @@
 		<servletapi.version>2.5</servletapi.version>
 		<slf4j.version>1.7.6</slf4j.version>
 		<spring.version>4.1.6.RELEASE</spring.version>
+		<spring.data.version>1.7.0.RELEASE</spring.data.version>
 	</properties>
 
 	<dependencyManagement>
@@ -71,6 +72,11 @@
 				<groupId>org.mongodb</groupId>
 				<artifactId>mongo-java-driver</artifactId>
 				<version>${mongo.driver.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-mongodb</artifactId>
+				<version>${spring.data.version}</version>
 			</dependency>
 
 			<!-- Cucumber Dependencies -->
@@ -179,6 +185,11 @@
 			<dependency>
 				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-spring</artifactId>
+				<version>${camel.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-jackson</artifactId>
 				<version>${camel.version}</version>
 			</dependency>
 			<dependency>

@@ -1,7 +1,5 @@
 package com.rhc.lab.controller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.rhc.lab.dao.BookingRepository;
+import com.rhc.lab.dao.VenueRepository;
 import com.rhc.lab.domain.BookingRequest;
-import com.rhc.lab.domain.PerformanceType;
 import com.rhc.lab.domain.Venue;
 import com.rhc.lab.service.proxy.LabProxySender;
 
@@ -28,26 +27,18 @@ import com.rhc.lab.service.proxy.LabProxySender;
 public class LabController {
 
 	@Autowired
-	protected LabProxySender labProxySender;
+	private VenueRepository venueDao;
+
+	@Autowired
+	private BookingRepository bookingRequestDao;
+
+	@Autowired
+	private LabProxySender labProxySender;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView printHello(ModelMap model) {
-		labProxySender.submit(new BookingRequest());
+	public ModelAndView home(ModelMap model) {
 
-		Venue v1 = new Venue();
-		Venue v2 = new Venue();
-		v1.setName("Madison Square garden");
-		v2.setName("The Brooklyn Bowl");
-		v1.setCapacity(11000);
-		v2.setCapacity(8000);
-		v1.setCity("New York City");
-		v2.setCity("Brooklyn");
-		v1.setAccomodations(new ArrayList<PerformanceType>(Arrays
-				.asList(PerformanceType.BAND)));
-		v2.setAccomodations(new ArrayList<PerformanceType>(Arrays
-				.asList(PerformanceType.BAND)));
-
-		List<Venue> venues = new ArrayList<Venue>(Arrays.asList(v1, v2));
+		List<Venue> venues = (List<Venue>) venueDao.findAll();
 		Collections.sort(venues);
 
 		ModelAndView modelAndView = new ModelAndView();
@@ -59,16 +50,30 @@ public class LabController {
 	}
 
 	@RequestMapping(value = "/bookingRequest", method = RequestMethod.GET)
-	public String greetingForm(Model model) {
+	public String newbookingRequest(Model model) {
 		model.addAttribute("bookingRequest", new BookingRequest());
 		return "bookingRequest";
 	}
 
 	@RequestMapping(value = "/bookingRequest", method = RequestMethod.POST)
-	public String greetingSubmit(@ModelAttribute BookingRequest bookingRequest,
-			Model model) {
+	public String submitBookingRequest(
+			@ModelAttribute BookingRequest bookingRequest, Model model) {
+
+		// labProxySender.submit(bookingRequest);
+
 		model.addAttribute("bookingRequest", bookingRequest);
 		return "index";
 	}
 
+	@RequestMapping(value = "/venue", method = RequestMethod.GET)
+	public String newVenue(Model model) {
+		model.addAttribute("venue", new Venue());
+		return "venue";
+	}
+
+	@RequestMapping(value = "/venue", method = RequestMethod.POST)
+	public String submitVenue(@ModelAttribute Venue venue, Model model) {
+		model.addAttribute("venue", venue);
+		return "index";
+	}
 }
