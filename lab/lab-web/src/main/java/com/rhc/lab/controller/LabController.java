@@ -1,5 +1,7 @@
 package com.rhc.lab.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.rhc.lab.dao.BookingRepository;
 import com.rhc.lab.dao.VenueRepository;
 import com.rhc.lab.domain.BookingRequest;
+import com.rhc.lab.domain.PerformanceType;
 import com.rhc.lab.domain.Venue;
 import com.rhc.lab.service.proxy.LabProxySender;
 
@@ -67,12 +70,20 @@ public class LabController {
 
 	@RequestMapping(value = "/venue", method = RequestMethod.GET)
 	public String newVenue(Model model) {
+
+		List<PerformanceType> performanceTypes = new ArrayList<PerformanceType>(
+				Arrays.asList(PerformanceType.values()));
+		Collections.sort(performanceTypes);
+
+		model.addAttribute("performanceTypes", performanceTypes);
 		model.addAttribute("venue", new Venue());
 		return "venue";
 	}
 
 	@RequestMapping(value = "/venue", method = RequestMethod.POST)
 	public String submitVenue(@ModelAttribute Venue venue, Model model) {
+		venueDao.save(venue);
+
 		model.addAttribute("venue", venue);
 		return "index";
 	}

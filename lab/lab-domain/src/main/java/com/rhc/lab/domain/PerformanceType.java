@@ -8,19 +8,27 @@ import java.io.Serializable;
  * used in Booking Requests
  * 
  */
-public enum PerformanceType implements Serializable {
+public enum PerformanceType
+		implements
+			Serializable,
+			Comparable<PerformanceType> {
 
 	BALLET("Dance"), BAND("Band"), COMIC("Comic"), MUSICAL("Musical"), ORCHESTRA(
 			"Orchestra"), PLAY("Play"), RALLY("Rally"), SCREENING(
 			"Film Screening"), SPORTING_EVENT("Sporting Event");
 
-	private String performanceType;
+	private String label;
 
 	PerformanceType(String performanceType) {
-		this.performanceType = performanceType;
+		this.label = performanceType;
 	}
 
 	public String toString() {
-		return performanceType;
+		return label;
 	}
+
+	public String getLabel() {
+		return label;
+	}
+
 }
