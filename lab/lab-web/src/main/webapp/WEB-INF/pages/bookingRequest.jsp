@@ -1,5 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +17,15 @@
 	var="bootstrapThemeCSS" />
 <spring:url value="/resources/bootstrap-3.3.4-dist/js/bootstrap.min.js"
 	var="bootstrapJS" />
+<spring:url
+	value="/resources/bootstrap-3.3.4-dist/js/bootstrap-datetimepicker.min.js"
+	var="dateTimePickerJS" />
+<spring:url
+	value="/resources/bootstrap-3.3.4-dist/js/bootstrap-datetimepicker.pt-BR.js"
+	var="dateTimePickerLocaleJS" />
+<spring:url
+	value="/resources/bootstrap-3.3.4-dist/css/bootstrap-datetimepicker.min.css"
+	var="dateTimePickerCSS" />
 <spring:url value="/resources/images/favicon.ico" var="favicon" />
 
 
@@ -28,6 +37,8 @@
 <link href="${bootstrapCoreCSS}" rel="stylesheet">
 <!-- Bootstrap theme -->
 <link href="${bootstrapThemeCSS}" rel="stylesheet">
+<!-- Bootstrap DateTime Picker -->
+<link href="${dateTimePickerCSS}" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="${themeCSS}" rel="stylesheet">
 
@@ -46,7 +57,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Associate Consultant Bootcamp</a>
+				<a class="navbar-brand" href="/lab-web">Associate Consultant Bootcamp</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
@@ -64,41 +75,32 @@
 		</div>
 	</nav>
 
-	<div class="container theme-showcase" role="main">
+	<div class="container" role="main">
 
-		<!-- Main jumbotron for a primary marketing message or call to action -->
-		<div class="jumbotron">
-			<h1>${message}</h1>
-			<p>This is our website where performers can request bookings at
-				Venues and Venues can add themselves for performances.</p>
+
+		<div class="page-header">
+			<h1>Request a Booking</h1>
 		</div>
 
-		<ul class="nav nav-tabs nav-justified">
-			<li><a href="#venues" data-toggle="tab">Venues</a></li>
-			<li><a href="#performances" data-toggle="tab">Performances</a></li>
-		</ul>
-
-		<!-- Tab panes -->
-		<div class="tab-content">
-			<div class="tab-pane active" id="venues">
-				<div class="list-group">
-					<div class="row top5">
-						<button type="button" class="btn btn-lg btn-success pull-right">Add Venue</button>
-					</div>
-					<div class="row top5">
-						<c:forEach items="${venues}" var="venue">
-							<a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">${venue.name}</h4>
-								<p class="list-group-item-text">${venue.city}</p>
-							</a>
-						</c:forEach>
-					</div>
+		<form:form method="POST" commandName="bookingRequest">
+			<div class="form-group">
+				<label for="openTime">Opening Time</label>
+				<div class="input-append date form_datetime">
+					<form:input path="open"/> <span
+						class="add-on"><i class="icon-th"></i></span>
 				</div>
 			</div>
-			<div class="tab-pane" id="performances">Performance List...</div>
-		</div>
-
+			<div class="form-group">
+				<label for="description">Description</label>
+				<form:textarea class="form-control" rows="5" id="description"
+					path="performance.description"
+					placeholder="Performance Description..." />
+			</div>
+			<button class="btn btn-lg btn-success pull-right" type="submit">Request</button>
+		</form:form>
 	</div>
+
+
 	<!-- /container -->
 
 
@@ -108,5 +110,12 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${bootstrapJS}"></script>
+	<script src="${dateTimePickerJS}"></script>
+	<script src="${dateTimePickerLocaleJS}"></script>
+	<script type="text/javascript">
+		$(".form_datetime").datetimepicker({
+			format : "dd-MM-yyyy hh:ii"
+		});
+	</script>
 </body>
 </html>

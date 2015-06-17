@@ -1,10 +1,6 @@
 package com.rhc.lab.domain;
 
-import org.joda.time.DateTime;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 
@@ -19,8 +15,8 @@ public class BookingRequest implements Serializable {
 	private static final long serialVersionUID = 1086652316465244736L;
 
 	private Venue venue;
-	private DateTime open;
-	private DateTime close;
+	private String open;
+	private String close;
 	private Performance performance;
 	private String description;
 
@@ -32,19 +28,19 @@ public class BookingRequest implements Serializable {
 		this.venue = venue;
 	}
 
-	public DateTime getOpen() {
+	public String getOpen() {
 		return open;
 	}
 
-	public void setOpen(DateTime open) {
+	public void setOpen(String open) {
 		this.open = open;
 	}
 
-	public DateTime getClose() {
+	public String getClose() {
 		return close;
 	}
 
-	public void setClose(DateTime close) {
+	public void setClose(String close) {
 		this.close = close;
 	}
 

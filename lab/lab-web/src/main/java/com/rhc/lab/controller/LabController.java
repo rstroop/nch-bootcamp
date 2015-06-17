@@ -68,7 +68,7 @@ public class LabController {
 	public String greetingSubmit(@ModelAttribute BookingRequest bookingRequest,
 			Model model) {
 		model.addAttribute("bookingRequest", bookingRequest);
-		return "result";
+		return "index";
 	}
 
 }
