@@ -65,7 +65,7 @@ public class LabController {
 		// labProxySender.submit(bookingRequest);
 
 		model.addAttribute("bookingRequest", bookingRequest);
-		return "index";
+		return "redirect:" + "/";
 	}
 
 	@RequestMapping(value = "/venue", method = RequestMethod.GET)
@@ -85,6 +85,6 @@ public class LabController {
 		venueDao.save(venue);
 
 		model.addAttribute("venue", venue);
-		return "index";
+		return "redirect:" + "/";
 	}
 }

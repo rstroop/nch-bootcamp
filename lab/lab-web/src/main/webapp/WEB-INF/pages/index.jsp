@@ -55,7 +55,7 @@
 							<span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Venue</a></li>
+							<li><a href="/lab-web/venue">Venue</a></li>
 							<li><a href="/lab-web/bookingRequest">Booking Request</a></li>
 						</ul></li>
 				</ul>
