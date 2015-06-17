@@ -12,7 +12,7 @@ public enum PerformanceType implements Serializable {
 
 	BALLET("Dance"), BAND("Band"), COMIC("Comic"), MUSICAL("Musical"), ORCHESTRA(
 			"Orchestra"), PLAY("Play"), RALLY("Rally"), SCREENING(
-			"Film Screening");
+			"Film Screening"), SPORTING_EVENT("Sporting Event");
 
 	private String performanceType;
 
