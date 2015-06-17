@@ -35,7 +35,6 @@ $> rhc cartridge add mongodb-2.4 -a lab-web
 
 This will output the generated users and passwords for MongoDB and the EAP Admin Console, which you can use to configure persistence in the webapp.
 
-1. TODO
 ##Day 2 - Business Rules and Process Modeling##
 ###Goals###
 1. Learn how to write Business Rules, and touch integration endpoints in Business Processes
