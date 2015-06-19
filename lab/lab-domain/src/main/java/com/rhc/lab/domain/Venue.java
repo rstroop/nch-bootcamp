@@ -79,7 +79,7 @@ public class Venue implements Serializable, Comparable<Venue> {
 		} else {
 			thisName = this.getName();
 		}
-		if (o.getName().startsWith("The") || o.getName().startsWith("the")) {
+		if (StringUtils.startsWithIgnoreCase(o.getName(), "the")) {
 			otherName = o.getName().substring(3).trim();
 		} else {
 			otherName = o.getName();
