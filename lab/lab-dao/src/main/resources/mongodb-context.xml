@@ -8,8 +8,9 @@
           http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
           ">
 
+	<!-- Mongo Server Configuration -->
 	<mongo:mongo host="localhost" port="27017" />
-	<mongo:db-factory dbname="testDb" />
+	<mongo:db-factory dbname="test" />
 
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />

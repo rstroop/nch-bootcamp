@@ -7,7 +7,7 @@ import java.io.Serializable;
  * This class represents the domain model for a Concert Performance
  * 
  */
-public class Performance implements Serializable {
+public class Performer implements Serializable {
 	/**
    * 
    */

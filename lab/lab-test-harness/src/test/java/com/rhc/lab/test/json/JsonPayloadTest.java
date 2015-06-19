@@ -14,7 +14,7 @@ import org.junit.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 import com.rhc.lab.domain.BookingRequest;
-import com.rhc.lab.domain.Performance;
+import com.rhc.lab.domain.Performer;
 import com.rhc.lab.domain.PerformanceType;
 import com.rhc.lab.domain.Venue;
 
@@ -48,20 +48,18 @@ public class JsonPayloadTest {
 		BookingRequest r = om.readValue(requestString, BookingRequest.class);
 		assertNotNull(r.getOpen());
 		assertNotNull(r.getClose());
-		assertNotNull(r.getPerformance().getName(), r.getPerformance()
-				.getType());
-		if (r.getPerformance().getName().equals("The Velvet Underground")) {
-			assertEquals(PerformanceType.BAND, r.getPerformance().getType());
-		} else if (r.getPerformance().getName()
+		assertNotNull(r.getPerformer().getName(), r.getPerformer().getType());
+		if (r.getPerformer().getName().equals("The Velvet Underground")) {
+			assertEquals(PerformanceType.BAND, r.getPerformer().getType());
+		} else if (r.getPerformer().getName()
 				.equals("Brooklyn Symphony Orchestra")) {
-			assertEquals(PerformanceType.ORCHESTRA, r.getPerformance()
-					.getType());
+			assertEquals(PerformanceType.ORCHESTRA, r.getPerformer().getType());
 		}
 	}
 
 	public BookingRequest populateBookingRequest() {
 		BookingRequest request = new BookingRequest();
-		Performance performance = new Performance();
+		Performer performance = new Performer();
 		Venue venue = new Venue();
 
 		venue.setName("Brooklyn Bowl");
@@ -78,7 +76,7 @@ public class JsonPayloadTest {
 		String d2 = DateTime.now().plusHours(4).toString();
 		request.setOpen(d1);
 		request.setClose(d2);
-		request.setPerformance(performance);
+		request.setPerformer(performance);
 
 		return request;
 	}

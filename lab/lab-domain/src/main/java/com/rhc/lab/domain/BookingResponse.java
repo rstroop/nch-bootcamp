@@ -18,7 +18,7 @@ public class BookingResponse implements Serializable {
 	private static final long serialVersionUID = 1074544082673724792L;
 
 	private BookingRequest bookingRequest;
-	private BookingResponse bookingResponse;
+	private BookingStatus bookingStatus;
 
 	public BookingRequest getBookingRequest() {
 		return bookingRequest;
@@ -28,12 +28,12 @@ public class BookingResponse implements Serializable {
 		this.bookingRequest = bookingRequest;
 	}
 
-	public BookingResponse getBookingResponse() {
-		return bookingResponse;
+	public BookingStatus getBookingStatus() {
+		return bookingStatus;
 	}
 
-	public void setBookingResponse(BookingResponse bookingResponse) {
-		this.bookingResponse = bookingResponse;
+	public void setBookingStatus(BookingStatus bookingStatus) {
+		this.bookingStatus = bookingStatus;
 	}
 
 }

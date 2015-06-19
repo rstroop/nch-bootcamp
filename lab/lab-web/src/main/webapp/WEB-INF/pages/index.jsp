@@ -48,7 +48,7 @@
 
 		<ul class="nav nav-tabs nav-justified">
 			<li><a href="#venues" data-toggle="tab">Venues</a></li>
-			<li><a href="#performances" data-toggle="tab">Performances</a></li>
+			<li><a href="#performances" data-toggle="tab">Upcoming Performances</a></li>
 		</ul>
 
 		<!-- Tab panes -->
@@ -56,7 +56,7 @@
 			<div class="tab-pane active" id="venues">
 				<div class="list-group">
 					<div class="row top5">
-						<button type="button" class="btn btn-lg btn-success pull-right">Add Venue</button>
+						<a href="/lab-web/venue" class="btn btn-lg btn-success pull-right">Add Venue</a>
 					</div>
 					<div class="row top5">
 						<c:forEach items="${venues}" var="venue">

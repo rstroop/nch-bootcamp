@@ -2,37 +2,22 @@ package com.rhc.lab.domain;
 
 import java.io.Serializable;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 /**
  * 
  * This class represents the domain model for a booking request that will go
  * through our Concert Booking application for artists and venue matching
  * 
  */
-@Document(collection = "bookingRequests")
 public class BookingRequest implements Serializable {
 	/**
    * 
    */
 	private static final long serialVersionUID = 1086652316465244736L;
 
-	@Id
-	private String id;
 	private Venue venue;
 	private String open;
 	private String close;
-	private Performance performance;
-	private String description;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
+	private Performer performer;
 
 	public Venue getVenue() {
 		return venue;
@@ -58,20 +43,12 @@ public class BookingRequest implements Serializable {
 		this.close = close;
 	}
 
-	public Performance getPerformance() {
-		return performance;
+	public Performer getPerformer() {
+		return performer;
 	}
 
-	public void setPerformance(Performance performance) {
-		this.performance = performance;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
+	public void setPerformer(Performer performer) {
+		this.performer = performer;
 	}
 
 }

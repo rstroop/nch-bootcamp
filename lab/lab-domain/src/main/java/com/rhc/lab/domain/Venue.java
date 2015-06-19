@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.util.StringUtils;
 
 /**
  * 
@@ -73,8 +74,7 @@ public class Venue implements Serializable, Comparable<Venue> {
 		String thisName = "";
 		String otherName = "";
 
-		if (this.getName().startsWith("The")
-				|| this.getName().startsWith("the")) {
+		if (StringUtils.startsWithIgnoreCase(this.getName(), "the")) {
 			thisName = this.getName().substring(3).trim();
 		} else {
 			thisName = this.getName();

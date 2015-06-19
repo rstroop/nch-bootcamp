@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,6 +58,14 @@
 
 		<form:form method="POST" commandName="bookingRequest">
 			<div class="form-group">
+				<label for="venues">Venue</label>
+				<div class="dropdown">
+					<form:select path="venue">
+						<form:options itemLabel="name" items="${venues}" />
+					</form:select>
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="openTime">Opening Time</label>
 				<div class="input-append date form_datetime">
 					<form:input path="open" />
@@ -66,8 +75,7 @@
 			<div class="form-group">
 				<label for="description">Description</label>
 				<form:textarea class="form-control" rows="5" id="description"
-					path="performance.description"
-					placeholder="Performance Description..." />
+					path="performer.description" placeholder="Performer Description..." />
 			</div>
 			<button class="btn btn-lg btn-success pull-right" type="submit">Request</button>
 		</form:form>

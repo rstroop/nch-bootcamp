@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.rhc.lab.dao.BookingRepository;
 import com.rhc.lab.dao.VenueRepository;
+import com.rhc.lab.domain.Booking;
 import com.rhc.lab.domain.BookingRequest;
 import com.rhc.lab.domain.PerformanceType;
 import com.rhc.lab.domain.Venue;
@@ -33,7 +34,7 @@ public class LabController {
 	private VenueRepository venueDao;
 
 	@Autowired
-	private BookingRepository bookingRequestDao;
+	private BookingRepository bookingDao;
 
 	@Autowired
 	private LabProxySender labProxySender;
@@ -54,6 +55,11 @@ public class LabController {
 
 	@RequestMapping(value = "/bookingRequest", method = RequestMethod.GET)
 	public String newbookingRequest(Model model) {
+
+		// populate venues to select from
+		List<Venue> venues = (List<Venue>) venueDao.findAll();
+
+		model.addAttribute("venues", venues);
 		model.addAttribute("bookingRequest", new BookingRequest());
 		return "bookingRequest";
 	}
@@ -64,13 +70,14 @@ public class LabController {
 
 		// labProxySender.submit(bookingRequest);
 
-		model.addAttribute("bookingRequest", bookingRequest);
+		bookingDao.save(new Booking(bookingRequest));
 		return "redirect:" + "/";
 	}
 
 	@RequestMapping(value = "/venue", method = RequestMethod.GET)
 	public String newVenue(Model model) {
 
+		// populate performance types to select from
 		List<PerformanceType> performanceTypes = new ArrayList<PerformanceType>(
 				Arrays.asList(PerformanceType.values()));
 		Collections.sort(performanceTypes);

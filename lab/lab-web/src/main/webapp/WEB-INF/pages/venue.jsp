@@ -64,8 +64,8 @@
 			</div>
 			<div class="form-group">
 				<label for="accomodations">Performance Accomodations</label>
-				<form:checkboxes items="${performanceTypes}" itemLabel="label"
-					path="accomodations" />
+					<form:checkboxes class="checkbox" items="${performanceTypes}" itemLabel="label"
+						path="accomodations" />
 			</div>
 
 			<button class="btn btn-lg btn-success pull-right" type="submit">Submit</button>
