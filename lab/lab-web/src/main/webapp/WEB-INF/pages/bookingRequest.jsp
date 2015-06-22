@@ -73,11 +73,18 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="name">Performer Name</label>
-				<form:input path="performer.name" placeholder="Performer Name" />
+				<label for="closeTime">Closing Time</label>
+				<div class="input-append date form_datetime">
+					<form:input path="close" />
+					<span class="add-on"><i class="icon-th"></i></span>
+				</div>
 			</div>
 			<div class="form-group">
-				<label>Performance Type (Select One)</label>
+				<label class="clear" for="name">Performer Name</label>
+				<form:input path="performer.name" placeholder="Performer Name" />
+			</div>
+			<div class="form-group blocks">
+				<label class="clear">Performance Type (Select One)</label>
 				<form:radiobuttons path="performer.type" items="${performanceTypes}" itemLabel="label"  />
 			</div>
 			<div class="form-group">

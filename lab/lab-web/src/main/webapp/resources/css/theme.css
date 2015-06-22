@@ -17,6 +17,19 @@ body {
   width: auto;
 }
 
+.clear {
+	display:block;
+	clear:both;
+}
+.blocks span {
+	width:20%;
+	display:inline-block;
+}
+
+.blocks span label {
+	margin-left:5px;
+}
+
 .top5 { margin-top:5px;}
 .top10 { margin-top:10px;}
 .top15 { margin-top:15px;}

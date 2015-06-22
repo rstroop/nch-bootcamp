@@ -51,20 +51,20 @@
 
 		<form:form method="POST" commandName="venue">
 			<div class="form-group">
-				<label for="name">Venue Name</label>
+				<label class="clear" for="name">Venue Name</label>
 				<form:input path="name" />
 			</div>
 			<div class="form-group">
-				<label for="city">City</label>
+				<label class="clear" for="city">City</label>
 				<form:input path="city" />
 			</div>
 			<div class="form-group">
-				<label for="capacity">Capacity</label>
+				<label class="clear" for="capacity">Capacity</label>
 				<form:input path="Capacity" />
 			</div>
-			<div class="form-group">
-				<label for="accomodations">Performance Accomodations</label>
-					<form:checkboxes class="checkbox" items="${performanceTypes}" itemLabel="label"
+			<div class="form-group blocks">
+				<label class="clear" for="accomodations">Performance Accomodations</label>
+					<form:checkboxes items="${performanceTypes}" itemLabel="label"
 						path="accomodations" />
 			</div>
 
