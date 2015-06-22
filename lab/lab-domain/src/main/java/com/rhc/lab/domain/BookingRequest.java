@@ -14,17 +14,17 @@ public class BookingRequest implements Serializable {
    */
 	private static final long serialVersionUID = 1086652316465244736L;
 
-	private Venue venue;
+	private String venueName;
 	private String open;
 	private String close;
 	private Performer performer;
 
-	public Venue getVenue() {
-		return venue;
+	public String getVenueName() {
+		return venueName;
 	}
 
-	public void setVenue(Venue venue) {
-		this.venue = venue;
+	public void setVenueName(String venueName) {
+		this.venueName = venueName;
 	}
 
 	public String getOpen() {

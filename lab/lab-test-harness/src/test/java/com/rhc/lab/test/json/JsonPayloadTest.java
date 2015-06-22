@@ -71,7 +71,7 @@ public class JsonPayloadTest {
 		performance.setName("The Velvet Underground");
 		performance.setType(PerformanceType.BAND);
 
-		request.setVenue(venue);
+		request.setVenueName(venue.getName());
 		String d1 = DateTime.now().toString();
 		String d2 = DateTime.now().plusHours(4).toString();
 		request.setOpen(d1);

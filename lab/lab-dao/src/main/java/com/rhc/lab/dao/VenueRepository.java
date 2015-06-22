@@ -12,7 +12,7 @@ import com.rhc.lab.domain.Venue;
  * collection
  * 
  */
-@Repository
+@Repository(value = "venueDao")
 public interface VenueRepository
 		extends
 			PagingAndSortingRepository<Venue, String> {

@@ -60,8 +60,8 @@
 			<div class="form-group">
 				<label for="venues">Venue</label>
 				<div class="dropdown">
-					<form:select path="venue">
-						<form:options itemLabel="name" items="${venues}" />
+					<form:select path="venueName">
+						<form:options items="${venues}" />
 					</form:select>
 				</div>
 			</div>
@@ -71,6 +71,14 @@
 					<form:input path="open" />
 					<span class="add-on"><i class="icon-th"></i></span>
 				</div>
+			</div>
+			<div class="form-group">
+				<label for="name">Performer Name</label>
+				<form:input path="performer.name" placeholder="Performer Name" />
+			</div>
+			<div class="form-group">
+				<label>Performance Type (Select One)</label>
+				<form:radiobuttons path="performer.type" items="${performanceTypes}" itemLabel="label"  />
 			</div>
 			<div class="form-group">
 				<label for="description">Description</label>

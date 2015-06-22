@@ -20,7 +20,7 @@ public class Booking implements Serializable, Comparable<Booking> {
 
 	@Id
 	private String id;
-	private Venue venue;
+	private String venueName;
 	private Performer performer;
 	private String open;
 	private String close;
@@ -29,7 +29,7 @@ public class Booking implements Serializable, Comparable<Booking> {
 	}
 
 	public Booking(BookingRequest bookingRequest) {
-		this.venue = bookingRequest.getVenue();
+		this.venueName = bookingRequest.getVenueName();
 		this.performer = bookingRequest.getPerformer();
 		this.open = bookingRequest.getOpen();
 		this.close = bookingRequest.getClose();
@@ -43,12 +43,12 @@ public class Booking implements Serializable, Comparable<Booking> {
 		this.id = id;
 	}
 
-	public Venue getVenue() {
-		return venue;
+	public String getVenueName() {
+		return venueName;
 	}
 
-	public void setVenue(Venue venue) {
-		this.venue = venue;
+	public void setVenueName(String venueName) {
+		this.venueName = venueName;
 	}
 
 	public String getOpen() {

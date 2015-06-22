@@ -10,7 +10,7 @@ import com.rhc.lab.domain.BookingRequest;
  * executed by the MVC layer
  * 
  */
-@Service
+@Service(value = "labProxySender")
 public interface LabProxySender {
 
 	/**

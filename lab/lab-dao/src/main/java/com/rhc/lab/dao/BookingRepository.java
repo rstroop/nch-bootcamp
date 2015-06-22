@@ -12,7 +12,7 @@ import com.rhc.lab.domain.Booking;
  * collection
  * 
  */
-@Repository
+@Repository(value = "bookingDao")
 public interface BookingRepository
 		extends
 			PagingAndSortingRepository<Booking, String> {

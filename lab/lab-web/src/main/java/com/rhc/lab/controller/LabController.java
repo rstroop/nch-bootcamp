@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -30,13 +31,13 @@ import com.rhc.lab.service.proxy.LabProxySender;
 @Controller
 public class LabController {
 
-	@Autowired
+	@Resource(name = "venueDao")
 	private VenueRepository venueDao;
 
-	@Autowired
+	@Resource(name = "bookingDao")
 	private BookingRepository bookingDao;
 
-	@Autowired
+	@Resource(name = "labProxySender")
 	private LabProxySender labProxySender;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -58,8 +59,19 @@ public class LabController {
 
 		// populate venues to select from
 		List<Venue> venues = (List<Venue>) venueDao.findAll();
+		List<String> venueList = new ArrayList<String>();
+		// populate performance types to select from
+		List<PerformanceType> performanceTypes = new ArrayList<PerformanceType>(
+				Arrays.asList(PerformanceType.values()));
 
-		model.addAttribute("venues", venues);
+		for (Venue venue : venues) {
+			venueList.add(venue.getName());
+		}
+
+		Collections.sort(performanceTypes);
+
+		model.addAttribute("performanceTypes", performanceTypes);
+		model.addAttribute("venues", venueList);
 		model.addAttribute("bookingRequest", new BookingRequest());
 		return "bookingRequest";
 	}
