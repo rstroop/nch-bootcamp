@@ -40,4 +40,9 @@ public class Performer implements Serializable {
 	public void setType(PerformanceType type) {
 		this.type = type;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }

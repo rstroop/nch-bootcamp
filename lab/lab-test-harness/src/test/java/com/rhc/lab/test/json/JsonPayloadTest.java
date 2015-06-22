@@ -72,10 +72,10 @@ public class JsonPayloadTest {
 		performance.setType(PerformanceType.BAND);
 
 		request.setVenueName(venue.getName());
-		String d1 = DateTime.now().toString();
-		String d2 = DateTime.now().plusHours(4).toString();
-		request.setOpen(d1);
-		request.setClose(d2);
+		DateTime d1 = DateTime.now();
+		DateTime d2 = DateTime.now().plusHours(4);
+		request.setOpen(d1.toDate());
+		request.setClose(d2.toDate());
 		request.setPerformer(performance);
 
 		return request;

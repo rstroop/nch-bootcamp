@@ -66,6 +66,10 @@ public class Venue implements Serializable, Comparable<Venue> {
 		this.accomodations = accomodations;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	/**
 	 * Cleans up the leading "The" in band name for more accurate sorting
 	 */

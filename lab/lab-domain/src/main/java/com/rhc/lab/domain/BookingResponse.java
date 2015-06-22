@@ -36,4 +36,8 @@ public class BookingResponse implements Serializable {
 		this.bookingStatus = bookingStatus;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }

@@ -1,6 +1,7 @@
 package com.rhc.lab.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 
@@ -15,8 +16,8 @@ public class BookingRequest implements Serializable {
 	private static final long serialVersionUID = 1086652316465244736L;
 
 	private String venueName;
-	private String open;
-	private String close;
+	private Date open;
+	private Date close;
 	private Performer performer;
 
 	public String getVenueName() {
@@ -27,19 +28,19 @@ public class BookingRequest implements Serializable {
 		this.venueName = venueName;
 	}
 
-	public String getOpen() {
+	public Date getOpen() {
 		return open;
 	}
 
-	public void setOpen(String open) {
+	public void setOpen(Date open) {
 		this.open = open;
 	}
 
-	public String getClose() {
+	public Date getClose() {
 		return close;
 	}
 
-	public void setClose(String close) {
+	public void setClose(Date close) {
 		this.close = close;
 	}
 
@@ -49,6 +50,10 @@ public class BookingRequest implements Serializable {
 
 	public void setPerformer(Performer performer) {
 		this.performer = performer;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

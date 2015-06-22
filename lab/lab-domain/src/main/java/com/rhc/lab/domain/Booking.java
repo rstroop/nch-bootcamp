@@ -1,6 +1,7 @@
 package com.rhc.lab.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -22,8 +23,8 @@ public class Booking implements Serializable, Comparable<Booking> {
 	private String id;
 	private String venueName;
 	private Performer performer;
-	private String open;
-	private String close;
+	private Date open;
+	private Date close;
 
 	public Booking() {
 	}
@@ -51,19 +52,19 @@ public class Booking implements Serializable, Comparable<Booking> {
 		this.venueName = venueName;
 	}
 
-	public String getOpen() {
+	public Date getOpen() {
 		return open;
 	}
 
-	public void setOpen(String open) {
+	public void setOpen(Date open) {
 		this.open = open;
 	}
 
-	public String getClose() {
+	public Date getClose() {
 		return close;
 	}
 
-	public void setClose(String close) {
+	public void setClose(Date close) {
 		this.close = close;
 	}
 
@@ -75,6 +76,10 @@ public class Booking implements Serializable, Comparable<Booking> {
 		this.performer = performer;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public int compareTo(Booking o) {
 		if (this.getOpen() == null && o.getClose() == null)
@@ -84,7 +89,7 @@ public class Booking implements Serializable, Comparable<Booking> {
 		else if (this.getOpen() == null)
 			return 1;
 		else
-			return this.getOpen().compareToIgnoreCase(o.getOpen());
+			return this.getOpen().compareTo(o.getOpen());
 
 	}
 
