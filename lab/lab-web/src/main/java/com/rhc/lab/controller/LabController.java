@@ -40,20 +40,38 @@ public class LabController {
 	@Resource(name = "labProxySender")
 	private LabProxySender labProxySender;
 
+	/**
+	 * GET method for the Lab Homepage
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(ModelMap model) {
 
+		// read all venues from venue repository
 		List<Venue> venues = (List<Venue>) venueDao.findAll();
 		Collections.sort(venues);
+
+		// read all bookings from booking repository
+		List<Booking> bookings = (List<Booking>) bookingDao.findAll();
+		Collections.sort(bookings);
 
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("message", "Associate Consultant Bootcamp");
 		modelAndView.addObject("venues", venues);
+		modelAndView.addObject("bookings", bookings);
 		modelAndView.setViewName("index");
 
 		return modelAndView;
 	}
 
+	/**
+	 * GET method for the Booking Request form
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/bookingRequest", method = RequestMethod.GET)
 	public String newbookingRequest(Model model) {
 
@@ -76,6 +94,13 @@ public class LabController {
 		return "bookingRequest";
 	}
 
+	/**
+	 * POST method for the Booking Request form
+	 * 
+	 * @param bookingRequest
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/bookingRequest", method = RequestMethod.POST)
 	public String submitBookingRequest(
 			@ModelAttribute BookingRequest bookingRequest, Model model) {
@@ -86,6 +111,12 @@ public class LabController {
 		return "redirect:" + "/";
 	}
 
+	/**
+	 * GET method for the Venue form
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/venue", method = RequestMethod.GET)
 	public String newVenue(Model model) {
 
@@ -99,6 +130,13 @@ public class LabController {
 		return "venue";
 	}
 
+	/**
+	 * POST method for the Venue form
+	 * 
+	 * @param venue
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/venue", method = RequestMethod.POST)
 	public String submitVenue(@ModelAttribute Venue venue, Model model) {
 		venueDao.save(venue);
@@ -106,4 +144,5 @@ public class LabController {
 		model.addAttribute("venue", venue);
 		return "redirect:" + "/";
 	}
+
 }

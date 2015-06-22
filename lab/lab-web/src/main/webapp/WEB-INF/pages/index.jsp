@@ -35,7 +35,7 @@
 
 <body role="document">
 
-	<%@include file="common/navbar.jsp" %>
+	<%@include file="common/navbar.jsp"%>
 
 	<div class="container theme-showcase" role="main">
 
@@ -48,7 +48,8 @@
 
 		<ul class="nav nav-tabs nav-justified">
 			<li><a href="#venues" data-toggle="tab">Venues</a></li>
-			<li><a href="#performances" data-toggle="tab">Upcoming Performances</a></li>
+			<li><a href="#performances" data-toggle="tab">Upcoming
+					Performances</a></li>
 		</ul>
 
 		<!-- Tab panes -->
@@ -56,7 +57,8 @@
 			<div class="tab-pane active" id="venues">
 				<div class="list-group">
 					<div class="row top5">
-						<a href="/lab-web/venue" class="btn btn-lg btn-success pull-right">Add Venue</a>
+						<a href="/lab-web/venue" class="btn btn-lg btn-success pull-right">Add
+							Venue</a>
 					</div>
 					<div class="row top5">
 						<c:forEach items="${venues}" var="venue">
@@ -68,7 +70,22 @@
 					</div>
 				</div>
 			</div>
-			<div class="tab-pane" id="performances">Performance List...</div>
+			<div class="tab-pane" id="performances">
+				<div class="list-group">
+					<div class="row top5">
+						<a href="/lab-web/bookingRequest" class="btn btn-lg btn-success pull-right">Request
+							Booking</a>
+					</div>
+					<div class="row top5">
+						<c:forEach items="${bookings}" var="booking">
+							<a href="#" class="list-group-item">
+								<h4 class="list-group-item-heading">${booking.performer.name}</h4>
+								<p class="list-group-item-text">${booking.venueName}&nbsp;-&nbsp;${booking.open}</p>
+							</a>
+						</c:forEach>
+					</div>
+				</div>
+			</div>
 		</div>
 
 	</div>
