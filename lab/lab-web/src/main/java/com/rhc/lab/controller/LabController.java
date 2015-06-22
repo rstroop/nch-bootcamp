@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rhc.lab.dao.BookingRepository;
+import com.rhc.lab.dao.LabRepository;
 import com.rhc.lab.dao.VenueRepository;
 import com.rhc.lab.domain.Booking;
 import com.rhc.lab.domain.BookingRequest;
@@ -37,6 +38,9 @@ public class LabController {
 	@Resource(name = "bookingDao")
 	private BookingRepository bookingDao;
 
+	@Resource(name = "labDao")
+	private LabRepository labDao;
+
 	@Resource(name = "labProxySender")
 	private LabProxySender labProxySender;
 
@@ -54,7 +58,7 @@ public class LabController {
 		Collections.sort(venues);
 
 		// read all bookings from booking repository
-		List<Booking> bookings = (List<Booking>) bookingDao.findAll();
+		List<Booking> bookings = (List<Booking>) labDao.findAllFutureBookings();
 		Collections.sort(bookings);
 
 		ModelAndView modelAndView = new ModelAndView();

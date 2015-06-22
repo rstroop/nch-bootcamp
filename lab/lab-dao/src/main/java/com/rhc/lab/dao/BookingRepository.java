@@ -16,5 +16,4 @@ import com.rhc.lab.domain.Booking;
 public interface BookingRepository
 		extends
 			PagingAndSortingRepository<Booking, String> {
-
 }
