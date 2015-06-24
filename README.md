@@ -28,10 +28,22 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 ###Instructions###
 1. Run the following commands on the command line to create a new EAP 6 project in OpenShift and configure a MongoDB cartridge:
 
-```
-$> rhc app-create lab-web jbosseap 
-$> rhc cartridge add mongodb-2.4 -a lab-web
-```
+	```
+	> rhc app-create labweb jbosseap 
+	> rhc cartridge add mongodb-2.4 -a labweb
+	```
+	* These commands will output the generated credentials and locations for the OpenShift Git repository and MongoDB instance our application will use. Save this information in a text file for safekeeping.
+1. Clone the OpenShift repository and enter the repository directory:
+	```
+	> git clone <YOUR_NEW_GIT_REPO>
+	> cd labweb/
+	```
+1. Connect the starter code on GitHub to the OpenShift repository and finally push the starter code to OpenShift:
+	```
+	> git remote add upstream -m master git://github.com/justincohler/nch-bootcamp.git
+	> git pull -s recursive -X theirs upstream master
+	> git push
+	```
 
 This will output the generated users and passwords for MongoDB and the EAP Admin Console, which you can use to configure persistence in the webapp.
 

@@ -57,7 +57,7 @@
 			<div class="tab-pane active" id="venues">
 				<div class="list-group">
 					<div class="row top5">
-						<a href="/lab-web/venue" class="btn btn-lg btn-success pull-right">Add
+						<a href="/venue" class="btn btn-lg btn-success pull-right">Add
 							Venue</a>
 					</div>
 					<div class="row top5">
@@ -73,7 +73,7 @@
 			<div class="tab-pane" id="performances">
 				<div class="list-group">
 					<div class="row top5">
-						<a href="/lab-web/bookingRequest" class="btn btn-lg btn-success pull-right">Request
+						<a href="/bookingRequest" class="btn btn-lg btn-success pull-right">Request
 							Booking</a>
 					</div>
 					<div class="row top5">

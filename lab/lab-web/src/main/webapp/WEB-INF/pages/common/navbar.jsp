@@ -19,8 +19,8 @@
 						<span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/lab-web/venue">Venue</a></li>
-						<li><a href="/lab-web/bookingRequest">Booking Request</a></li>
+						<li><a href="/venue">Venue</a></li>
+						<li><a href="/bookingRequest">Booking Request</a></li>
 					</ul></li>
 			</ul>
 		</div>
