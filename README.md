@@ -38,10 +38,17 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 	> git clone <YOUR_NEW_GIT_REPO>
 	> cd labweb/
 	```
-1. Connect the starter code on GitHub to the OpenShift repository and finally push the starter code to OpenShift:
+1. Connect the starter code on GitHub to the OpenShift repository:
 	```
 	> git remote add upstream -m master git://github.com/justincohler/nch-bootcamp.git
 	> git pull -s recursive -X theirs upstream master
+	```
+	* An editor will ask you to enter a merge message. Enter the following to (w)rite the merge record and (q)uit out of the editor:
+		```
+		> :wq
+		```
+1. Finally, push the starter code to OpenShift: 
+	```
 	> git push
 	```
 
