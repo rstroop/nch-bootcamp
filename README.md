@@ -33,20 +33,23 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 	> rhc cartridge add mongodb-2.4 -a labweb
 	```
 	* These commands will output the generated credentials and locations for the OpenShift Git repository and MongoDB instance our application will use. Save this information in a text file for safekeeping.
+
 1. Clone the OpenShift repository and enter the repository directory:
 	```
-	> git clone <YOUR_NEW_GIT_REPO>
-	> cd labweb/
+	> git clone <YOUR_NEW_GIT_REPO> 
+	> cd labweb/ 
 	```
+
 1. Connect the starter code on GitHub to the OpenShift repository:
 	```
-	> git remote add upstream -m master git://github.com/justincohler/nch-bootcamp.git
-	> git pull -s recursive -X theirs upstream master
+	> git remote add upstream -m master git://github.com/justincohler/nch-bootcamp.git 
+	> git pull -s recursive -X theirs upstream master 
 	```
 	* An editor will ask you to enter a merge message. Enter the following to (w)rite the merge record and (q)uit out of the editor:
 		```
-		> :wq
+		> :wq 
 		```
+
 1. Finally, push the starter code to OpenShift: 
 	```
 	> git push
