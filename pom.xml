@@ -17,6 +17,7 @@
 	</modules>
 
 	<properties>
+		<eap.version>6.4.0.GA</eap.version>
 		<camel.version>2.15.2</camel.version>
 		<cucumber.version>1.2.2</cucumber.version>
 		<formatter.version>0.4</formatter.version>
@@ -66,7 +67,7 @@
 				<artifactId>lab-test-harness</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-
+			
 			<!-- MongoDB Dependencies -->
 			<dependency>
 				<groupId>org.mongodb</groupId>
