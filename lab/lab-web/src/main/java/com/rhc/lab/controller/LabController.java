@@ -90,6 +90,7 @@ public class LabController {
 			venueList.add(venue.getName());
 		}
 
+		Collections.sort(venueList);
 		Collections.sort(performanceTypes);
 
 		model.addAttribute("performanceTypes", performanceTypes);
