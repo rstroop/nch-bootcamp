@@ -8,8 +8,9 @@
 	<!-- Production -->
 	<beans profile="default">
 			<import resource="classpath:mongodb-context.xml" />
+			<bean id="droolsPolicy" class="org.drools.camel.component.DroolsPolicy"/>
 	</beans> 
-	
+	  
 	<!-- Base Unit Test Configuration
 	<beans profile="test">
 		<import resource="classpath:mock-repositories-context.xml" />

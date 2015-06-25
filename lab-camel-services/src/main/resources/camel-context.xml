@@ -22,8 +22,13 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 		<route>
 			<from uri="direct:start" />
 			<log message="Saving a sample record in Mongo!" />
-			<to uri="mock:end"/>
+			<policy ref="droolsPolicy">
+				<unmarshal ref="jaxb" />
+				<to uri="drools:node1/ksession1" />
+				<marshal ref="jaxb" />
+			</policy>
+			<to uri="mock:end" />
 		</route>
-		
+
 	</camelContext>
 </beans>
