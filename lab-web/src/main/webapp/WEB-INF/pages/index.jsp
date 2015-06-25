@@ -62,7 +62,7 @@
 					</div>
 					<div class="row top5">
 						<c:forEach items="${venues}" var="venue">
-							<a href="#" class="list-group-item">
+							<a href="/bookingRequest?venue=${venue.name}" class="list-group-item">
 								<h4 class="list-group-item-heading">${venue.name}</h4>
 								<p class="list-group-item-text">${venue.city}</p>
 							</a>
@@ -78,7 +78,7 @@
 					</div>
 					<div class="row top5">
 						<c:forEach items="${bookings}" var="booking">
-							<a href="#" class="list-group-item">
+							<a href="/booking/${booking.id}" class="list-group-item">
 								<h4 class="list-group-item-heading">${booking.performer.name}</h4>
 								<p class="list-group-item-text">${booking.venueName}&nbsp;-&nbsp;${booking.open}</p>
 							</a>

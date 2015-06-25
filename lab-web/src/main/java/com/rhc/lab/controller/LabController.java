@@ -11,8 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rhc.lab.dao.BookingRepository;
@@ -77,20 +79,26 @@ public class LabController {
 	 * @return
 	 */
 	@RequestMapping(value = "/bookingRequest", method = RequestMethod.GET)
-	public String newbookingRequest(Model model) {
+	public String newbookingRequest(
+			Model model,
+			@RequestParam(value = "venue", defaultValue = "") String selectedVenue) {
 
-		// populate venues to select from
-		List<Venue> venues = (List<Venue>) venueDao.findAll();
 		List<String> venueList = new ArrayList<String>();
+
+		if (selectedVenue.isEmpty()) {
+			// populate venues to select from
+			List<Venue> venues = (List<Venue>) venueDao.findAll();
+			for (Venue venue : venues) {
+				venueList.add(venue.getName());
+			}
+			Collections.sort(venueList);
+		} else {
+			venueList.add(selectedVenue);
+		}
+
 		// populate performance types to select from
 		List<PerformanceType> performanceTypes = new ArrayList<PerformanceType>(
 				Arrays.asList(PerformanceType.values()));
-
-		for (Venue venue : venues) {
-			venueList.add(venue.getName());
-		}
-
-		Collections.sort(venueList);
 		Collections.sort(performanceTypes);
 
 		model.addAttribute("performanceTypes", performanceTypes);
@@ -148,6 +156,24 @@ public class LabController {
 
 		model.addAttribute("venue", venue);
 		return "redirect:" + "/";
+	}
+
+	/**
+	 * GET method for the Booking Details page
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/booking/{id}", method = RequestMethod.GET)
+	public String viewBooking(Model model, @PathVariable("id") String id) {
+
+		// populate performance types to select from
+		Booking booking = bookingDao.findOne(id);
+		Venue venue = venueDao.findByName(booking.getVenueName()).get(0);
+
+		model.addAttribute("booking", booking);
+		model.addAttribute("venue", venue);
+		return "booking";
 	}
 
 }
