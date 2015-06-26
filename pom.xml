@@ -35,8 +35,8 @@
 		<spring.version>4.1.6.RELEASE</spring.version>
 		<spring.data.version>1.7.0.RELEASE</spring.data.version>
 		<camel.drools.version>6.0.0.Beta2</camel.drools.version>
-		<brms.version>6.2.0.Final</brms.version>
-		<kie.version>6.2.0.Final</kie.version>
+		<brms.version>6.2.0.Final-redhat-6</brms.version>
+		<kie.version>6.2.0.Final-redhat-6</kie.version>
 	</properties>
 
 	<dependencyManagement>
