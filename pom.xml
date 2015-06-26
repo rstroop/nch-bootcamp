@@ -13,7 +13,9 @@
 		<module>lab-dao</module>
 		<module>lab-web</module>
 		<module>lab-camel-services</module>
+		<module>lab-knowledge</module>
 		<module>lab-kie-services</module>
+
 	</modules>
 
 	<properties>
@@ -32,6 +34,9 @@
 		<slf4j.version>1.7.6</slf4j.version>
 		<spring.version>4.1.6.RELEASE</spring.version>
 		<spring.data.version>1.7.0.RELEASE</spring.data.version>
+		<camel.drools.version>6.0.0.Beta2</camel.drools.version>
+		<brms.version>6.2.0.Final</brms.version>
+		<kie.version>6.2.0.Final</kie.version>
 	</properties>
 
 	<dependencyManagement>
@@ -67,7 +72,12 @@
 				<artifactId>lab-test-harness</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			
+			<dependency>
+				<groupId>com.rhc</groupId>
+				<artifactId>lab-knowledge</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
 			<!-- MongoDB Dependencies -->
 			<dependency>
 				<groupId>org.mongodb</groupId>
@@ -211,10 +221,37 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.camel</groupId>
-				<artifactId>camel-spring-test</artifactId>
+				<artifactId>camel-test-spring</artifactId>
 				<version>${camel.version}</version>
 				<scope>test</scope>
 			</dependency>
+			<!-- Kie dependency -->
+			<dependency>
+				<groupId>org.kie</groupId>
+				<artifactId>kie-camel</artifactId>
+				<version>${kie.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.kie</groupId>
+				<artifactId>kie-spring</artifactId>
+				<version>${kie.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.kie</groupId>
+				<artifactId>kie-api</artifactId>
+				<version>${brms.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.drools</groupId>
+				<artifactId>drools-core</artifactId>
+				<version>${brms.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.drools</groupId>
+				<artifactId>drools-compiler</artifactId>
+				<version>${brms.version}</version>
+			</dependency>
+
 
 			<!-- Servlet Dependencies -->
 			<dependency>
@@ -238,6 +275,20 @@
 				<version>${junit.version}</version>
 				<scope>test</scope>
 			</dependency>
+			
+			<!-- Bean utils -->
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>1.8.3</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>commons-logging</artifactId>
+						<groupId>commons-logging</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			
 
 		</dependencies>
 	</dependencyManagement>

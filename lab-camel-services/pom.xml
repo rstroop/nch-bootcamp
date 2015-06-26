@@ -49,5 +49,18 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-test</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-camel</artifactId>
+		</dependency>
+				<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-spring</artifactId>
+		</dependency>
+
 	</dependencies>
 </project>

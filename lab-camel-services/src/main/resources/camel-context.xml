@@ -1,16 +1,21 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:camel="http://camel.apache.org/schema/spring" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:kie="http://drools.org/schema/kie-spring"
 	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
 http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
-http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+http://drools.org/schema/kie-spring http://drools.org/schema/kie-spring.xsd ">
 
 	<!-- Spring Imports -->
 	<import resource="classpath:camel-beans.xml" />
+	
+
 
 	<camel:proxy id="labProxySender" serviceUrl="direct:start"
 		serviceInterface="com.rhc.lab.service.proxy.LabProxySender" />
+	
 
 	<camelContext xmlns="http://camel.apache.org/schema/spring">
 
@@ -20,13 +25,10 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 		</dataFormats>
 
 		<route>
-			<from uri="direct:start" />
+			<from uri="direct:execute-rules" />
 			<log message="Saving a sample record in Mongo!" />
-			<policy ref="droolsPolicy">
-				<unmarshal ref="jaxb" />
-				<to uri="drools:node1/ksession1" />
-				<marshal ref="jaxb" />
-			</policy>
+			<!-- TODO: send to LocalStatelessDecisionService -->
+			<!--  <to uri="kie:ksession1?action=insertBody" /> -->
 			<to uri="mock:end" />
 		</route>
 

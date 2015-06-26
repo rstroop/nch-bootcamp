@@ -1,4 +1,4 @@
-package com.rhc.lab.rules;
+package rules;
 import com.rhc.lab.domain.BookingRequest;
 dialect "java"
 
