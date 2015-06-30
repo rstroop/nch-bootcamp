@@ -24,7 +24,6 @@ public class DroolsTest {
 	@Resource(name = "localDecisionService")
 	private StatelessDecisionService decisionService;
 
-
 	@Test
 	public void shouldAutowireDecisionService() {
 		Assert.assertNotNull(decisionService);

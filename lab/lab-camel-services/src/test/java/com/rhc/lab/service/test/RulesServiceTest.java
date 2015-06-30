@@ -41,7 +41,7 @@ public class RulesServiceTest extends CamelSpringTestSupport {
 		facts.add(booking);
 		template.sendBody(facts);
 		// TODO : add real tests once rules run.
-		//resultEndpoint.assertIsSatisfied();
+		// resultEndpoint.assertIsSatisfied();
 	}
 
 	@Override
