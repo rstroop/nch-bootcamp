@@ -7,15 +7,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.joda.JodaModule;
 import com.rhc.lab.domain.BookingRequest;
-import com.rhc.lab.domain.Performer;
 import com.rhc.lab.domain.PerformanceType;
+import com.rhc.lab.domain.Performer;
 import com.rhc.lab.domain.Venue;
 
 /**
@@ -31,7 +30,6 @@ public class JsonPayloadTest {
 	@Before
 	public void init() {
 		om = new ObjectMapper();
-		om.registerModule(new JodaModule());
 	}
 
 	@Test
@@ -72,8 +70,8 @@ public class JsonPayloadTest {
 		performance.setType(PerformanceType.BAND);
 
 		request.setVenueName(venue.getName());
-		DateTime d1 = DateTime.now();
-		DateTime d2 = DateTime.now().plusHours(4);
+		DateTime d1 = new DateTime();
+		DateTime d2 = new DateTime().plusHours(4);
 		request.setOpen(d1.toDate());
 		request.setClose(d2.toDate());
 		request.setPerformer(performance);

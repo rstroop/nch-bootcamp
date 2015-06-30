@@ -3,14 +3,9 @@ package com.rhc.lab.drools;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.rhc.lab.domain.BookingRequest;
 import com.rhc.lab.kie.api.StatelessDecisionService;
