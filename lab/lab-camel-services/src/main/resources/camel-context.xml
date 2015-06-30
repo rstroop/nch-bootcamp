@@ -28,7 +28,7 @@ http://drools.org/schema/kie-spring http://drools.org/schema/kie-spring.xsd ">
 			<from uri="direct:execute-rules" />
 			<log message="Saving a sample record in Mongo!" />
 			<!-- TODO: send to LocalStatelessDecisionService -->
-			<!--  <to uri="kie:ksession1?action=insertBody" /> -->
+			<bean ref="localDecisionService" method="execute"/>
 			<to uri="mock:end" />
 		</route>
 
