@@ -13,6 +13,9 @@ http://drools.org/schema/kie-spring http://drools.org/schema/kie-spring.xsd ">
 	<beans profile="default">
 		<import resource="classpath:mongodb-context.xml" />
 	</beans>
+	<beans profile="openshift">
+		<import resource="classpath:mongodb-openshift-context.xml" />
+	</beans>
 
 	<!-- Base Unit Test Configuration <beans profile="test"> <import resource="classpath:mock-repositories-context.xml" 
 		/> </beans> -->
