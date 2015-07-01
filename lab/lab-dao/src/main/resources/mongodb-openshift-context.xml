@@ -9,8 +9,7 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	 http://www.springframework.org/schema/data/mongo
           http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
-          "
-	profile="openshift">
+          ">
 
 		<!-- Mongo Server Configuration -->
 		<!-- <mongo:mongo host="#{systemProperties['OPENSHIFT_MONGODB_DB_HOST']}"
