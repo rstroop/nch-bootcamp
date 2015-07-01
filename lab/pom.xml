@@ -35,7 +35,7 @@
 		<servletapi.version>2.4.0</servletapi.version>
 		<slf4j.version>1.7.6</slf4j.version>
 		<spring.version>4.1.4.RELEASE</spring.version>
-		<spring.data.version>1.7.0.RELEASE</spring.data.version>
+		<spring.data.version>1.6.3.RELEASE</spring.data.version>
 		<brms.version>6.2.0.Final-redhat-6</brms.version>
 		<kie.version>6.2.0.Final-redhat-6</kie.version>
 	</properties>
