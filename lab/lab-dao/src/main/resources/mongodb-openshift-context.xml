@@ -13,12 +13,12 @@
 	profile="openshift">
 
 		<!-- Mongo Server Configuration -->
-		<mongo:mongo host="#{systemProperties['OPENSHIFT_MONGODB_DB_HOST']}"
-			port="#{systemProperties['OPENSHIFT_MONGODB_DB_PORT']}" />
+		<!-- <mongo:mongo host="#{systemProperties['OPENSHIFT_MONGODB_DB_HOST']}"
+			port="#{systemProperties['OPENSHIFT_MONGODB_DB_PORT']}" />-->
 		<mongo:db-factory dbname="#{systemProperties['OPENSHIFT_APP_NAME']}"
 			username="${systemProperties['OPENSHIFT_MONGODB_DB_USERNAME']}"
 			password="${systemProperties['OPENSHIFT_MONGODB_DB_PASSWORD']}" host="#{systemProperties['OPENSHIFT_MONGODB_DB_HOST']}"
-			port="#{systemProperties['OPENSHIFT_MONGODB_DB_PORT']}" mongo-ref="mongo" />
+			port="#{systemProperties['OPENSHIFT_MONGODB_DB_PORT']}" />
 		<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 			<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
 		</bean>
