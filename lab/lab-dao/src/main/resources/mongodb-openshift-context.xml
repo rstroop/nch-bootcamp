@@ -11,13 +11,18 @@
           http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
           ">
 
-		<!-- Mongo Server Configuration -->
-		<mongo:mongo host="#{systemProperties['OPENSHIFT_MONGODB_DB_HOST']}"
-			port="#{systemProperties['OPENSHIFT_MONGODB_DB_PORT']}" />
-		<mongo:db-factory dbname="#{systemProperties['OPENSHIFT_APP_NAME']}"
-			username="${systemProperties['OPENSHIFT_MONGODB_DB_USERNAME']}"
-			password="${systemProperties['OPENSHIFT_MONGODB_DB_PASSWORD']}" mongo-ref="mongo" />
-		<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-			<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
-		</bean>
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>mongodb.properties</value>
+		</property>
+	</bean>
+
+	<!-- Mongo Server Configuration -->
+	<mongo:mongo host="${mongodb.host}" port="${mongodb.port}" />
+	<mongo:db-factory dbname="${mongodb.dbname}" username="${mongodb.username}"
+		password="${mongodb.password}" mongo-ref="mongo" />
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+	</bean>
 </beans>
