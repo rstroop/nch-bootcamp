@@ -9,14 +9,10 @@ http://drools.org/schema/kie-spring http://drools.org/schema/kie-spring.xsd ">
 
 	<import resource="classpath*:kie-context.xml" />
 	
-	<beans profile="dev">
+	<beans profile="default">
 		<import resource="classpath:mongodb-context.xml" />
 	</beans>
 	<beans profile="openshift">
 		<import resource="classpath:mongodb-openshift-context.xml" />
 	</beans>
-	<beans profile="default">
-		<import resource="classpath:mongodb-openshift-context.xml" />
-	</beans>
-
 </beans>

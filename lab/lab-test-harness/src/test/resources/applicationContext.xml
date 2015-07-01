@@ -7,14 +7,10 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
 	<context:component-scan base-package="com.rhc" />
 	
-	<beans profile="dev">
+	<beans profile="default">
 		<import resource="classpath:mongodb-context.xml" />
 	</beans>
 	<beans profile="openshift">
 		<import resource="classpath:mongodb-openshift-context.xml" />
 	</beans>
-	<beans profile="default">
-		<import resource="classpath:mongodb-openshift-context.xml" />
-	</beans>
-	
 </beans>
