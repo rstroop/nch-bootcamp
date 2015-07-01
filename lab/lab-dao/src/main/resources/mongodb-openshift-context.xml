@@ -14,7 +14,7 @@
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
-			<value>mongodb.properties</value>
+			<value>classpath:/mongodb.properties</value>
 		</property>
 	</bean>
 
@@ -25,4 +25,7 @@
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
 	</bean>
+
+	<mongo:repositories base-package="com.rhc.lab" />
+
 </beans>
