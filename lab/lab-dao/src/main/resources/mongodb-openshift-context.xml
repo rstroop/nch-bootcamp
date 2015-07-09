@@ -11,14 +11,21 @@
           http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
           ">
 
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:/mongodb.properties</value>
+		</property>
+	</bean>
+
 	<!-- Mongo Server Configuration -->
-	<mongo:mongo host="localhost" port="27017" />
-	<mongo:db-factory dbname="labtest" />
+	<mongo:mongo host="${mongodb.host}" port="${mongodb.port}" />
+	<mongo:db-factory dbname="${mongodb.dbname}" username="${mongodb.username}"
+		password="'${mongodb.password}'" mongo-ref="mongo" />
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
 	</bean>
 
 	<mongo:repositories base-package="com.rhc.lab" />
-
 
 </beans>

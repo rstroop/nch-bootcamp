@@ -29,20 +29,20 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 1. Run the following commands on the command line to create a new EAP 6 project in OpenShift with Jenkins CI and configure a MongoDB cartridge:
 
 	```
-	> rhc app-create labweb jbosseap --enable-jenkins 
-	> rhc cartridge add mongodb-2.4 -a labweb 
+        rhc app-create labweb jbosseap -g large 
+	rhc cartridge add mongodb-2.4 -a labweb 
 	```
 	* These commands will output the generated credentials and locations for the OpenShift Git repository and MongoDB instance our application will use. Save this information in a text file for safekeeping.
 
 1. Enter the newly cloned git directory
 	```
-	> cd labweb/ 
+	cd labweb/ 
 	```
 
 1. Connect the starter code on GitHub to the OpenShift repository:
 	```
-	> git remote add upstream -m master git://github.com/justincohler/nch-bootcamp.git 
-	> git pull -s recursive -X theirs upstream master 
+	git remote add upstream -m master git://github.com/justincohler/nch-bootcamp.git 
+	git pull -s recursive -X theirs upstream master 
 	```
 	* An editor will ask you to enter a merge message. Enter the following to (w)rite the merge record and (q)uit out of the editor:
 		```
@@ -51,7 +51,7 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 
 1. Finally, push the starter code to OpenShift: 
 	```
-	> git push
+	git push
 	```
 
 This will output the generated users and passwords for MongoDB and the EAP Admin Console, which you can use to configure persistence in the webapp.

@@ -23,4 +23,8 @@ http://drools.org/schema/kie-spring http://drools.org/schema/kie-spring.xsd ">
 	<import resource="classpath*:testRepositories.xml" />
 	 </beans> 
 
+	<beans profile="openshift">
+		<import resource="classpath:mongodb-openshift-context.xml" />
+	</beans>
+
 </beans>
