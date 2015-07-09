@@ -8,13 +8,19 @@
 http://drools.org/schema/kie-spring http://drools.org/schema/kie-spring.xsd ">
 
 	<import resource="classpath*:kie-context.xml" />
-
+	
+	
+<bean name="requestService" class="com.rhc.lab.service.BookingRequestService">
+</bean>
 	<!-- Production -->
 	<beans profile="default">
-		<import resource="classpath:mongodb-context.xml" />
+		  <import resource="classpath:mongodb-context.xml" />
+		
 	</beans>
 
-	<!-- Base Unit Test Configuration <beans profile="test"> <import resource="classpath:mock-repositories-context.xml" 
-		/> </beans> -->
+	<!-- Base Unit Test Configuration -->
+	<beans profile="test"> 
+	<import resource="classpath*:testRepositories.xml" />
+	 </beans> 
 
 </beans>

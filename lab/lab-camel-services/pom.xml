@@ -23,6 +23,10 @@
 			<groupId>com.rhc</groupId>
 			<artifactId>lab-dao</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.rhc</groupId>
+			<artifactId>lab-test-harness</artifactId>
+		</dependency>
 
 		<!-- Camel Dependencies -->
 		<dependency>
@@ -57,10 +61,15 @@
 			<groupId>org.kie</groupId>
 			<artifactId>kie-camel</artifactId>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>org.kie</groupId>
 			<artifactId>kie-spring</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+		</dependency>
+
 
 	</dependencies>
 </project>

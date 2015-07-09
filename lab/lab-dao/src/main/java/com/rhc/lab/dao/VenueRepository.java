@@ -27,4 +27,5 @@ public interface VenueRepository
 	 * @return
 	 */
 	public List<Venue> findByName(String name);
+
 }

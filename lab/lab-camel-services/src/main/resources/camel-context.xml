@@ -25,10 +25,12 @@ http://drools.org/schema/kie-spring http://drools.org/schema/kie-spring.xsd ">
 		</dataFormats>
 
 		<route>
-			<from uri="direct:execute-rules" />
+			<from uri="direct:start" />
 			<log message="Saving a sample record in Mongo!" />
 			<!-- TODO: send to LocalStatelessDecisionService -->
-			<bean ref="localDecisionService" method="execute"/>
+			  <bean ref="requestService" method="collectSingleVenueForSession"/>
+			 <bean ref="localDecisionService" method="execute"/>
+			 <bean ref="requestService" method="saveBooking"/>
 			<to uri="mock:end" />
 		</route>
 

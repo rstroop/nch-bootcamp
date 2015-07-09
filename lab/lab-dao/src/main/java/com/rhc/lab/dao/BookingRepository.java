@@ -1,5 +1,7 @@
 package com.rhc.lab.dao;
 
+import java.util.List;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +18,13 @@ import com.rhc.lab.domain.Booking;
 public interface BookingRepository
 		extends
 			PagingAndSortingRepository<Booking, String> {
+
+	/**
+	 * Function returns a list of Bookings by attribute "venueName" (expected
+	 * return is list size of 1)
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public List<Booking> findByVenueName(String name);
 }

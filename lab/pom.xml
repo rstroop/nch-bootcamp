@@ -22,6 +22,7 @@
 	</modules>
 
 	<properties>
+		<apache.commons.version>4.0</apache.commons.version>
 		<beanutils.version>1.8.3.redhat-6</beanutils.version>
 		<camel.version>2.15.1.redhat-620133</camel.version>
 		<cucumber.version>1.2.2</cucumber.version>
@@ -90,22 +91,22 @@
 				<artifactId>spring-data-mongodb</artifactId>
 				<version>${spring.data.version}</version>
 				<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-tx</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-beans</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-expression</artifactId>
-				</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-tx</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-beans</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-expression</artifactId>
+					</exclusion>
 				</exclusions>
 			</dependency>
 
@@ -249,7 +250,7 @@
 				<version>${camel.version}</version>
 				<scope>test</scope>
 			</dependency>
-			
+
 			<!-- Kie Dependencies -->
 			<dependency>
 				<groupId>org.kie</groupId>
@@ -312,6 +313,12 @@
 						<groupId>commons-logging</groupId>
 					</exclusion>
 				</exclusions>
+			</dependency>
+			<!-- Apache Commons Dependencies -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-collections4</artifactId>
+				<version>${apache.commons.version}</version>
 			</dependency>
 
 
