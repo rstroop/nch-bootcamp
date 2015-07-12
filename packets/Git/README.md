@@ -6,11 +6,11 @@
 
 Install the latest git in one of the following ways:
 
-	- Download from git-scm.com (Windows)
-	- Download through your package manager
-		- `sudo yum install git` (RHEL and Fedora)
-		- `sudo apt-get install git` (Debian and Ubuntu)
-		- `brew install git` (Mac)
+- Download from git-scm.com (Windows)
+- Download through your package manager
+  - `sudo yum install git` (RHEL and Fedora)
+  - `sudo apt-get install git` (Debian and Ubuntu)
+  - `brew install git` (Mac)
 
 ### Set Up Your .gitconfig ###
 
@@ -22,8 +22,8 @@ You can also edit this file by using the helper git command `git config`.
 
 To set up your user information, run the following commands in any directory (assuming `git` installed and on your PATH):
 
-	1. `git config --global user.name "Your Name"`
-	2. `git config --global user.email "your.email@example.com"
+1. `git config --global user.name "Your Name"`
+2. `git config --global user.email "your.email@example.com"`
 
 These two commands will set the "name" and "email" properties in the "[user]" section of your GLOBAL .gitconfig (the one in ~). You can check/edit this information in the aforementioned ~/.gitconfig file.
 
@@ -49,12 +49,12 @@ Enter Pull Requests. They allow repository owners to maintain control over what 
 
 The basic process of creating a Pull Request is:
 
-	1. Clone the project to your own GitHub account (some projects do not do this step or even officially allow clones; if you are not sure, ask)
-	2. Create a new branch with a useful and unique name for your feature/fix (often, issue tracking numbers should be included in this name)
-	3. Make the changes and commit them to your branch.
-	4. Be sure to push the branch back to GitHub. (Note that, although your code is in GitHub, it is _not_ yet back into the main branch of the project)
-	5. Create a Pull Request from your branch in your project to the target branch of the target repository (note that this does not have to be the same repository as yours and often is not)
-		- This can be done by viewing the branch on GitHub (using the autocomplete dropdown towards the top left of the page) and selecting "Create Pull Request".
+1. Clone the project to your own GitHub account (some projects do not do this step or even officially allow clones; if you are not sure, ask)
+2. Create a new branch with a useful and unique name for your feature/fix (often, issue tracking numbers should be included in this name)
+3. Make the changes and commit them to your branch.
+4. Be sure to push the branch back to GitHub. (Note that, although your code is in GitHub, it is _not_ yet back into the main branch of the project)
+5. Create a Pull Request from your branch in your project to the target branch of the target repository (note that this does not have to be the same repository as yours and often is not)
+  - This can be done by viewing the branch on GitHub (using the autocomplete dropdown towards the top left of the page) and selecting "Create Pull Request".
 
 Once a Pull Request is created, it will show up in a special section where the project reviewers (trusted people given push access that can merge or decline pull requests) can view the proposed code changes, add comments, and either merge the pull request (bringing it into the project) or deny it (closing the request and decline the merge, at least for the time being).
 
@@ -72,5 +72,163 @@ Completely free book and is often better documentation for Git than the manpages
 <http://www.git-tower.com/blog/git-cheat-sheet/>
 
 ## Labs ##
+
+Learning git can often feel like drinking from a firehose. Don't expect to fully understand everything right away. Git is a very powerful tool and has a pretty steep learning curve. If you keep at it and try to understand not just _what_ commands you should do but _why_ you are doing them, you will get it.
+
+Here are some basic examples you can go through to try and get you on your way.
+
+### Init and Clone ###
+
+The `git init` command is pretty straightforward. Let's go ahead and create a new repository by running (run this outside of an existing git repository such as the NCH repo; a good alternative is just your Desktop directory):
+
+`git init my-project`
+
+This will create a new directory called "my-project" that has a ".git" directory underneath it. This is where git stores all of its files. Removing this directory will leave the other files, but remove git tracking (so be careful!).
+
+The other way you can get a git repo to play around with is by cloning one. Go ahead and clone the example one (also outside of any git repos) by running this command:
+
+`git clone git@github.com:gjbianco/nch-example-repo.git`
+
+or, alternatively, if you don't have SSH keys set up in GitHub
+
+`git clone https://github.com/gjbianco/nch-example-repo.git`
+
+### Status ###
+
+The `git status` command is probably the most used command in all of git. This command simply reports back the current state of affairs according to git. This command will list if you have untracked changes, untracked files, staged changes/files, or even unpushed or unmerged commits (when dealing with remotes).
+
+Go ahead and create a file called "my-file.txt" in the nch-example-repo (you can just run `touch my-file.txt` in Linux).
+
+Now run `git status`
+
+Git should tell you that you have an untracked file. This means that git has never seen this file before.
+
+Now edit "README.md" (e.g. you can use vim or nano). Be sure to actually make a change.
+
+Now run `git status` again. Notice how git mentions "README.md", but it is listed under _untracked changes_. Git recognizes the file, but sees that you have made changes to it.
+
+### Add ###
+
+Let's go ahead and "stage" both the new file ("my-file.txt") and the changes to the README by running:
+
+`git add README.md` (tab completion _should_ work)
+
+`git add my-file.txt`
+
+Now, let's run `git status` again.
+
+Git reports that we have "Changes to be committed". These files are in a state called "staged" as in they are on the stage ready to be committed.
+
+_NB: we did not have to explicitly add each file (adding hundreds of files would be extremely tedious). We can use a simple shortcut to add all changes: `git add .` where "." represents our current working directory._
+
+### Reset ###
+
+We can easily unstage changes (remove them from the staging area) or files by using the "reset" command on them. Let's unstage our changes to the README:
+
+`git reset README.md`
+
+It's important to note that `git add` and `git reset` are equal and opposite. Add stages the change/file and reset unstages it.
+
+### Commit ###
+
+While `git status` might be the most used command in git, but `git commit` is probably the most important. As you should have seen in the presentation, committing is so important that *it is both a noun and a verb*.
+
+Let's try creating a commit!
+
+In order to create a commit, we have to have changes. Well, we actually already have those! Namely, our new file called "my-file.txt" and our changes to "README.md" (follow the steps in the previous Labs, if you haven't already).
+
+So, now we have our changes. It is important to note that *git _only_ commits changes that are staged*. To demonstrate this, let's first look the state of our repo with `git status`.
+
+We see that the new file ("my-file.txt") is staged, but the changes to our README *are not*.
+
+Let's go ahead and commit the staged change with `git commit`.
+
+At this point, a text editor should show up (either what is set to $EDITOR or vim). Git is prompting you for a "commit messae". As you should have read in the presentation, commit messages are extremely important. So important that, if you do not provide one, git assumes that you want to cancel the commit process altogether.
+
+So, since we want to continue with the commit, let's provide it a commit message. It does not matter what this message is, so go ahead and write whatever you want.
+
+_NB: if you do not have an editor set and you are not familiar with vim, you can just press the 'i' key to enter INSERT mode, type your message, press the 'Escape' key, then type ":wq" without quotes (this will save the changes and quit vim in one command)._
+
+Run `git status` to see that our only remaining change is our change to README.md (since that wasn't staged when we ran commit), but our "my-file.txt" is still there.
+
+Go ahead and stage the changes to the README.md and commit the change (providing a useful commit message). Run `git log` again to see the new commit.
+
+### Log ###
+
+We can use `git log` to view the "log" of commits that have been made.
+
+Go ahead and run it now. You should see the initial commit as well as the one you just created at the top of the list.
+
+### Branch / Checkout ###
+
+While the presentation will explain more about the _why_ of the commands, let's go through the basic steps of creating a branch and traversing them.
+
+You can see your list of branches as well as which one you are on by running `git branch` with no other arguments.
+
+To create a new branch _off of your current branch_ (in our case, master), you can give the branch an argument:
+
+`git branch my-branch`
+
+This will only create a new branch called "my-branch". Note that this does not change our current branch (i.e. we are still on master).
+
+To change to the new branch, we have to use the "checkout" command. Do this now by running:
+
+`git checkout my-branch`
+
+We are now on the "my-branch" branch. _NB: `git status` will also tell you which branch you are currently on._
+
+Also, if we wanted to both create a new branch off of our current one AND switch to it in one command, we can provide the `-b` option to the checkout command. For example, *instead* of doing the above two steps, we could have simply done:
+
+`git checkout -b my-branch` (doing this now will fail since the branch already exists)
+
+### Merge ###
+
+Merging branches, in most cases, is pretty easy. Let's go ahead and create a couple of changes on our "my-branch" branch by editing the README.md and committing the change (remember to stage the change first). Go ahead and create another file with some random contents and commit it *in a separate commit* (you will need to stage and add twice, providing two separate commit messages).
+
+Now we can do a merge. The basic idea is that the merge command will merge the branch that we provide *into* our current branch. Since we want to merge our new commits into master, first we have to switch to the master branch by doing:
+
+`git checkout master`
+
+Now we can actually merge our new branch into master by doing:
+
+`git merge my-branch`
+
+This takes all of the _commits_ that we made on our "my-branch" branch and puts them in master. Note that the changes have to be committed in order for them to be merged!
+
+If we run `git status` we see that we are on master, and if we run `git log` we see that our two new commits are here on master now, too.
+
+### Merge with Conflicts ###
+
+So, not all merges are so easy, unfortunately. When both the branch being merged into and the branch being merged from have changes to the same files _on the same lines_, we say that this merge has "conflicts". Git cannot automatically (like it normally does) merge the files. Human intervention must reconcile this situation.
+
+We typically want to avoid situations where there are conflicts, but like any good Defense Against the Dark Arts, let's go ahead and practice that which should be avoided, so we are prepared when the situation arises.
+
+First let's create a commit on our master branch. Edit the README.md file and be sure to change something *on the first line* of that file. It does not matter to what (but remember what it was). While on the master branch (`git checkout master`), stage and commit the file.
+
+Now, let's switch back to our other branch by doing `git checkout my-branch`. Let's edit README.md again (note that your change on the other branch isn't there anymore!). Once again, be sure to edit *the first line* and go ahead and make it different from your other change. Now, once again add and commit the change.
+
+Now, switch back to master yet again with `git checkout master`. Now start the merge with `git merge my-branch`.
+
+Uh oh! We got a conflict! Git will put us in a special state until we either resolve the conflict or abort the merge (with `git merge --abort`). We want to resolve the conflict, though, as abort just puts us back where we were.
+
+Open up README.md again. Now we see some special marker symbols ("<<<<<<", "=======", and ">>>>>>>") with each of our sets of changes in separate sections.
+
+Your job is to make the file *how it should be* by changing it to one section, the other, both, neither, or something completely different. It is important to note that the marker symbols *should not be there* when you are finished (checking these symbols back into a repo is HUGE no-no) and, assuming the file is code (in this case, it is not), it should absolutely compile and *WORK*. Otherwise, our conflict resolution is not at all complete and we have failed to merge properly.
+
+This should stress you a little. Fixing conflicts can be a daunting task sometimes, and that is exactly why we do what we can to avoid them where possible! A lot of new people to git get intimidated by the conflict resolution process. It is the most difficult part to overcome, but absolutely can be done so with practice, so fear not!
+
+Let's continue. Get the README.md file in a good state following the above rules.
+
+Check the state of our merge with `git status`. If we had other changed files that didn't have conflicts, we would see that they are already staged. However, since we only have the conflicted file, git has left it unstaged. So, with our fixed README.md, we have to tell git that we have fixed it by staging it with `git add README.md`.
+
+Once all of our conflicted files are fixed and staged (we only had one so we are done), we can continue the merge with `git commit`. This will, as usual, drop us into the editor to provide a commit message. Since this is a special commit (a merge commit), git has created a basic message for us involving the branches involved and any conflict that arose. You can provide more information here, but I normally stick with the default one provided by git.
+
+Once we save and quit the commit message, we are done! Merge complete! You can check that there is a new commit that git created with `git log`.
+
+_NB: you may have noticed that the first merge does not have a commit of its own and it didn't even ask for a message! This is because git was able to do what is called a "fast-forward commit". We won't get into too much of the details here, but that basically means that the the branches did not diverge._
+
+### Fetch and Push ####
+
+### Create a Pull Request (in GitHub) ###
 
 ## Quiz ##
