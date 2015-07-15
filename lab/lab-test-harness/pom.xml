@@ -18,6 +18,10 @@
 			<groupId>com.rhc</groupId>
 			<artifactId>lab-dao</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.rhc</groupId>
+			<artifactId>lab-kie-services</artifactId>
+		</dependency>
 
 		<!-- Cucumber Dependencies -->
 		<dependency>
