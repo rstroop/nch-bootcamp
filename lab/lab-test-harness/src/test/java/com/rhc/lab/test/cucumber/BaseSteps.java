@@ -34,7 +34,7 @@ public class BaseSteps {
 
 	private Venue venue = new Venue();
 	private Booking booking = new Booking();
-	
+
 	private BookingRequest request = new BookingRequest();
 	private List<Object> facts;
 
@@ -45,11 +45,11 @@ public class BaseSteps {
 		venue.setName(venueName);
 		venue.setCapacity(Integer.parseInt(occupancy));
 
-//		// (Test repo-maps) Add venue to venueRepo
-//		if (venueRepo.findByName(venueName).isEmpty()) {
-//			venueRepo.save(venue);
-//		}
-		
+		// // (Test repo-maps) Add venue to venueRepo
+		// if (venueRepo.findByName(venueName).isEmpty()) {
+		// venueRepo.save(venue);
+		// }
+
 		request.setVenueName(venueName);
 		System.out.println("Given step: " + venueName + " " + occupancy);
 	}
@@ -62,8 +62,9 @@ public class BaseSteps {
 		accomodations.add(PerformanceType.valueOf(artistType1.toUpperCase()));
 		accomodations.add(PerformanceType.valueOf(artistType2.toUpperCase()));
 		venue.setAccomodations(accomodations);
-		
-		System.out.println("And first step: " + artistType1 + " " + artistType2);
+
+		System.out
+				.println("And first step: " + artistType1 + " " + artistType2);
 	}
 
 	@And("^a request for a \"(.*?)\" performance by \"(.*?)\"$")
@@ -74,17 +75,16 @@ public class BaseSteps {
 		performer.setName(artistName);
 		try {
 			performer.setType(PerformanceType.valueOf(type.toUpperCase()));
-		}
-		catch (Exception e) {
-			throw new Exception("Type '"+type+"' does not exist");
+		} catch (Exception e) {
+			throw new Exception("Type '" + type + "' does not exist");
 		}
 		request.setPerformer(performer);
-		
-//		// (Test repo-maps) Add booking to bookingRepo
-//		booking.setPerformer(performer);
-//		booking.setVenueName(venue.getName());
-//		bookingRepo.save(booking);
-//		
+
+		// // (Test repo-maps) Add booking to bookingRepo
+		// booking.setPerformer(performer);
+		// booking.setVenueName(venue.getName());
+		// bookingRepo.save(booking);
+		//
 		System.out.println("And second step: " + type + " " + artistName);
 	}
 
@@ -94,23 +94,24 @@ public class BaseSteps {
 		facts = new ArrayList<Object>();
 		facts.add(request);
 		decisionService.execute(facts);
-		
+
 		System.out.println("When step");
 	}
 
 	@Then("^the booking should be \"(.*?)\"$")
 	public void the_booking_should_be(String bookingStatus) throws Throwable {
 		// Match bookingStatus from results
-		
-//		// (Test repo-maps) Validate accomodations 
-//		for (PerformanceType type : venueRepo.findByName(venue.getName()).get(0).getAccomodations()) {
-//			if (type.equals(booking.getPerformer().getType())) {
-//				assert(true);
-//				return
-//			}
-//		}
-//		assert(false);
-		
+
+		// // (Test repo-maps) Validate accomodations
+		// for (PerformanceType type :
+		// venueRepo.findByName(venue.getName()).get(0).getAccomodations()) {
+		// if (type.equals(booking.getPerformer().getType())) {
+		// assert(true);
+		// return
+		// }
+		// }
+		// assert(false);
+
 		System.out.println("Then step: " + bookingStatus);
 	}
 

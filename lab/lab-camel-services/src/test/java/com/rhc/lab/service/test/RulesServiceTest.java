@@ -30,7 +30,7 @@ import com.rhc.lab.domain.Venue;
  * 
  */
 // FIXME - this test fails in Jenkins
-//@RunWith(SpringJUnit4ClassRunner.class)
+// @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:camel-context.xml"})
 @Profile("test")
 public class RulesServiceTest {
@@ -48,7 +48,7 @@ public class RulesServiceTest {
 
 	private Performer performer;
 
-//	@Before
+	// @Before
 	public void setUp() {
 		venueRepo.deleteAll();
 		Venue venue = new Venue();
@@ -62,7 +62,7 @@ public class RulesServiceTest {
 		performer.setName("Bob");
 		performer.setType(PerformanceType.COMIC);
 	}
-//	@Test
+	// @Test
 	public void testSendingBookingRequest() throws InterruptedException {
 		BookingRequest booking = new BookingRequest();
 		booking.setVenueName("boo");
