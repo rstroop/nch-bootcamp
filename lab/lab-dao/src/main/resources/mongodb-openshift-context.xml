@@ -20,7 +20,7 @@
 
 	<!-- Mongo Server Configuration -->
 	<mongo:mongo host="${mongodb.host}" port="${mongodb.port}" />
-	<mongo:db-factory dbname="${mongodb.dbname}" username="${mongodb.username}"
+	<mongo:db-factory host="${mongodb.host}" port="${mongodb.port}" dbname="${mongodb.dbname}" username="${mongodb.username}"
 		password="'${mongodb.password}'" mongo-ref="mongo" />
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
