@@ -33,7 +33,7 @@ import com.rhc.lab.domain.Venue;
  */
 // FIXME - this test fails in Jenkins
 
-// @RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:camel-context.xml"})
 @Profile("test")
 public class RulesServiceTest {
@@ -52,7 +52,7 @@ public class RulesServiceTest {
 	// shared performer
 	private Performer performer;
 
-	// @Before
+	//@Before
 	public void setUp() {
 		// clearing venue repo
 		venueRepo.deleteAll();
@@ -70,7 +70,7 @@ public class RulesServiceTest {
 		performer.setType(PerformanceType.COMIC);
 	}
 
-	// @Test
+	//@Test
 	public void shouldSaveValidBooking() throws InterruptedException {
 		// building booking request
 		BookingRequest request = new BookingRequest();
@@ -86,7 +86,12 @@ public class RulesServiceTest {
 		assertTrue(compareBookings(bookings, request));
 	}
 
-	// fuzzy equals to compare a booking request and what is generated
+	/**
+	 * fuzzy equals to compare a booking request and what is generated
+	 * @param bookings
+	 * @param booking
+	 * @return
+	 */
 	private boolean compareBookings(Iterable<Booking> bookings,
 			BookingRequest booking) {
 		for (Booking book : bookings) {

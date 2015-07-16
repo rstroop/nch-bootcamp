@@ -31,13 +31,13 @@ public class BookingResponse implements Serializable {
 	public Collection<BookingRequest> getBookingRequests() {
 		return bookingRequests;
 	}
-	public void setBookingRequest(Collection<BookingRequest> bookingRequest) {
+	public void setBookingRequests(Collection<BookingRequest> bookingRequest) {
 		this.bookingRequests = bookingRequest;
 	}
 	public Collection<Booking> getBookings() {
 		return bookings;
 	}
-	public void setBooking(Collection<Booking> bookings) {
+	public void setBookings(Collection<Booking> bookings) {
 		this.bookings = bookings;
 	}
 	public BookingStatus getBookingStatus() {
