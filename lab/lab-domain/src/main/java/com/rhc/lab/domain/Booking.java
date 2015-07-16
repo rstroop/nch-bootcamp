@@ -17,7 +17,6 @@ import com.rhc.lab.kie.common.KieQuery;
 @Document(collection = "bookings")
 public class Booking implements Serializable, Comparable<Booking> {
 
-
 	/**
    * 
    */
@@ -96,7 +95,7 @@ public class Booking implements Serializable, Comparable<Booking> {
 			return this.getOpen().compareTo(o.getOpen());
 
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Booking [id=" + id + ", venueName=" + venueName

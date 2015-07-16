@@ -22,12 +22,12 @@ public class BookingResponse implements Serializable {
 
 	@KieQuery(binding = "$bookingRequest", queryName = "getBookingRequests")
 	private Collection<BookingRequest> bookingRequests;
-	
+
 	@KieQuery(binding = "$booking", queryName = "getBookings")
 	private Collection<Booking> bookings;
-	
+
 	private BookingStatus bookingStatus;
-	
+
 	public Collection<BookingRequest> getBookingRequests() {
 		return bookingRequests;
 	}
@@ -50,7 +50,8 @@ public class BookingResponse implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((bookings == null) ? 0 : bookings.hashCode());
+		result = prime * result
+				+ ((bookings == null) ? 0 : bookings.hashCode());
 		result = prime * result
 				+ ((bookingRequests == null) ? 0 : bookingRequests.hashCode());
 		result = prime * result
@@ -86,7 +87,5 @@ public class BookingResponse implements Serializable {
 				+ ", booking=" + bookings + ", bookingStatus=" + bookingStatus
 				+ "]";
 	}
-
-	
 
 }

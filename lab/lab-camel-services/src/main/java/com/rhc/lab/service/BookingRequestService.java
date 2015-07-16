@@ -19,7 +19,7 @@ public class BookingRequestService {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(BookingRequestService.class);
-	//TODO: Test repos?
+	// TODO: Test repos?
 	// @Resource(name = "bookingDao")\
 	@Autowired
 	BookingRepository bookingRepo;
@@ -42,14 +42,15 @@ public class BookingRequestService {
 	}
 
 	public boolean saveBooking(@Body BookingResponse response) {
-		//TODO: logger not Sys out
-		System.out.println("Session returned: " +response.toString());
+		// TODO: logger not Sys out
+		System.out.println("Session returned: " + response.toString());
 		try {
-			//attempting to save the bookings returned
-			for (Booking booking : response.getBookings()){
-				//TODO: logger not Sys out
-				System.out.println("attempting to save booking: "+booking.toString());
-			bookingRepo.save(booking);
+			// attempting to save the bookings returned
+			for (Booking booking : response.getBookings()) {
+				// TODO: logger not Sys out
+				System.out.println("attempting to save booking: "
+						+ booking.toString());
+				bookingRepo.save(booking);
 			}
 		} catch (Exception e) {
 			logger.error(e.toString());
@@ -65,12 +66,12 @@ public class BookingRequestService {
 	 * @param request
 	 * @return
 	 */
-	public List<Object> collectSingleVenueForSession( BookingRequest request) {
-		//TODO: logger not sys out
+	public List<Object> collectSingleVenueForSession(BookingRequest request) {
+		// TODO: logger not sys out
 		System.out.println("collect venue:" + request.getVenueName());
 		List<Venue> venue = venueRepo.findByName(request.getVenueName());
-		//TODO: logger not sys out
-		System.out.println("venue found:"+venue);
+		// TODO: logger not sys out
+		System.out.println("venue found:" + venue);
 		List<Booking> bookings = bookingRepo.findByVenueName(request
 				.getVenueName());
 

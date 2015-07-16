@@ -56,7 +56,8 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 
 	@Override
 	public <Response> Response execute(Collection<Object> facts,
-			String processId, Class<Response> responseClazz) {;
+			String processId, Class<Response> responseClazz) {
+		;
 		StatelessKieSession session;
 		try {
 			if (kieBase != null) {
@@ -112,11 +113,11 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 	@Override
 	public <Response> Response execute(Collection<Object> facts,
 			Class<Response> responseClazz) {
-		
+
 		return execute(facts, null, responseClazz);
 	}
-	
-	public Object executeForClass(Collection<Object> facts, String clazzName){
+
+	public Object executeForClass(Collection<Object> facts, String clazzName) {
 		try {
 			Class<?> clazz = Class.forName(clazzName);
 			return execute(facts, null, clazz);
@@ -135,7 +136,5 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 			String processId) {
 		return execute(facts, processId, null);
 	}
-
-
 
 }

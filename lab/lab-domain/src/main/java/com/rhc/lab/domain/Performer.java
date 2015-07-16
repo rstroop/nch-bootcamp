@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 public class Performer implements Serializable {
 
-
 	/**
    * 
    */
@@ -46,7 +45,7 @@ public class Performer implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

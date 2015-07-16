@@ -26,13 +26,12 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 1. TODO
 
 ###Instructions###
-1. Run the following commands on the command line to create a new EAP 6 project in OpenShift with Jenkins CI and configure a MongoDB cartridge:
+1. Run the following commands on the command line to create a new EAP 6 project in OpenShift:
 
 	```
 	rhc app-create labweb jbossews-2.0 -g large 
-	rhc cartridge add mongodb-2.4 -a labweb 
 	```
-	* These commands will output the generated credentials and locations for the OpenShift Git repository and MongoDB instance our application will use. Save this information in a text file for safekeeping.
+	* These commands will output the generated credentials and locations for the OpenShift Git repository our application will use. Save this information in a text file for safekeeping.
 
 1. Enter the newly cloned git directory
 	```
@@ -54,7 +53,7 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 	git push
 	```
 
-This will output the generated users and passwords for MongoDB and the EAP Admin Console, which you can use to configure persistence in the webapp.
+This will output the generated users and passwords for the EAP Admin Console, which you can use to configure persistence in the webapp.
 
 ##Day 2 - Business Rules and Process Modeling##
 ###Goals###
