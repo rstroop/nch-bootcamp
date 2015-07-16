@@ -118,9 +118,8 @@ public class LabController {
 	public String submitBookingRequest(
 			@ModelAttribute BookingRequest bookingRequest, Model model) {
 
-		// labProxySender.submit(bookingRequest);
+		labProxySender.submit(bookingRequest);
 
-		bookingDao.save(new Booking(bookingRequest));
 		return "redirect:" + "/";
 	}
 

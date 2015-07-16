@@ -3,10 +3,12 @@ package com.rhc.lab.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.apache.camel.Body;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.rhc.lab.dao.BookingRepository;
 import com.rhc.lab.dao.VenueRepository;
@@ -15,21 +17,15 @@ import com.rhc.lab.domain.BookingRequest;
 import com.rhc.lab.domain.BookingResponse;
 import com.rhc.lab.domain.Venue;
 
+@Service("requestService")
 public class BookingRequestService {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(BookingRequestService.class);
-	// TODO: Test repos?
-	// @Resource(name = "bookingDao")\
-	@Autowired
+	@Resource(name = "bookingDao")
 	BookingRepository bookingRepo;
-	// @Resource(name = "venueDao")
-	@Autowired
+	@Resource(name = "venueDao")
 	VenueRepository venueRepo;
-
-	public BookingRequestService() {
-
-	}
 
 	public List<Object> buildSession(@Body BookingRequest request)
 			throws Exception {
