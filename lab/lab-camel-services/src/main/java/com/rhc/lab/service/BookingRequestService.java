@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.camel.Body;
-import org.apache.commons.collections4.IteratorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +12,14 @@ import com.rhc.lab.dao.BookingRepository;
 import com.rhc.lab.dao.VenueRepository;
 import com.rhc.lab.domain.Booking;
 import com.rhc.lab.domain.BookingRequest;
+import com.rhc.lab.domain.BookingResponse;
 import com.rhc.lab.domain.Venue;
 
 public class BookingRequestService {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(BookingRequestService.class);
-
+	//TODO: Test repos?
 	// @Resource(name = "bookingDao")\
 	@Autowired
 	BookingRepository bookingRepo;
@@ -41,29 +41,21 @@ public class BookingRequestService {
 		return facts;
 	}
 
-	public boolean saveBooking(@Body Booking booking) {
+	public boolean saveBooking(@Body BookingResponse response) {
+		//TODO: logger not Sys out
+		System.out.println("Session returned: " +response.toString());
 		try {
+			//attempting to save the bookings returned
+			for (Booking booking : response.getBookings()){
+				//TODO: logger not Sys out
+				System.out.println("attempting to save booking: "+booking.toString());
 			bookingRepo.save(booking);
+			}
 		} catch (Exception e) {
 			logger.error(e.toString());
 			return false;
 		}
 		return true;
-	}
-
-	/**
-	 * Returns all venues and bookings for every
-	 * 
-	 * @return
-	 */
-	private List<Object> collectForKnowledgeSession() {
-		Iterable<Booking> bookings = bookingRepo.findAll();
-		Iterable<Venue> venues = venueRepo.findAll();
-
-		List<Object> facts = new ArrayList<Object>();
-		facts.addAll(IteratorUtils.toList(bookings.iterator()));
-		facts.addAll(IteratorUtils.toList(venues.iterator()));
-		return facts;
 	}
 
 	/**
@@ -73,12 +65,12 @@ public class BookingRequestService {
 	 * @param request
 	 * @return
 	 */
-	public List<Object> collectSingleVenueForSession(
-			@Body BookingRequest request) {
+	public List<Object> collectSingleVenueForSession( BookingRequest request) {
+		//TODO: logger not sys out
 		System.out.println("collect venue:" + request.getVenueName());
-		System.out.println(venueRepo);
 		List<Venue> venue = venueRepo.findByName(request.getVenueName());
-		System.out.println(venue);
+		//TODO: logger not sys out
+		System.out.println("venue found:"+venue);
 		List<Booking> bookings = bookingRepo.findByVenueName(request
 				.getVenueName());
 

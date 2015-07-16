@@ -1,0 +1,18 @@
+package rules;
+
+import com.rhc.lab.domain.Booking;
+import com.rhc.lab.domain.BookingRequest;
+
+query "getBookingRequests"
+	
+	$bookingRequest : BookingRequest()
+	//$premium : Premium( name == "foo" )
+	
+end
+
+query "getBookings"
+	
+	$booking : Booking()
+	//$premium : Premium( name == "foo" )
+	
+end

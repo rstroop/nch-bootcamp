@@ -42,6 +42,7 @@ public class QueryUtils {
 	 */
 
 	public static List<Command<?>> buildQueryCommands(Class<?> clazz) {
+		System.out.println("building query for"+ clazz);
 		List<Command<?>> queryCommands = new ArrayList<Command<?>>();
 		if (clazz != null) {
 			Collection<Field> fields = getAllFields(clazz);

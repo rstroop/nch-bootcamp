@@ -1,7 +1,8 @@
 package com.rhc.lab.service.test;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Date;
 
 import javax.annotation.Resource;
 
@@ -18,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.rhc.lab.dao.BookingRepository;
 import com.rhc.lab.dao.VenueRepository;
+import com.rhc.lab.domain.Booking;
 import com.rhc.lab.domain.BookingRequest;
 import com.rhc.lab.domain.PerformanceType;
 import com.rhc.lab.domain.Performer;
@@ -30,51 +32,71 @@ import com.rhc.lab.domain.Venue;
  * 
  */
 // FIXME - this test fails in Jenkins
-//@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:camel-context.xml"})
 @Profile("test")
 public class RulesServiceTest {
-
+	//Camel final endpoint
 	@EndpointInject(uri = "mock:end")
 	protected MockEndpoint resultEndpoint;
-
+	//Camel start endpoint
 	@Produce(uri = "direct:start")
 	protected ProducerTemplate template;
-
+	//TODO: make sure we can use NOT mongo repos
 	@Resource(name = "bookingDao")
 	BookingRepository bookingRepo;
 	@Resource(name = "venueDao")
 	VenueRepository venueRepo;
 
+	//shared performer
 	private Performer performer;
+	
 
-//	@Before
+	@Before
 	public void setUp() {
+		//clearing venue repo
 		venueRepo.deleteAll();
+		//set up mock venue
 		Venue venue = new Venue();
 		venue.setId("1");
 		venue.setName("boo");
+		//save venue
 		venueRepo.save(venue);
-
+		//clear booking repo
 		bookingRepo.deleteAll();
-
+		//set up shared performer
 		performer = new Performer();
 		performer.setName("Bob");
 		performer.setType(PerformanceType.COMIC);
 	}
-//	@Test
-	public void testSendingBookingRequest() throws InterruptedException {
-		BookingRequest booking = new BookingRequest();
-		booking.setVenueName("boo");
-		booking.setPerformer(performer);
-		System.out.println("testing");
-		resultEndpoint.expectedBodiesReceived(booking);
-		Collection<Object> facts = new ArrayList<Object>();
-		facts.add(booking);
-		template.sendBody(booking);
-		resultEndpoint.getReceivedExchanges();
-		// TODO : add real tests once rules run.
-		// resultEndpoint.assertIsSatisfied();
+	
+	@Test
+	public void shouldSaveValidBooking() throws InterruptedException {
+		//building booking request
+		BookingRequest request = new BookingRequest();
+		request.setVenueName("boo");
+		request.setPerformer(performer);
+		request.setOpen(new Date());
+		request.setClose(new Date());
+		//sending request
+		template.sendBody(request);
+		//check that booking is in DB
+		Iterable<Booking> bookings = bookingRepo.findAll();
+		//makes sure booking from request is part of bookings in repo
+		assertTrue(compareBookings(bookings,request));
+	}
+	
+	//fuzzy equals to compare a booking request and what is generated
+	private boolean compareBookings(Iterable<Booking> bookings,BookingRequest booking){
+		for(Booking book : bookings){
+			if (book.getPerformer().equals(booking.getPerformer()) &&
+				book.getVenueName().equals(booking.getVenueName()) &&
+				booking.getOpen().equals(book.getOpen()) &&
+				booking.getClose().equals( book.getClose())){
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

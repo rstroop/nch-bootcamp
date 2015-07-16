@@ -1,0 +1,13 @@
+package rules;
+import com.rhc.lab.domain.BookingRequest;
+import com.rhc.lab.domain.Booking;
+dialect "java"
+
+rule "Create Booking from Booking Request"
+
+when
+	$obj:BookingRequest ()
+then
+	Booking booking = new Booking($obj);
+	insert(booking);
+end

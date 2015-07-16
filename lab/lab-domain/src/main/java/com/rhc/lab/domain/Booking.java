@@ -6,6 +6,8 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.rhc.lab.kie.common.KieQuery;
+
 /**
  * 
  * This class represents the persistent data model for a booking confirmed by
@@ -14,6 +16,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "bookings")
 public class Booking implements Serializable, Comparable<Booking> {
+
+
 	/**
    * 
    */
@@ -91,6 +95,59 @@ public class Booking implements Serializable, Comparable<Booking> {
 		else
 			return this.getOpen().compareTo(o.getOpen());
 
+	}
+	
+	@Override
+	public String toString() {
+		return "Booking [id=" + id + ", venueName=" + venueName
+				+ ", performer=" + performer + ", open=" + open + ", close="
+				+ close + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((close == null) ? 0 : close.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((open == null) ? 0 : open.hashCode());
+		result = prime * result
+				+ ((performer == null) ? 0 : performer.hashCode());
+		result = prime * result
+				+ ((venueName == null) ? 0 : venueName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Booking other = (Booking) obj;
+		if (close == null) {
+			if (other.close != null)
+				return false;
+		} else if (!close.equals(other.close))
+			return false;
+		if (open == null) {
+			if (other.open != null)
+				return false;
+		} else if (!open.equals(other.open))
+			return false;
+		if (performer == null) {
+			if (other.performer != null)
+				return false;
+		} else if (!performer.equals(other.performer))
+			return false;
+		if (venueName == null) {
+			if (other.venueName != null)
+				return false;
+		} else if (!venueName.equals(other.venueName))
+			return false;
+		return true;
 	}
 
 }

@@ -56,7 +56,7 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 
 	@Override
 	public <Response> Response execute(Collection<Object> facts,
-			String processId, Class<Response> responseClazz) {
+			String processId, Class<Response> responseClazz) {;
 		StatelessKieSession session;
 		try {
 			if (kieBase != null) {
@@ -68,7 +68,6 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 			logger.error(e.getLocalizedMessage());
 			return null;
 		}
-
 		BatchExecutionCommand batchExecutionCommand = createBatchExecutionCommand(
 				facts, processId, responseClazz);
 
@@ -84,7 +83,6 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 		if (auditLogger != null) {
 			auditLogger.close();
 		}
-
 		return response;
 	}
 
@@ -113,19 +111,31 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 
 	@Override
 	public <Response> Response execute(Collection<Object> facts,
-			String processId) {
-		return execute(facts, processId, null);
-	}
-
-	@Override
-	public <Response> Response execute(Collection<Object> facts,
 			Class<Response> responseClazz) {
+		
 		return execute(facts, null, responseClazz);
 	}
-
+	
+	public Object executeForClass(Collection<Object> facts, String clazzName){
+		try {
+			Class<?> clazz = Class.forName(clazzName);
+			return execute(facts, null, clazz);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	@Override
 	public <Response> Response execute(Collection<Object> facts) {
 		return execute(facts, null, null);
 	}
+
+	@Override
+	public <Response> Response execute(Collection<Object> facts,
+			String processId) {
+		return execute(facts, processId, null);
+	}
+
+
 
 }

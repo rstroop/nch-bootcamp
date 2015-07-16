@@ -27,9 +27,13 @@ http://drools.org/schema/kie-spring http://drools.org/schema/kie-spring.xsd ">
 		<route>
 			<from uri="direct:start" />
 			<log message="Saving a sample record in Mongo!" />
-			<!-- TODO: send to LocalStatelessDecisionService -->
-			  <bean ref="requestService" method="collectSingleVenueForSession"/>
-			 <bean ref="localDecisionService" method="execute"/>
+			<!-- build session -->
+			  <bean ref="requestService" method="buildSession"/>
+			  <!-- set return class header -->
+			  <setHeader headerName="responseClazz"> <constant>com.rhc.lab.domain.BookingResponse</constant></setHeader>
+			 <!-- send session to statless Decision Service -->
+			 <bean ref="localDecisionService" method="executeForClass(${body},${header.responseClazz})"/>
+			 <!-- process the returned response -->
 			 <bean ref="requestService" method="saveBooking"/>
 			<to uri="mock:end" />
 		</route>
