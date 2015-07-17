@@ -31,6 +31,8 @@ import org.junit.Assert;
 public class BaseSteps {
 	@Resource(name = "localDecisionServiceBean")
 	private StatelessDecisionService decisionService;
+
+	// TODO: make this a bean
 	private VenueCucumberRepository venueRepo = new VenueCucumberRepository();
 	private BookingCucumberRepository bookingRepo = new BookingCucumberRepository();
 
@@ -41,6 +43,7 @@ public class BaseSteps {
 	private BookingResponse response = new BookingResponse();
 	private List<Object> facts;
 
+	// TODO: make this a bean
 	private BookingRequestService requestService;
 
 	@Given("^a venue \"(.*?)\" with an occupancy of \"(.*?)\"$")
