@@ -2,6 +2,8 @@ package rules;
 import com.rhc.lab.domain.BookingRequest;
 import com.rhc.lab.domain.Booking;
 import com.rhc.lab.domain.BookingStatus;
+import com.rhc.lab.domain.Venue;
+
 dialect "java"
 
 rule "Create Booking from Booking Request"
@@ -11,5 +13,13 @@ when
 then
 	Booking booking = new Booking($obj);
 	insert(booking);
-	insert(BookingStatus.CONFIRMED);
+end
+
+rule "Venue revokes unsuitable Performances"
+
+when 
+	$bookingRequest: BookingRequest()
+	$venue: Venue(accomodations not contains $bookingRequest.performer.type)
+then
+	insert(BookingStatus.REVOKED);
 end
