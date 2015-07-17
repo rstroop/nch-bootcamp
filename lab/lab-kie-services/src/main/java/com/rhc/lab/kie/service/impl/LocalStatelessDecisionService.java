@@ -33,8 +33,7 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 	public LocalStatelessDecisionService() {
 		kieContainer = KieServices.Factory.get().getKieClasspathContainer();
 		try {
-			StatelessKieSession statelessKieSession = kieContainer
-					.newStatelessKieSession();
+			kieContainer.newStatelessKieSession();
 		} catch (Exception e) {
 			logger.warn("There is no Kie Module on classpath");
 		}
@@ -46,7 +45,7 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 		kieContainer = KieServices.Factory.get().getKieClasspathContainer();
 		kieBase = kieContainer.getKieBase(kbase);
 		try {
-			StatelessKieSession ksession = kieBase.newStatelessKieSession();
+			kieBase.newStatelessKieSession();
 		} catch (Exception e) {
 			System.out.println("could not find kie module");
 		}

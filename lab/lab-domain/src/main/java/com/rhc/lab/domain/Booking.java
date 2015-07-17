@@ -6,8 +6,6 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.rhc.lab.kie.common.KieQuery;
-
 /**
  * 
  * This class represents the persistent data model for a booking confirmed by
