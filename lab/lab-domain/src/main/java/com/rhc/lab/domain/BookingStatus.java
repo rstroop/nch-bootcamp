@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 public enum BookingStatus implements Serializable {
 
-	CONFIRMED("Confirmed"), REVOKED("Revoked"), FAILED("Failure");
+	CONFIRMED("Confirmed"), REVOKED("Revoked"), FAILED("Failure"), NEW("New");
 
 	private String bookingStatus;
 

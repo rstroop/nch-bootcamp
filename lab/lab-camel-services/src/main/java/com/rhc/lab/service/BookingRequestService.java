@@ -15,6 +15,7 @@ import com.rhc.lab.dao.VenueRepository;
 import com.rhc.lab.domain.Booking;
 import com.rhc.lab.domain.BookingRequest;
 import com.rhc.lab.domain.BookingResponse;
+import com.rhc.lab.domain.BookingStatus;
 import com.rhc.lab.domain.Venue;
 
 @Service("requestService")
@@ -26,6 +27,16 @@ public class BookingRequestService {
 	BookingRepository bookingRepo;
 	@Resource(name = "venueDao")
 	VenueRepository venueRepo;
+
+	public BookingRequestService() {
+
+	}
+
+	public BookingRequestService(BookingRepository bookingRepo,
+			VenueRepository venueRepo) {
+		this.bookingRepo = bookingRepo;
+		this.venueRepo = venueRepo;
+	}
 
 	public List<Object> buildSession(@Body BookingRequest request)
 			throws Exception {
@@ -40,9 +51,10 @@ public class BookingRequestService {
 	public boolean saveBooking(@Body BookingResponse response) {
 		// TODO: logger not Sys out
 		System.out.println("Session returned: " + response.toString());
+		Booking booking = response.generateBooking();
 		try {
 			// attempting to save the bookings returned
-			for (Booking booking : response.getBookings()) {
+			if (response.getBookingStatus().iterator().next() == BookingStatus.CONFIRMED) {
 				// TODO: logger not Sys out
 				System.out.println("attempting to save booking: "
 						+ booking.toString());

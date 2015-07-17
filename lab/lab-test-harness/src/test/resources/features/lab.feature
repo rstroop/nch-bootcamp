@@ -9,7 +9,7 @@ Feature: Book Artists at Venues
 		And a request for a "Band" performance by "The Clash"
 		When validating the booking
 		Then the booking should be "CONFIRMED"
-		
+	@Ignore	
 	Scenario: Deny an Orchestra to play a small venue
 		Given a venue "The Cellar" with an occupancy of "200"
 		And the venue accomodates performances by a "Band", "Comic"

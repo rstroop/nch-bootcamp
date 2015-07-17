@@ -1,6 +1,5 @@
 package com.rhc.lab.test.cucumber;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,19 +8,22 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.rhc.lab.domain.Booking;
 import com.rhc.lab.domain.BookingRequest;
+import com.rhc.lab.domain.BookingResponse;
+import com.rhc.lab.domain.BookingStatus;
 import com.rhc.lab.domain.PerformanceType;
 import com.rhc.lab.domain.Performer;
 import com.rhc.lab.domain.Venue;
 import com.rhc.lab.kie.api.StatelessDecisionService;
+import com.rhc.lab.service.BookingRequestService;
 import com.rhc.lab.test.repository.BookingCucumberRepository;
 import com.rhc.lab.test.repository.VenueCucumberRepository;
 
-import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import static org.junit.Assert.*;
+
+import org.junit.Assert;
 
 // import com.rhc.lab.controller.LabController;
 
@@ -36,7 +38,10 @@ public class BaseSteps {
 	private Booking booking = new Booking();
 
 	private BookingRequest request = new BookingRequest();
+	private BookingResponse response = new BookingResponse();
 	private List<Object> facts;
+
+	private BookingRequestService requestService;
 
 	@Given("^a venue \"(.*?)\" with an occupancy of \"(.*?)\"$")
 	public void a_venue_with_an_occupancy_of(String venueName, String occupancy)
@@ -45,10 +50,10 @@ public class BaseSteps {
 		venue.setName(venueName);
 		venue.setCapacity(Integer.parseInt(occupancy));
 
-		// // (Test repo-maps) Add venue to venueRepo
-		// if (venueRepo.findByName(venueName).isEmpty()) {
-		// venueRepo.save(venue);
-		// }
+		// (Test repo-maps) Add venue to venueRepo
+		if (venueRepo.findByName(venueName).isEmpty()) {
+			venueRepo.save(venue);
+		}
 
 		request.setVenueName(venueName);
 		System.out.println("Given step: " + venueName + " " + occupancy);
@@ -81,38 +86,35 @@ public class BaseSteps {
 		request.setPerformer(performer);
 
 		// // (Test repo-maps) Add booking to bookingRepo
-		// booking.setPerformer(performer);
-		// booking.setVenueName(venue.getName());
-		// bookingRepo.save(booking);
-		//
+		booking.setPerformer(performer);
+		booking.setVenueName(venue.getName());
+		bookingRepo.save(booking);
+
 		System.out.println("And second step: " + type + " " + artistName);
 	}
 
 	@When("^validating the booking$")
 	public void validating_the_booking() throws Throwable {
 		// Run rules
-		facts = new ArrayList<Object>();
-		facts.add(request);
-		decisionService.execute(facts);
+		requestService = new BookingRequestService(bookingRepo, venueRepo);
+		facts = requestService.buildSession(request);
+		response = decisionService.execute(facts, BookingResponse.class);
+		requestService.saveBooking(response);
 
 		System.out.println("When step");
 	}
 
 	@Then("^the booking should be \"(.*?)\"$")
 	public void the_booking_should_be(String bookingStatus) throws Throwable {
-		// Match bookingStatus from results
+		if (response.getBookingStatus() != null
+				&& !response.getBookingStatus().isEmpty()) {
+			BookingStatus status = response.getBookingStatus().iterator()
+					.next();
+			Assert.assertTrue(bookingStatus.equalsIgnoreCase(status.toString()));
+		} else {
+			Assert.fail("No booking status returned from the knowledge session.");
+		}
 
-		// // (Test repo-maps) Validate accomodations
-		// for (PerformanceType type :
-		// venueRepo.findByName(venue.getName()).get(0).getAccomodations()) {
-		// if (type.equals(booking.getPerformer().getType())) {
-		// assert(true);
-		// return
-		// }
-		// }
-		// assert(false);
-
-		System.out.println("Then step: " + bookingStatus);
 	}
 
 }

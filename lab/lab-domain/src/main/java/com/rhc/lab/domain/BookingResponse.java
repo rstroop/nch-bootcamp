@@ -23,10 +23,20 @@ public class BookingResponse implements Serializable {
 	@KieQuery(binding = "$bookingRequest", queryName = "getBookingRequests")
 	private Collection<BookingRequest> bookingRequests;
 
-	@KieQuery(binding = "$booking", queryName = "getBookings")
-	private Collection<Booking> bookings;
+	private Booking booking;
 
-	private BookingStatus bookingStatus;
+	@KieQuery(binding = "$status", queryName = "getStatus")
+	private Collection<BookingStatus> bookingStatus;
+
+	public Booking generateBooking() {
+		if (bookingRequests != null && !bookingRequests.isEmpty()) {
+			booking = new Booking(bookingRequests.iterator().next());
+		} else {
+			// TODO: looger not sys out
+			System.out.println("No booking requests on responce");
+		}
+		return booking;
+	}
 
 	public Collection<BookingRequest> getBookingRequests() {
 		return bookingRequests;
@@ -34,24 +44,27 @@ public class BookingResponse implements Serializable {
 	public void setBookingRequests(Collection<BookingRequest> bookingRequest) {
 		this.bookingRequests = bookingRequest;
 	}
-	public Collection<Booking> getBookings() {
-		return bookings;
+	public Booking getBooking() {
+		return booking;
 	}
-	public void setBookings(Collection<Booking> bookings) {
-		this.bookings = bookings;
+	public void setBooking(Booking booking) {
+		this.booking = booking;
 	}
-	public BookingStatus getBookingStatus() {
+
+	public Collection<BookingStatus> getBookingStatus() {
 		return bookingStatus;
 	}
-	public void setBookingStatus(BookingStatus bookingStatus) {
+	public void setBookingStatus(Collection<BookingStatus> bookingStatus) {
 		this.bookingStatus = bookingStatus;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((bookings == null) ? 0 : bookings.hashCode());
+		result = prime * result + ((booking == null) ? 0 : booking.hashCode());
 		result = prime * result
 				+ ((bookingRequests == null) ? 0 : bookingRequests.hashCode());
 		result = prime * result
@@ -67,10 +80,10 @@ public class BookingResponse implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		BookingResponse other = (BookingResponse) obj;
-		if (bookings == null) {
-			if (other.bookings != null)
+		if (booking == null) {
+			if (other.booking != null)
 				return false;
-		} else if (!bookings.equals(other.bookings))
+		} else if (!booking.equals(other.booking))
 			return false;
 		if (bookingRequests == null) {
 			if (other.bookingRequests != null)
@@ -84,7 +97,7 @@ public class BookingResponse implements Serializable {
 	@Override
 	public String toString() {
 		return "BookingResponse [bookingRequest=" + bookingRequests
-				+ ", booking=" + bookings + ", bookingStatus=" + bookingStatus
+				+ ", booking=" + booking + ", bookingStatus=" + bookingStatus
 				+ "]";
 	}
 

@@ -23,10 +23,6 @@
 			<groupId>com.rhc</groupId>
 			<artifactId>lab-dao</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.rhc</groupId>
-			<artifactId>lab-test-harness</artifactId>
-		</dependency>
 
 		<!-- Camel Dependencies -->
 		<dependency>

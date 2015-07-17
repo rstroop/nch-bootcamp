@@ -11,6 +11,7 @@ import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.annotation.Profile;
@@ -32,10 +33,9 @@ import com.rhc.lab.domain.Venue;
  * 
  */
 // FIXME - this test fails in Jenkins
-
-// @RunWith(SpringJUnit4ClassRunner.class)
+@Ignore
+@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:camel-context.xml"})
-@Profile("test")
 public class RulesServiceTest {
 	// Camel final endpoint
 	@EndpointInject(uri = "mock:end")
@@ -52,7 +52,7 @@ public class RulesServiceTest {
 	// shared performer
 	private Performer performer;
 
-	// @Before
+	@Before
 	public void setUp() {
 		// clearing venue repo
 		venueRepo.deleteAll();
@@ -70,7 +70,7 @@ public class RulesServiceTest {
 		performer.setType(PerformanceType.COMIC);
 	}
 
-	// @Test
+	@Test
 	public void shouldSaveValidBooking() throws InterruptedException {
 		// building booking request
 		BookingRequest request = new BookingRequest();

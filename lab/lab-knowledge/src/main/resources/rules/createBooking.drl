@@ -1,6 +1,7 @@
 package rules;
 import com.rhc.lab.domain.BookingRequest;
 import com.rhc.lab.domain.Booking;
+import com.rhc.lab.domain.BookingStatus;
 dialect "java"
 
 rule "Create Booking from Booking Request"
@@ -10,4 +11,5 @@ when
 then
 	Booking booking = new Booking($obj);
 	insert(booking);
+	insert(BookingStatus.CONFIRMED);
 end
