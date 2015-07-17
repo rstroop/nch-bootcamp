@@ -76,7 +76,7 @@ This will output the generated users and passwords for the EAP Admin Console, wh
 1. TODO
 
 ###Instructions###
-##Day 5 - To Infinity and Beyond##
+##Day 5 - Breakfix Playground##
 ###Goals###
 1. TODO
 
