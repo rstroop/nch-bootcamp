@@ -82,6 +82,7 @@ public class BaseSteps {
 		booking.setOpen(dOpen);
 		booking.setClose(dClose);
 		booking.setVenueName(venue.getName());
+		System.out.println("saving previous booking" + booking.toString());
 		bookingRepo.save(booking);
 
 	}
@@ -113,11 +114,39 @@ public class BaseSteps {
 		request.setPerformer(performer);
 
 		// // (Test repo-maps) Add booking to bookingRepo
-		booking.setPerformer(performer);
-		booking.setVenueName(venue.getName());
-		bookingRepo.save(booking);
+		// booking.setPerformer(performer);
+		// booking.setVenueName(venue.getName());
+		// bookingRepo.save(booking);
 
 		System.out.println("And second step: " + type + " " + artistName);
+	}
+
+	@And("^a dated request for a \"(.*?)\" performance by \"(.*?)\" from \"(.*?)\" to \"(.*?)\"$")
+	public void a_request_for_a_performance_by_from(String type,
+			String artistName, String open, String close) throws Throwable {
+		SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy hh:mm:ss");
+		// Set properties regarding performance requests
+		Performer performer = new Performer();
+		performer.setName(artistName);
+		try {
+			performer.setType(PerformanceType.valueOf(type.toUpperCase()));
+		} catch (Exception e) {
+			throw new Exception("Type '" + type + "' does not exist");
+		}
+		request.setPerformer(performer);
+		Date dOpen = sdf.parse(open);
+		Date dClose = sdf.parse(close);
+		Assert.assertNotNull(dOpen);
+		Assert.assertNotNull(dClose);
+		request.setOpen(dOpen);
+		request.setClose(dClose);
+		request.setVenueName(venue.getName());
+		// // (Test repo-maps) Add booking to bookingRepo
+		// booking.setPerformer(performer);
+		// booking.setVenueName(venue.getName());
+		// bookingRepo.save(booking);
+
+		System.out.println("And second step: " + request.toString());
 	}
 
 	@When("^validating the booking$")

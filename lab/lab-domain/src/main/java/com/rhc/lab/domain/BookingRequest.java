@@ -10,6 +10,7 @@ import java.util.Date;
  * 
  */
 public class BookingRequest implements Serializable {
+
 	/**
    * 
    */
@@ -54,6 +55,12 @@ public class BookingRequest implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	@Override
+	public String toString() {
+		return "BookingRequest [venueName=" + venueName + ", open=" + open
+				+ ", close=" + close + ", performer=" + performer + "]";
 	}
 
 }
