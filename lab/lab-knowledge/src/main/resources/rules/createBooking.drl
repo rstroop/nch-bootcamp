@@ -3,6 +3,7 @@ import com.rhc.lab.domain.BookingRequest;
 import com.rhc.lab.domain.Booking;
 import com.rhc.lab.domain.BookingStatus;
 import com.rhc.lab.domain.Venue;
+import java.util.Date;
 
 dialect "java"
 
@@ -23,3 +24,45 @@ when
 then
 	insert(BookingStatus.REVOKED);
 end
+
+rule "Edge 1 - Venue revokes requests for busy venues"
+dialect "mvel"
+when
+	
+	$bookingRequest: BookingRequest($venueName : venueName, $requestOpen : open, $requestClose : close)
+	Booking(
+				venueName == $venueName
+				, $requestOpen > open
+				, $requestOpen < close
+	)
+then
+	System.out.println("Edge 1");
+	insert(BookingStatus.REVOKED);
+end
+
+rule "Edge 2 - Venue revokes requests for busy venues"
+dialect "mvel"
+when
+	
+	$bookingRequest: BookingRequest($venueName : venueName, $requestOpen : open, $requestClose : close)
+	Booking(
+				venueName == $venueName
+				, $requestClose > open
+				, $requestClose < close
+	)
+then
+	System.out.println("Edge 2");
+	insert(BookingStatus.REVOKED);
+end
+
+
+rule "Confirm booking if all validations pass"
+salience -10
+when 
+	 not (exists (BookingStatus()))
+then
+	insert(BookingStatus.CONFIRMED);
+end
+
+
+

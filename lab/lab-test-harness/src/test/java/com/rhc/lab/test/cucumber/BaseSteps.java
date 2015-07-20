@@ -1,9 +1,13 @@
 package com.rhc.lab.test.cucumber;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.junit.Assert;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.rhc.lab.domain.Booking;
@@ -22,8 +26,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
-import org.junit.Assert;
 
 // import com.rhc.lab.controller.LabController;
 
@@ -60,6 +62,28 @@ public class BaseSteps {
 
 		request.setVenueName(venueName);
 		System.out.println("Given step: " + venueName + " " + occupancy);
+	}
+
+	@Given("^an existing \"(.*?)\" performance by \"(.*?)\" from \"(.*?)\" to \"(.*?)\"$")
+	public void an_existing_performance_by_from_to(String performanceType,
+			String performanceName, String open, String close) throws Throwable {
+		SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy hh:mm:ss");
+		Performer performer = new Performer();
+		performer.setName(performanceName);
+		performer
+				.setType(PerformanceType.valueOf(performanceType.toUpperCase()));
+
+		Booking booking = new Booking();
+		booking.setPerformer(performer);
+		Date dOpen = sdf.parse(open);
+		Date dClose = sdf.parse(close);
+		Assert.assertNotNull(dOpen);
+		Assert.assertNotNull(dClose);
+		booking.setOpen(dOpen);
+		booking.setClose(dClose);
+		booking.setVenueName(venue.getName());
+		bookingRepo.save(booking);
+
 	}
 
 	@And("^the venue accomodates performances by a \"(.*?)\", \"(.*?)\"$")
