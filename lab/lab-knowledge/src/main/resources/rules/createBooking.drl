@@ -25,33 +25,31 @@ then
 	insert(BookingStatus.REVOKED);
 end
 
-rule "Edge 1 - Venue revokes requests for busy venues"
+rule "Case 1 - Venue revokes requests for busy venues"
 dialect "mvel"
 when
 	
 	$bookingRequest: BookingRequest($venueName : venueName, $requestOpen : open, $requestClose : close)
 	Booking(
 				venueName == $venueName
-				, $requestOpen > open
-				, $requestOpen < close
+				, $requestOpen after open
+				, $requestOpen before close
 	)
 then
-	System.out.println("Edge 1");
 	insert(BookingStatus.REVOKED);
 end
 
-rule "Edge 2 - Venue revokes requests for busy venues"
+rule "Case 2 - Venue revokes requests for busy venues"
 dialect "mvel"
 when
 	
 	$bookingRequest: BookingRequest($venueName : venueName, $requestOpen : open, $requestClose : close)
 	Booking(
 				venueName == $venueName
-				, $requestClose > open
-				, $requestClose < close
+				, $requestClose after open
+				, $requestClose before close
 	)
 then
-	System.out.println("Edge 2");
 	insert(BookingStatus.REVOKED);
 end
 

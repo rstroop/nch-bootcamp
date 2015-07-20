@@ -73,7 +73,7 @@ public class BaseSteps {
 		performer
 				.setType(PerformanceType.valueOf(performanceType.toUpperCase()));
 
-		Booking booking = new Booking();
+		booking = new Booking();
 		booking.setPerformer(performer);
 		Date dOpen = sdf.parse(open);
 		Date dClose = sdf.parse(close);
