@@ -97,6 +97,7 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 			commands.add(commandFactory.newStartProcess(processId));
 		}
 
+		commands.add(commandFactory.newStartProcess("bookingProcess"));
 		commands.add(commandFactory.newFireAllRules());
 
 		// creates commands to run the queries at the end of process
