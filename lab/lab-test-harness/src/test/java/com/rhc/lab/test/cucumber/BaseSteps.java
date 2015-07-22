@@ -34,19 +34,15 @@ public class BaseSteps {
 	@Resource(name = "localDecisionServiceBean")
 	private StatelessDecisionService decisionService;
 
-	// TODO: make this a bean
 	private VenueCucumberRepository venueRepo = new VenueCucumberRepository();
 	private BookingCucumberRepository bookingRepo = new BookingCucumberRepository();
-
 	private Venue venue = new Venue();
 	private Booking booking = new Booking();
-
 	private BookingRequest request = new BookingRequest();
 	private BookingResponse response = new BookingResponse();
 	private List<Object> facts;
-
-	// TODO: make this a bean
 	private BookingRequestService requestService;
+	private static final String processId = "bookingProcess";
 
 	@Given("^a venue \"(.*?)\" with an occupancy of \"(.*?)\"$")
 	public void a_venue_with_an_occupancy_of(String venueName, String occupancy)
@@ -154,7 +150,8 @@ public class BaseSteps {
 		// Run rules
 		requestService = new BookingRequestService(bookingRepo, venueRepo);
 		facts = requestService.buildSession(request);
-		response = decisionService.execute(facts, BookingResponse.class);
+		response = decisionService.execute(facts, processId,
+				BookingResponse.class);
 		requestService.saveBooking(response);
 
 		System.out.println("When step");

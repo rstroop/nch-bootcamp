@@ -97,7 +97,6 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 			commands.add(commandFactory.newStartProcess(processId));
 		}
 
-		commands.add(commandFactory.newStartProcess("bookingProcess"));
 		commands.add(commandFactory.newFireAllRules());
 
 		// creates commands to run the queries at the end of process
@@ -117,10 +116,11 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 		return execute(facts, null, responseClazz);
 	}
 
-	public Object executeForClass(Collection<Object> facts, String clazzName) {
+	public Object executeForClass(Collection<Object> facts, String processId,
+			String clazzName) {
 		try {
 			Class<?> clazz = Class.forName(clazzName);
-			return execute(facts, null, clazz);
+			return execute(facts, processId, clazz);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
