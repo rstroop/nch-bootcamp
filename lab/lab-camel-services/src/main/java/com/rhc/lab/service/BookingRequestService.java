@@ -18,6 +18,12 @@ import com.rhc.lab.domain.BookingResponse;
 import com.rhc.lab.domain.BookingStatus;
 import com.rhc.lab.domain.Venue;
 
+/**
+ * 
+ * This service is used by Camel to execute rules and call saves in the various
+ * DAO repositories.
+ * 
+ */
 @Service("requestService")
 public class BookingRequestService {
 

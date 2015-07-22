@@ -27,8 +27,13 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-// import com.rhc.lab.controller.LabController;
-
+/**
+ * 
+ * This class implements the steps described in the Cucumber feature file
+ * located on the classpath, spelling out the requirements for the venue booking
+ * project.
+ * 
+ */
 @ContextConfiguration("classpath:cucumber.xml")
 public class BaseSteps {
 	@Resource(name = "localDecisionServiceBean")
