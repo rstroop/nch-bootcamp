@@ -263,7 +263,11 @@
 				<artifactId>jbpm-bpmn2</artifactId>
 				<version>${brms.version}</version>
 			</dependency>
-
+			<dependency>
+				<groupId>org.jbpm</groupId>
+				<artifactId>jbpm-test</artifactId>
+				<version>${brms.version}</version>
+			</dependency>
 
 			<!-- Servlet Dependencies -->
 			<dependency>
