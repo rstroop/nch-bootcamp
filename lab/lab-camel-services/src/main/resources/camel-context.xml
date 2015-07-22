@@ -21,26 +21,19 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 		serviceInterface="com.rhc.lab.service.proxy.LabProxySender" />
 	
 
-	<camelContext xmlns="http://camel.apache.org/schema/spring">
+	<!-- build session --><!-- set return class header --><!-- send session to statless Decision Service --><!-- process the returned response --><camelContext xmlns="http://camel.apache.org/schema/spring">
 
-		<dataFormats>
-			<json id="jack" library="Jackson" prettyPrint="true"
-				disableFeatures="FAIL_ON_UNKNOWN_PROPERTIES" />
-		</dataFormats>
-
-		<route>
-			<from uri="direct:start" />
-			<log message="Saving a sample record in Mongo!" />
-			<!-- build session -->
-			  <bean ref="requestService" method="buildSession"/>
-			  <!-- set return class header -->
-			  <setHeader headerName="responseClazz"> <constant>com.rhc.lab.domain.BookingResponse</constant></setHeader>
-			 <!-- send session to statless Decision Service -->
-			 <bean ref="localDecisionService" method="executeForClass(${body}, bookingProcess, ${header.responseClazz})"/>
-			 <!-- process the returned response -->
-			 <bean ref="requestService" method="saveBooking"/>
-			<to uri="mock:end" />
-		</route>
-
-	</camelContext>
+  <route>
+  	<!-- XXX-Instructions -->
+    <from uri="direct:start"/>
+    <log message="Starting our Camel Route!"/>
+    <bean ref="requestService" method="buildSession"/>
+    <setHeader headerName="responseClazz">
+      <constant>com.rhc.lab.domain.BookingResponse</constant>
+    </setHeader>
+    <bean ref="localDecisionService" method="executeForClass(${body}, bookingProcess, ${header.responseClazz})"/>
+    <bean ref="requestService" method="saveBooking"/>
+    <to uri="mock:end"/>
+  </route>
+</camelContext>
 </beans>

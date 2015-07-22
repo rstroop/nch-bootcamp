@@ -91,6 +91,8 @@ public class BaseSteps {
 	@And("^the venue accomodates performances by a \"(.*?)\", \"(.*?)\"$")
 	public void the_venue_accomodates_performances_by_a(String artistType1,
 			String artistType2) throws Throwable {
+
+		// XXX-Instructions
 		// Set properties regarding allowed performances
 		ArrayList<PerformanceType> accomodations = new ArrayList<PerformanceType>();
 		accomodations.add(PerformanceType.valueOf(artistType1.toUpperCase()));
@@ -164,6 +166,8 @@ public class BaseSteps {
 
 	@Then("^the booking should be \"(.*?)\"$")
 	public void the_booking_should_be(String bookingStatus) throws Throwable {
+		// XXX-Instructions
+
 		if (response.getBookingStatus() != null
 				&& !response.getBookingStatus().isEmpty()) {
 			BookingStatus status = response.getBookingStatus().iterator()

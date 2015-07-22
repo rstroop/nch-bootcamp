@@ -13,7 +13,7 @@ public class RuleFlowTest extends BaseBPMNTest {
 	}
 
 	@Test
-	public void should_escalate_exceeded_budget() {
+	public void shouldTriggerValidateBookingRuleFlowGroup() {
 
 		processInstance = ksession.startProcess(P_BOOKING, processVars);
 		assertProcessInstanceActive(processInstance.getId(), ksession);
