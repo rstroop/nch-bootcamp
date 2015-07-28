@@ -88,19 +88,18 @@ public class BaseSteps {
 
 	}
 
-	@And("^the venue accomodates performances by a \"(.*?)\", \"(.*?)\"$")
-	public void the_venue_accomodates_performances_by_a(String artistType1,
-			String artistType2) throws Throwable {
+	@Given("^the venue accomodates performances by a$")
+	public void the_venue_accomodates_performances_by_a(List<String> artistTypes)
+			throws Throwable {
+		List<PerformanceType> accomodations = new ArrayList<PerformanceType>();
+		for (String artistType : artistTypes) {
+			accomodations.add(PerformanceType.valueOf(artistType));
+		}
 
-		// XXX-Instructions
-		// Set properties regarding allowed performances
-		ArrayList<PerformanceType> accomodations = new ArrayList<PerformanceType>();
-		accomodations.add(PerformanceType.valueOf(artistType1.toUpperCase()));
-		accomodations.add(PerformanceType.valueOf(artistType2.toUpperCase()));
 		venue.setAccomodations(accomodations);
 
-		System.out
-				.println("And first step: " + artistType1 + " " + artistType2);
+		System.out.println("And first step: " + artistTypes);
+
 	}
 
 	@And("^a request for a \"(.*?)\" performance by \"(.*?)\"$")
@@ -115,11 +114,6 @@ public class BaseSteps {
 			throw new Exception("Type '" + type + "' does not exist");
 		}
 		request.setPerformer(performer);
-
-		// // (Test repo-maps) Add booking to bookingRepo
-		// booking.setPerformer(performer);
-		// booking.setVenueName(venue.getName());
-		// bookingRepo.save(booking);
 
 		System.out.println("And second step: " + type + " " + artistName);
 	}
@@ -144,10 +138,6 @@ public class BaseSteps {
 		request.setOpen(dOpen);
 		request.setClose(dClose);
 		request.setVenueName(venue.getName());
-		// // (Test repo-maps) Add booking to bookingRepo
-		// booking.setPerformer(performer);
-		// booking.setVenueName(venue.getName());
-		// bookingRepo.save(booking);
 
 		System.out.println("And second step: " + request.toString());
 	}
