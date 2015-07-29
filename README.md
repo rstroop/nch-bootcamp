@@ -99,21 +99,22 @@ You can also search for 'XXX' in the File Search. In JBDS, in the top toolbar, c
 	```
 1. Open JBDS and build the project as you did yesterday. The project should now fail to build. Now comes the fun part!
 
-The first goal of the day is to learn some basic concepts of BDD. Cucumber is a popular BDD tool we use frequently on projects. The framework uses text files containing application "features", and connects the steps of each feature to a corresponding JUnit test, called a "step". There are a number of test features found in the following location:
+The first goal of the day is to learn some basic concepts of BDD. Cucumber is a popular BDD tool we use frequently on projects. The framework uses text files containing application "features", and connects the steps of each feature to a corresponding JUnit test, called a "step". There are a number of test features found in the following location:  
 	```
 	lab-test-harness/src/test/resources/features/lab.feature
  	```
-The JUnit tests which implement these features are found at the following location:
+The JUnit tests which implement these features are found at the following location: 
 	```
 	lab-test-harness/src/test/java/com/rhc/lab/test/cucumber/BaseSteps.java
 	```
+
 1. To start today's exercises inside of BaseSteps.java, there are two methods which have to be implemented. They are marked by the 'XXX' comment. Fill in each of these methods according to the instructions in the comments, and run the following Cucumber test to verify your results: 
 	```
 	lab-test-harness/src/test/java/com/rhc/lab/test/cucumber/RunCukesTest.java
 	```
 	* In the Junit window, the features should still fail, but the "Given" steps should all pass successfully.
 
-2. Next, you will implement the rules that will confirm or revoke a venue booking request. Locate the business rules at the following location: 
+2. Next, you will implement the rules that will confirm or revoke a venue booking request. Locate the business rules at the following location:  
 	```
 	lab-knowledge/src/main/resources/rules/createBooking.drl
 	```
@@ -123,11 +124,11 @@ The JUnit tests which implement these features are found at the following locati
 4. Verify the project builds successfully by running a Maven build.
 
 5. Once the project builds, make sure that your local application can save booking requests. 
-6. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance:
+6. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance: 
 	```
-	git add .
-	git commit -m "YOUR COMMIT MESSAGE"
-	git push origin master
+	git add . 
+	git commit -m "YOUR COMMIT MESSAGE" 
+	git push origin master 
 	```
 
 Your application is now back to a known good state and you've completed the exercises for Day 2!
