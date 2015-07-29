@@ -83,6 +83,11 @@ No let's set up a local server to test out our application.
 1. To get familiar with BDD (Behavior-Driven-Development) by using the Cucumber test Framework
 1. Learn how to write Business Rules, and touch integration endpoints in Business Processes
 
+###Note###
+All exercises in the code are marked by the 'XXX' label, which shows up by default the JBDS Tasks view. To expose this view in JBDS, in the top toolbar, click Window->Show View->Other..., and under "General", open "Tasks".
+
+You can also search for 'XXX' in the File Search. In JBDS, in the top toolbar, click Search->File... and search on "XXX" in the "Containing Text" field.
+
 ###Instructions###
 1. To check out today's repository branch, pull all of the branches from the upstream bootcamp repository into the directory you created yesterday:
 	```
@@ -94,10 +99,34 @@ No let's set up a local server to test out our application.
 	```
 1. Open JBDS and build the project as you did yesterday. The project should now fail to build. Now comes the fun part!
 
-The first goal of the day is to learn some basic concepts of BDD. A great BDD tool we use frequently is a framework called Cucumber, which takes text files containing application "features", and connects the steps of each feature to a corresponding JUnit test, called a "step". There are a number of test features found in the following location:
+The first goal of the day is to learn some basic concepts of BDD. Cucumber is a popular BDD tool we use frequently on projects. The framework uses text files containing application "features", and connects the steps of each feature to a corresponding JUnit test, called a "step". There are a number of test features found in the following location:
+	```
+	lab-test-harness/src/test/resources/features/lab.feature
+ 	```
+The JUnit tests which implement these features are found at the following location:
+	```
+	lab-test-harness/src/test/java/com/rhc/lab/test/cucumber/BaseSteps.java
+	```
+To start today's exercises inside of BaseSteps.java, there are two methods which have to be implemented. They are marked by the 'XXX' comment. Fill in each of these methods according to the instructions in the comments, and run the following Cucumber test to verify your results:
+	```
+	lab-test-harness/src/test/java/com/rhc/lab/test/cucumber/RunCukesTest.java
+	```
+In the Junit window, the features should still fail, but the "Given" steps should all pass successfully.
 
-lab-test-harness/src/test/resources/features/lab.feature
- 
+Next, you will implement the rules that will confirm or revoke a venue booking request. The business rules are located at the following location:
+	```
+	lab-knowledge/src/main/resources/rules/createBooking.drl
+	```
+Several empty rules have to be implemented. They are marked by the 'XXX' comments. Fill in each of these rules according to the instructions in the comments, and run RunCukesTest.java to verify the rules pass the features written. Verify the project builds successfully by running a Maven build.
+
+Once the project builds, make sure that your local application can save booking requests. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance:
+	```
+	git add .
+	git commit -m "YOUR COMMIT MESSAGE"
+	git push origin master
+	```
+
+Your application is now back to a known good state and you've completed the exercises for Day 2!
 
 ###Instructions###
 ##Day 3 - Integrating Services with Camel##
