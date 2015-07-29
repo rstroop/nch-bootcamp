@@ -55,15 +55,42 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 	* This will output the generated users and passwords for the EAP Admin Console, which you can use to configure persistence in the webapp.
 
 1. In your browser, navigate to https://nchlab-<YOUR-DOMAIN>.rhcloud.com/
+	* You now have a web application running business rules and Camel services on top of a MongoDB database!
 
-That's it! You now have a web application running business rules and Camel services on top of a MongoDB database.
+Now we will import the projects from the "nchlab" repository into the JBDS (JBoss Developer Studio) IDE.
+1. Start JBDS and once you have opened a workspace, click File->Import...
+1. In the Import wizard, Expand the "Maven" folder, and click "Existing Maven Projects"
+1. Select the directory where you cloned your nchlab repository.
+1. Select all the projects in the parent directory, and complete the wizard. In the Project Editor, you should have 9 projects imported.
+1. Right click on the "lab" project, then click Run As->Maven Build...
+1. In the Build popup, enter:
+	* Goals: clean install
+	* Profiles: openshift
+1. Click 'Run' to perform the Maven build and ensure that the project build is successful.
 
 ##Day 2 - Business Rules and Process Modeling##
 ###Goals###
-1. Learn how to write Business Rules, and touch integration endpoints in Business Processes
 1. To get familiar with BDD (Behavior-Driven-Development) by using the Cucumber test Framework
+1. Learn how to write Business Rules, and touch integration endpoints in Business Processes
 
 ###Instructions###
+1. To check out today's repository branch, pull all of the branches from the upstream bootcamp repository into the directory you created yesterday:
+	```
+	git fetch upstream
+	```
+1. Next, checkout the Day 2 branch of the bootcamp repository:
+	```
+	git checkout day2
+	```
+1. Open JBDS and build the project as you did yesterday. The project should now fail to build. Now comes the fun part!
+
+The first goal of the day is to learn some basic concepts of BDD. A great BDD tool we use frequently is a framework called Cucumber, which takes text files containing application "features", and connects the steps of each feature to a corresponding JUnit test, called a "step". There are a number of test features found in the following location:
+
+lab-test-harness/src/test/resources/features/lab.feature
+
+
+
+To run this list of features, 
 
 ###Instructions###
 ##Day 3 - Integrating Services with Camel##
