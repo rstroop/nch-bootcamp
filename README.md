@@ -97,10 +97,7 @@ No let's set up a local server to test out our application.
 The first goal of the day is to learn some basic concepts of BDD. A great BDD tool we use frequently is a framework called Cucumber, which takes text files containing application "features", and connects the steps of each feature to a corresponding JUnit test, called a "step". There are a number of test features found in the following location:
 
 lab-test-harness/src/test/resources/features/lab.feature
-
-
-
-To run this list of features, 
+ 
 
 ###Instructions###
 ##Day 3 - Integrating Services with Camel##
