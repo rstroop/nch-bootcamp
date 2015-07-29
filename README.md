@@ -107,19 +107,23 @@ The JUnit tests which implement these features are found at the following locati
 	```
 	lab-test-harness/src/test/java/com/rhc/lab/test/cucumber/BaseSteps.java
 	```
-To start today's exercises inside of BaseSteps.java, there are two methods which have to be implemented. They are marked by the 'XXX' comment. Fill in each of these methods according to the instructions in the comments, and run the following Cucumber test to verify your results:
+1. To start today's exercises inside of BaseSteps.java, there are two methods which have to be implemented. They are marked by the 'XXX' comment. Fill in each of these methods according to the instructions in the comments, and run the following Cucumber test to verify your results: 
 	```
 	lab-test-harness/src/test/java/com/rhc/lab/test/cucumber/RunCukesTest.java
 	```
-In the Junit window, the features should still fail, but the "Given" steps should all pass successfully.
+	* In the Junit window, the features should still fail, but the "Given" steps should all pass successfully.
 
-Next, you will implement the rules that will confirm or revoke a venue booking request. The business rules are located at the following location:
+2. Next, you will implement the rules that will confirm or revoke a venue booking request. Locate the business rules at the following location: 
 	```
 	lab-knowledge/src/main/resources/rules/createBooking.drl
 	```
-Several empty rules have to be implemented. They are marked by the 'XXX' comments. Fill in each of these rules according to the instructions in the comments, and run RunCukesTest.java to verify the rules pass the features written. Verify the project builds successfully by running a Maven build.
 
-Once the project builds, make sure that your local application can save booking requests. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance:
+3. Several empty rules have to be implemented. They are marked by the 'XXX' comments. Fill in each of these rules according to the instructions in the comments, and run RunCukesTest.java to verify the rules pass the features written. 
+
+4. Verify the project builds successfully by running a Maven build.
+
+5. Once the project builds, make sure that your local application can save booking requests. 
+6. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance:
 	```
 	git add .
 	git commit -m "YOUR COMMIT MESSAGE"
