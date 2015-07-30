@@ -29,7 +29,7 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 ```
 	rhc app-create nchlab jbossews-2.0 -g large 
 ```
-	* These commands will output the generated credentials and locations for the OpenShift Git repository our application will use. Save this information in a text file for safekeeping.
+* These commands will output the generated credentials and locations for the OpenShift Git repository our application will use. Save this information in a text file for safekeeping.
 
 1. Enter the newly cloned git directory
 ```
@@ -41,7 +41,7 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 	git remote add upstream -m master git://github.com/justincohler/nch-bootcamp.git 
 	git pull -s recursive -X theirs upstream master 
 ```
-	* An editor will ask you to enter a merge message. Enter the following to (w)rite the merge record and (q)uit out of the editor:
+* An editor will ask you to enter a merge message. Enter the following to (w)rite the merge record and (q)uit out of the editor:
 ```
 		> :wq 
 ```
@@ -50,7 +50,7 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 ```
 	git push
 ```
-	* This will output the generated users and passwords for the EAP Admin Console, which you can use to configure persistence in the webapp.
+* This will output the generated users and passwords for the EAP Admin Console, which you can use to configure persistence in the webapp.
 
 1. In your browser, navigate to https://nchlab-<YOUR-DOMAIN>.rhcloud.com/
 	* You now have a web application running business rules and Camel services on top of a MongoDB database!
