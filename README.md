@@ -174,5 +174,26 @@ In this branch, there are a series of exercises marked by the "XXX" marker descr
 ###Instructions###
 ##Day 5 - Breakfix Playground##
 ###Goals###
+1. Get familiar navigating a multi-module application to look for common breaks.
 
 ###Instructions###
+1. To check out today's repository branch, pull all of the branches from the upstream bootcamp repository into the directory you created yesterday:
+```
+	git fetch upstream
+```
+1. Next, checkout the Day 5 branch of the bootcamp repository:
+```
+	git checkout day5
+```
+1. Open JBDS and build the project as you did yesterday. The project should now fail to build.
+
+Today's lab will be a series of breakfixes in our application. Several components are currently broken in the application, and it is your job to get the application back to the known good state. The "XXX" marker has been placed in several spots of the application with hints to get you on the right track. Use the 'File Search' functionality in JBDS to locate these markers and be sure to build with Maven frequently to determine the source of the errors.
+
+1. Verify the project builds successfully by running a Maven build.
+2. Once the project builds, make sure that your local application can save booking requests. 
+3. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance: 
+```
+	git add . 
+	git commit -m "YOUR COMMIT MESSAGE" 
+	git push origin master 
+```
