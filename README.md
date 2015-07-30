@@ -26,31 +26,30 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 
 ###Instructions###
 1. Run the following commands on the command line to create a new EAP 6 project in OpenShift:
-
-	```
+```
 	rhc app-create nchlab jbossews-2.0 -g large 
-	```
+```
 	* These commands will output the generated credentials and locations for the OpenShift Git repository our application will use. Save this information in a text file for safekeeping.
 
 1. Enter the newly cloned git directory
-	```
+```
 	cd nchlab/ 
-	```
+```
 
 1. Connect the starter code on GitHub to the OpenShift repository:
-	```
+```
 	git remote add upstream -m master git://github.com/justincohler/nch-bootcamp.git 
 	git pull -s recursive -X theirs upstream master 
-	```
+```
 	* An editor will ask you to enter a merge message. Enter the following to (w)rite the merge record and (q)uit out of the editor:
-		```
+```
 		> :wq 
-		```
+```
 
 1. Finally, push the starter code to OpenShift: 
-	```
+```
 	git push
-	```
+```
 	* This will output the generated users and passwords for the EAP Admin Console, which you can use to configure persistence in the webapp.
 
 1. In your browser, navigate to https://nchlab-<YOUR-DOMAIN>.rhcloud.com/
@@ -90,35 +89,37 @@ You can also search for 'XXX' in the File Search. In JBDS, in the top toolbar, c
 
 ###Instructions###
 1. To check out today's repository branch, pull all of the branches from the upstream bootcamp repository into the directory you created yesterday:
-	```
+```
 	git fetch upstream
-	```
+```
 1. Next, checkout the Day 2 branch of the bootcamp repository:
-	```
+```
 	git checkout day2
-	```
+```
 1. Open JBDS and build the project as you did yesterday. The project should now fail to build. Now comes the fun part!
 
 The first goal of the day is to learn some basic concepts of BDD. Cucumber is a popular BDD tool we use frequently on projects. The framework uses text files containing application "features", and connects the steps of each feature to a corresponding JUnit test, called a "step". There are a number of test features found in the following location:  
-	```
+```
 	lab-test-harness/src/test/resources/features/lab.feature  
-	```
+```
 
 The JUnit tests which implement these features are found at the following location:
-	```
+```
 	lab-test-harness/src/test/java/com/rhc/lab/test/cucumber/BaseSteps.java
-	```
+```
 
 1. To start today's exercises inside of BaseSteps.java, there are two methods which have to be implemented. They are marked by the 'XXX' comment. Fill in each of these methods according to the instructions in the comments, and run the following Cucumber test to verify your results: 
-	```
+```
 	lab-test-harness/src/test/java/com/rhc/lab/test/cucumber/RunCukesTest.java
-	```
+```
 	* In the Junit window, the features should still fail, but the "Given" steps should all pass successfully.
 
-2. Next, you will implement the rules that will confirm or revoke a venue booking request. Locate the business rules at the following location:  
-	```
+The second goal of the day is to get some practice writing business rules in the Drools Rules Language.
+
+2. You will implement the rules that will confirm or revoke a venue booking request. Locate the business rules at the following location:  
+```
 	lab-knowledge/src/main/resources/rules/createBooking.drl
-	```
+```
 
 3. Several empty rules have to be implemented. They are marked by the 'XXX' comments. Fill in each of these rules according to the instructions in the comments, and run RunCukesTest.java to verify the rules pass the features written. 
 
@@ -126,21 +127,45 @@ The JUnit tests which implement these features are found at the following locati
 
 5. Once the project builds, make sure that your local application can save booking requests. 
 6. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance: 
-	```
+```
 	git add . 
 	git commit -m "YOUR COMMIT MESSAGE" 
 	git push origin master 
-	```
+```
 
-Your application is now back to a known good state and you've completed the exercises for Day 2!
+Your application is now back to a known good state and you've completed the exercises for Day 2
 
 ###Instructions###
 ##Day 3 - Integrating Services with Camel##
 ###Goals###
 1. Learn how to write Camel routes for code-less integration
-1. Learn how to expose and consume Web Services with Camel
 
 ###Instructions
+1. To check out today's repository branch, pull all of the branches from the upstream bootcamp repository into the directory you created yesterday:
+```
+	git fetch upstream
+```
+1. Next, checkout the Day 3 branch of the bootcamp repository:
+```
+	git checkout day3
+```
+1. Open JBDS and build the project as you did yesterday. The project should now fail to build.
+
+The goal for today is to create a Camel route that takes a BookingRequest object created by a web form in the UI, runs that request through a series of business rules, and saves a confirmed Booking object to a MongoDB database. The Camel context, which defines the route we will be writing is found at the following location:
+```
+	lab-camel-services/src/main/resources/camel-context.xml		
+```
+In this branch, there are a series of exercises marked by the "XXX" marker describing the components needed to implement the route described above. Complete the marked exercises and then test the application locally and in your OpenShift instance:
+1. Verify the project builds successfully by running a Maven build.
+
+2. Once the project builds, make sure that your local application can save booking requests. 
+3. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance: 
+```
+	git add . 
+	git commit -m "YOUR COMMIT MESSAGE" 
+	git push origin master 
+```
+
 ##Day 4 - Continuous Integration and Delivery##
 ###Goals###
 1. Learn how to add and use plugins in Jenkins on top of OpenShift
@@ -149,6 +174,5 @@ Your application is now back to a known good state and you've completed the exer
 ###Instructions###
 ##Day 5 - Breakfix Playground##
 ###Goals###
-1. TODO
 
 ###Instructions###
