@@ -27,7 +27,7 @@ OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/manag
 ###Instructions###
 1. Run the following commands on the command line to create a new EAP 6 project in OpenShift:
 ```
-	rhc app-create nchlab jbossews-2.0 -g large 
+	rhc app-create nchlab jbosseap -g large 
 ```
 * These commands will output the generated credentials and locations for the OpenShift Git repository our application will use. Save this information in a text file for safekeeping.
 
