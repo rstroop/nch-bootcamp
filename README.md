@@ -78,8 +78,9 @@ No let's set up a local server to test out our application.
 3. In the following dialogues, select a new Tomcat 7 server and point to the Tomcat installation on your machine.
 4. On the "Add and Remove" screen, add the lab-web project in the "Available" column to the "Configured" column and click finish.
 5. In the web.xml of the lab-web project, under the "spring.profiles.active" context-param, change "openshift" to "default" to switch the Spring profile to your local configuration.
-6. Start the new server by right clicking on the new server and clicking "Start"
-7. Point to localhost:8080/ in your web browser and you should have the application running on your local machine with a local database.
+6. In the Web Project Settings for the project (right click on the lab-web project), set the Context root to "/". (Without quotes) 
+7. Start the new server by right clicking on the new server and clicking "Start"
+8. Point to localhost:8080/ in your web browser and you should have the application running on your local machine with a local database.
 
 ##Day 2 - Business Rules and Process Modeling##
 ###Goals###
