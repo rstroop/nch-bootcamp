@@ -155,6 +155,12 @@ The goal for today is to create a Camel route that takes a BookingRequest object
 ```
 	lab-camel-services/src/main/resources/camel-context.xml		
 ```
+You will also be tasked with configuring the camel context in the servlet container. The web.xml for the project is found at the following location:
+```
+	lab-web/src/main/webapp/WEB-INF/web.xml
+```
+For reference, read through this [example](http://camel.apache.org/servlet-tomcat-example.html) on Camel in web applications.
+
 In this branch, there are a series of exercises marked by the "XXX" marker describing the components needed to implement the route described above. Complete the marked exercises and then test the application locally and in your OpenShift instance:
 1. Verify the project builds successfully by running a Maven build.
 
