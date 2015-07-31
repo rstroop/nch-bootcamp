@@ -121,7 +121,10 @@ The second goal of the day is to get some practice writing business rules in the
 	lab-knowledge/src/main/resources/rules/createBooking.drl
 ```
 
-3. Several empty rules have to be implemented. They are marked by the 'XXX' comments. Fill in each of these rules according to the instructions in the comments, and run RunCukesTest.java to verify the rules pass the features written. 
+3. Several empty rules have to be implemented. They are marked by the 'XXX' comments. Fill in each of these rules according to the instructions in the comments, and run RunCukesTest.java to verify the rules pass the features written. At this point the rules will not pass. Take a look at the Business Process Model found at the following location to ensure the ruleflow groups are defined correctly:
+```
+	lab-knowledge/src/main/resources/rules/bookingProcess.bpmn2
+```
 
 4. Verify the project builds successfully by running a Maven build.
 
@@ -133,7 +136,7 @@ The second goal of the day is to get some practice writing business rules in the
 	git push origin master 
 ```
 
-Your application is now back to a known good state and you've completed the exercises for Day 2
+Your application is now back to a known good state and you've completed the exercises for Day 2. If you have time left over, add some features to the lab.feature file and create some rules of your own.
 
 ###Instructions###
 ##Day 3 - Integrating Services with Camel##
