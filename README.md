@@ -138,7 +138,6 @@ The second goal of the day is to get some practice writing business rules in the
 
 Your application is now back to a known good state and you've completed the exercises for Day 2. If you have time left over, add some features to the lab.feature file and create some rules of your own.
 
-###Instructions###
 ##Day 3 - Integrating Services with Camel##
 ###Goals###
 1. Learn how to write Camel routes for code-less integration
