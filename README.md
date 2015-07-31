@@ -14,7 +14,7 @@ Install				| URL
 Java Development Kit 7 			| [OpenJDK](http://openjdk.java.net/install/), [Oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
 Apache Maven (Latest) 			| [link](http://maven.apache.org/download.cgi)
 Git 							| [link](https://git-scm.com/downloads)
-JBoss EAP 6.4.0 				| [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=appplatform&version=6.1.0&productChanged=yes)
+Tomcat 7.0				| [link](http://apache.mirrors.lucidnetworks.net/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.zip) [link2](https://tomcat.apache.org/download-70.cgi)
 JBoss BPM Suite 6.1.0 			| [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&productChanged=yes)
 OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/managing-client-tools.html)
 MongoDB 2.6			| [link](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/)
@@ -26,9 +26,9 @@ MongoDB 2.6			| [link](http://docs.mongodb.org/manual/tutorial/install-mongodb-o
 1. To get familiar with the format for the lab content in the remaining days of the Bootcamp
 
 ###Instructions###
-1. Run the following commands on the command line to create a new EAP 6 project called "nchlab" with large gears in OpenShift:
+1. Run the following commands on the command line to create a new EWS (Enterprise Web Server) project called "nchlab" with large gears in OpenShift:
 ```
-	rhc app-create nchlab jbosseap -g large 
+	rhc app-create nchlab jbossews-2.0 -g large 
 ```
 These commands will output the generated credentials and locations for the OpenShift Git repository our application will use. Save this information in a text file for safekeeping.
 
@@ -53,7 +53,7 @@ If you don't have large gears available, the other options are small and medium,
 ```
 	git push
 ```
-The code will be pushed to OpenShift, where OpenShift will run a Maven build on the project, copy the built deployment into the JBoss EAP container, and start the container. 
+The code will be pushed to OpenShift, where OpenShift will run a Maven build on the project, copy the built deployment into the JBoss EWS container, and start the container. 
 
 1. In your browser, navigate to https://nchlab-YOURDOMAIN.rhcloud.com/
 	* You now have a web application running business rules and Camel services on top of a MongoDB database!
@@ -72,10 +72,10 @@ Now we will import the projects from the "nchlab" repository into the JBDS (JBos
 
 No let's set up a local server to test out our application.
 
-1. Make sure that you have locally installed JBoss EAP 6.4 and have a local MongoDB database running.
+1. Make sure that you have locally installed Tomcat 7.0.x and have a local MongoDB database running.
 	* Instructions for MongoDB installation are located [here](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/). Version 2.6 is preferred, but installing v3.0 should work fine as well.
 2. In the "Servers" view of JBDS, right click and click on New->Server...
-3. In the following dialogues, select a new JBoss EAP 6 server and point to the EAP installation on your machine.
+3. In the following dialogues, select a new Tomcat 7 server and point to the Tomcat installation on your machine.
 4. On the "Add and Remove" screen, add the lab-web project in the "Available" column to the "Configured" column and click finish.
 5. In the web.xml of the lab-web project, under the "spring.profiles.active" context-param, change "openshift" to "default" to switch the Spring profile to your local configuration.
 6. Start the new server by right clicking on the new server and clicking "Start"
