@@ -69,7 +69,7 @@ Now we will import the projects from the "nchlab" repository into the JBDS (JBos
 
 No let's set up a local server to test out our application.
 
-1. Make sure that you have locally installed either JBoss EWS 2 and have a local MongoDB database running.
+1. Make sure that you have locally installed JBoss EAP 6.4 and have a local MongoDB database running.
 2. In the "Servers" view of JBDS, right click and click on New->Server...
 3. In the following dialogues, select a new Tomcat 7 server and point to the EWS installation on your machine.
 4. On the "Add and Remove" screen, add the lab-web project in the "Available" column to the "Configured" column and click finish.
