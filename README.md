@@ -87,7 +87,7 @@ No let's set up a local server to test out our application.
 1. Learn how to write Business Rules, and touch integration endpoints in Business Processes
 
 ###Note###
-All exercises in the code are marked by the 'XXX' label, which shows up by default the JBDS Tasks view. To expose this view in JBDS, in the top toolbar, click Window->Show View->Other..., and under "General", open "Tasks".
+All exercises in the code are marked by the 'XXX' label, which shows up by default in the JBDS Tasks view. To expose this view in JBDS, in the top toolbar, click Window->Show View->Other..., and under "General", open "Tasks".
 
 You can also search for 'XXX' in the File Search. In JBDS, in the top toolbar, click Search->File... and search on "XXX" in the "Containing Text" field.
 
@@ -116,7 +116,7 @@ The JUnit tests which implement these features are found at the following locati
 ```
 	lab-test-harness/src/test/java/com/rhc/lab/test/cucumber/RunCukesTest.java
 ```
-	* In the Junit window, the features should still fail, but the "Given" steps should all pass successfully.
+	* In the Junit window, the features should still fail, but the "Given" steps should all pass successfully. Why is this the case?
 
 The second goal of the day is to get some practice writing business rules in the Drools Rules Language.
 
@@ -130,10 +130,10 @@ The second goal of the day is to get some practice writing business rules in the
 	lab-knowledge/src/main/resources/rules/bookingProcess.bpmn2
 ```
 
-4. Verify the project builds successfully by running a Maven build.
-
-5. Once the project builds, make sure that your local application can save booking requests. 
-6. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance: 
+4. Run the RunCukesTest.java again to make sure all features are passing, and throw in some log print lines to ensure your steps are executing as expected.
+5. Verify the project builds successfully by running a Maven build.
+6. Once the project builds, make sure that your local application can save booking requests. 
+7. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance: 
 ```
 	git add . 
 	git commit -m "YOUR COMMIT MESSAGE" 
@@ -168,8 +168,8 @@ You will also be tasked with configuring the camel context in the servlet contai
 For reference, read through this [example](http://camel.apache.org/servlet-tomcat-example.html) on Camel in web applications.
 
 In this branch, there are a series of exercises marked by the "XXX" marker describing the components needed to implement the route described above. Complete the marked exercises and then test the application locally and in your OpenShift instance:
-1. Verify the project builds successfully by running a Maven build.
 
+1. Verify the project builds successfully by running a Maven build.
 2. Once the project builds, make sure that your local application can save booking requests. 
 3. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance: 
 ```
