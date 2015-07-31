@@ -181,7 +181,7 @@ In this branch, there are a series of exercises marked by the "XXX" marker descr
 ##Day 4 - Continuous Integration and Delivery##
 ###Goals###
 1. Learn how to add and use plugins in Jenkins on top of OpenShift
-1. Deploy our completed web application to OpenShift with Jenkins CI (Continuous Integration)
+1. Learn best practices in Deployment Pipelines from Justin Holmes
 
 ###Instructions###
 ##Day 5 - Breakfix Playground##
