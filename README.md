@@ -70,7 +70,7 @@ Now we will import the projects from the "nchlab" repository into the JBDS (JBos
 	* Profiles: openshift
 1. Click 'Run' to perform the Maven build and ensure that the project build is successful.
 
-No let's set up a local server to test out our application.
+Now let's set up a local server to test out our application.
 
 1. Make sure that you have locally installed Tomcat 7.0.x and have a local MongoDB database running.
 	* Instructions for MongoDB installation are located [here](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/). Version 2.6 is preferred, but installing v3.0 should work fine as well.
