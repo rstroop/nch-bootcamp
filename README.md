@@ -187,9 +187,10 @@ In this branch, there are a series of exercises marked by the "XXX" marker descr
 
 ###Instructions###
 Today we will set up a local Jenkins instance to build and test our project.
-1. Download the latest Jenkins WAR (Web Archive) [here](https://updates.jenkins-ci.org/download/war/) or get our USB copy
-1. Download the EAP 6.4.0 Zip archive and unzip (or get our USB copy).
-1. Drop the jenkins.war file inside the $EAP_HOME/standalone/deployments directory.
+
+1. Download the latest Jenkins WAR (Web Archive) [here](https://updates.jenkins-ci.org/download/war/) or get our USB copy. 
+1. Download the EAP 6.4.0 Zip archive and unzip (or get our USB copy). 
+1. Drop the jenkins.war file inside the $EAP_HOME/standalone/deployments directory. 
 1. Create an empty file in the deployments directory suffixed with "dodeploy" with the following command:
 ```
 	touch jenkins.war.dodeploy
