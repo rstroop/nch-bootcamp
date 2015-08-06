@@ -220,7 +220,7 @@ Now using the BDD knowledge gained in the morning presentations, implement the f
 Attempt to add this functionality to your local master branch, or your working branch from yesterday.
 
 
-##Day 5 - Breakfix Playground##h
+##Day 5 - Breakfix Playground##
 ###Goals###
 1. Get familiar navigating a multi-module application to look for common breaks.
 
