@@ -70,7 +70,7 @@ Now we will import the projects from the "nchlab" repository into the JBDS (JBos
 	* Profiles: openshift
 1. Click 'Run' to perform the Maven build and ensure that the project build is successful.
 
-No let's set up a local server to test out our application.
+Now let's set up a local server to test out our application.
 
 1. Make sure that you have locally installed Tomcat 7.0.x and have a local MongoDB database running.
 	* Instructions for MongoDB installation are located [here](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/). Version 2.6 is preferred, but installing v3.0 should work fine as well.
@@ -102,7 +102,7 @@ You can also search for 'XXX' in the File Search. In JBDS, in the top toolbar, c
 ```
 	git checkout day2
 ```
-1. Open JBDS and build the project as you did yesterday. The project should now fail to build. Now comes the fun part!
+1. Open JBDS and build the project as you did yesterday. Note that the tests run in the project are skipped during the build. 
 
 The first goal of the day is to learn some basic concepts of BDD. Cucumber is a popular BDD tool we use frequently on projects. The framework uses text files containing application "features", and connects the steps of each feature to a corresponding JUnit test, called a "step". There are a number of test features found in the following location:  
 ```
@@ -182,10 +182,44 @@ In this branch, there are a series of exercises marked by the "XXX" marker descr
 
 ##Day 4 - Continuous Integration and Delivery##
 ###Goals###
-1. Learn how to add and use plugins in Jenkins on top of OpenShift
-1. Learn best practices in Deployment Pipelines from Justin Holmes
+1. Learn how to add and use plugins in Jenkins
+2. Using newfound BDD knowledge, add features, step code, and rules to the existing codebase
 
 ###Instructions###
+Today we will set up a local Jenkins instance to build and test our project.
+
+1. Download the latest Jenkins WAR (Web Archive) [here](https://updates.jenkins-ci.org/download/war/) or get our USB copy. 
+1. Download the EAP 6.4.0 Zip archive and unzip (or get our USB copy). 
+1. Drop the jenkins.war file inside the $EAP_HOME/standalone/deployments directory. 
+1. Create an empty file in the deployments directory suffixed with "dodeploy" with the following command:
+```
+	touch jenkins.war.dodeploy
+```
+This will tell the EAP server to deploy this application on startup of the container.
+
+1. Start the server and navigate to http://localhost:8080/jenkins. (Make sure your tomcat instance isn't running. If so, you will have port conflict issues). 
+1. Navigate to the Manage Jenkins screen.
+1. In the list of options on the management screen, click "Manage Plugins" (http://localhost:8080/jenkins/pluginManager).
+1. Since this is the first time we're adding plugins, go to the "Advanced" tab of the Plugin Manager and in the bottom right corner, click "Check now" to update the list of available plugins.
+1. Once the check has completed, navigate to the "Available" tab and select the "Cucumber Plugin", the "Cucumber Reports Plugin" and the "GitHub Plugin".
+1. Click "Install without Restart". Once the installations have completed, check the box to restart Jenkins when no builds are running.
+1. Navigate back to the homepage, and add a new Freestyle Software Job. This will take you to the configuration screen for the job.
+1. To pull in our source code, select the Git radio button on the job page and point to our GitHub master branch. Also add this to the Github field at the top of the job config.
+1. Add a new shell build step with a simple Maven install:
+```
+	mvn clean install
+```
+1. At the bottom of the job page, add a new Post-build Action "Publish cucumber results as a report". Clicking the "Advanced" button in this action reveals granular settings that can set the build to fail if, for example, there are pending Cucumber steps. Which of these do you think could be useful for different phases of a development cycle?
+1. Click "Apply" then "Save" to ensure the changes are reflected, then rebuild the project with the "Build Now" button in the job page or on the homepage.
+
+
+Now using the BDD knowledge gained in the morning presentations, implement the following example feature request:
+```
+	"We would like to add a feature where bands and orchestras cannot perform at a venue on the same day"
+```
+Attempt to add this functionality to your local master branch, or your working branch from yesterday.
+
+
 ##Day 5 - Breakfix Playground##
 ###Goals###
 1. Get familiar navigating a multi-module application to look for common breaks.
