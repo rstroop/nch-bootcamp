@@ -28,7 +28,7 @@ MongoDB 2.6			| [link](http://docs.mongodb.org/manual/tutorial/install-mongodb-o
 ###Instructions###
 1. Run the following commands on the command line to create a new EWS (Enterprise Web Server) project called "nchlab" with large gears in OpenShift:
 ```
-	rhc app-create nchlab jbossews-2.0 -g large 
+	rhc app-create nchlab jbossews-2.0 -g large -s
 ```
 These commands will output the generated credentials and locations for the OpenShift Git repository our application will use. Save this information in a text file for safekeeping.
 
