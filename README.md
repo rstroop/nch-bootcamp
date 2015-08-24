@@ -11,7 +11,7 @@ Each new hire will need the following installations downloaded and unzipped prio
 
 Install				| URL
 ------------------------------- | ----------
-Java Development Kit 7 			| [OpenJDK](http://openjdk.java.net/install/), [Oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
+Java Development Kit 7 (We aren't using Java 8 for this lab)		| [OpenJDK](http://openjdk.java.net/install/), [Oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
 Apache Maven (Latest) 			| [link](http://maven.apache.org/download.cgi)
 Git 							| [link](https://git-scm.com/downloads)
 Tomcat 7.0				| [link](http://apache.mirrors.lucidnetworks.net/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.zip) [link2](https://tomcat.apache.org/download-70.cgi)
