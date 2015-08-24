@@ -120,22 +120,23 @@ The JUnit tests which implement these features are found at the following locati
 ```
 	* In the Junit window, the features should still fail, but the "Given" steps should all pass successfully. Why is this the case?
 
-The second goal of the day is to get some practice writing business rules in the Drools Rules Language.
+The second goal of the day is to get some practice writing business rules in the Drools Rules Language. You will implement the rules and process that will confirm or revoke a venue booking request. 
 
-2. You will implement the rules that will confirm or revoke a venue booking request. Locate the business rules at the following location:  
+2. Take a look at the Business Process Model found at the following location to ensure the ruleflow groups used in the project are defined correctly. You can open the file if you have successfully installed the BPMS tooling and look in the 'Properties' view of JBDS.
+```
+	lab-knowledge/src/main/resources/rules/bookingProcess.bpmn2
+```
+3. Locate the business rules at the following location:  
 ```
 	lab-knowledge/src/main/resources/rules/createBooking.drl
 ```
 
-3. Several empty rules have to be implemented. They are marked by the 'XXX' comments. Fill in each of these rules according to the instructions in the comments, and run RunCukesTest.java to verify the rules pass the features written. At this point the rules will not pass. Take a look at the Business Process Model found at the following location to ensure the ruleflow groups are defined correctly:
-```
-	lab-knowledge/src/main/resources/rules/bookingProcess.bpmn2
-```
+4. Several empty rules have to be implemented. They are marked by the 'XXX' comments. Fill in each of these rules according to the instructions in the comments, and run RunCukesTest.java to verify the rules pass the features written.
 
-4. Run the RunCukesTest.java again to make sure all features are passing, and throw in some log print lines to ensure your steps are executing as expected.
-5. Verify the project builds successfully by running a Maven build.
-6. Once the project builds, make sure that your local application can save booking requests. 
-7. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance: 
+5. Run the RunCukesTest.java again to make sure all features are passing, and throw in some log print lines to ensure your steps are executing as expected.
+6. Verify the project builds successfully by running a Maven build.
+7. Once the project builds, make sure that your local application can save booking requests. 
+8. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance: 
 ```
 	git add . 
 	git commit -m "YOUR COMMIT MESSAGE" 
