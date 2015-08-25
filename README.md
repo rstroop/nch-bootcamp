@@ -15,6 +15,7 @@ Java Development Kit 7 (We aren't using Java 8 for this lab)		| [OpenJDK](http:/
 Apache Maven (Latest) 			| [link](http://maven.apache.org/download.cgi)
 Git 							| [link](https://git-scm.com/downloads)
 Tomcat 7.0				| [link](http://apache.mirrors.lucidnetworks.net/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.zip) [link2](https://tomcat.apache.org/download-70.cgi)
+JBoss Enterprise Application Platform 6.4	| [link](https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=37393)
 JBoss Developer Studio 8.1			| [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=jbossdeveloperstudio&version=8.1.0)
 OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/managing-client-tools.html)
 MongoDB 2.6			| [link](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/)
