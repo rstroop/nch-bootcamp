@@ -18,7 +18,7 @@ Tomcat 7.0				| [link](http://apache.mirrors.lucidnetworks.net/tomcat/tomcat-7/v
 JBoss Enterprise Application Platform 6.4	| [link](https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=37393)
 JBoss Developer Studio 8.1			| [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=jbossdeveloperstudio&version=8.1.0)
 OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/managing-client-tools.html)
-MongoDB 2.6			| [link](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/)
+MongoDB 2.6			| [link](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/) [fedora22] (http://unix.stackexchange.com/questions/208493/problem-installing-mongodb-on-fedora)
 
 ##Day 1 - OpenShift Application Management##
 ###Goals###
