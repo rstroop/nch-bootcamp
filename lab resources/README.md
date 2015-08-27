@@ -10,7 +10,7 @@
 ##How to Add Print Statments##
 
 #### Java ####
-normal System.out.println() works find log4j has not been set up properly yet
+normal System.out.println() works fine
 
 #### Cucumber ####
 add System.out.println() statements within the step code (the java classes)
