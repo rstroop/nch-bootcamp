@@ -13,28 +13,28 @@
 To demonstrate what a requirements session would look like at a client.
 
 ####Potential pitfalls (no where near a complete list)####
-purposefully vague feature
-conflicting ranking of priority the features
-misinformation
+purposefully vague feature  
+conflicting ranking of priority the features  
+misinformation  
 
 ####Setting####
  You are on a project at a client site and get called into a meeting. The Red Hat team has been working hard to put one of their applications up on Open Shift and now they have brought in new consultants to build out some new features. The new feature can be summed up into a single line “I don’t want a band and an orchestra to play on the same night”. Your job is to transform that request into an actionable story. 
 
 
-####Established Process####
-Story: As a _______, I need ____________ in order to _______________. (who, what, why)
-Acceptance Criteria: Given, When , Then (english description of the system)
-Cucumber Specification By Example: Given, When, Then (specific examples)
+####Established Process####  
+Story: As a _______, I need ____________ in order to _______________. (who, what, why)  
+Acceptance Criteria: Given, When , Then (english description of the system)  
+Cucumber Specification By Example: Given, When, Then (specific examples)  
 
 
-Questions to think about:
-    Who? - who wants this and why is it important/who does it effect? Who is your audience?
-    What? - What does this request mean?  What are they asking for?  (swing set example) 
-        do not leave any stone unturned. Any ambiguity causes gaps for questions
-    Why? - why do they want this? What is their motivation? Do they really need something else? Is this deadline artificial or strict?
-    How? - What is the tech stack? What does the domain look like? How does this fit with the current architecture? Can you reuse things?
+Questions to think about:  
+    Who? - who wants this and why is it important/who does it effect? Who is your audience?  
+    What? - What does this request mean?  What are they asking for?  (swing set example)  
+        do not leave any stone unturned. Any ambiguity causes gaps for questions  
+    Why? - why do they want this? What is their motivation? Do they really need something else? Is this deadline artificial or strict?  
+    How? - What is the tech stack? What does the domain look like? How does this fit with the current architecture? Can you reuse things?  
 
-Now you are in a meeting with the client and you need to plan out the new feature. Work as a team to figure out what that request really means.
+Now you are in a meeting with the client and you need to plan out the new feature. Work as a team to figure out what that request really means.  
 
 ###Brief Overview of Cucumber###
 
