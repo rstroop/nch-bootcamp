@@ -192,7 +192,6 @@ In this branch, there are a series of exercises marked by the "XXX" marker descr
 ##Day 4 - Continuous Integration and Delivery##
 ###Goals###
 1. Learn how to add and use plugins in Jenkins
-2. Using newfound BDD knowledge, add features, step code, and rules to the existing codebase
 
 ###Instructions###
 Today we will set up a local Jenkins instance to build and test our project.
@@ -220,14 +219,6 @@ This will tell the EAP server to deploy this application on startup of the conta
 ```
 1. At the bottom of the job page, add a new Post-build Action "Publish cucumber results as a report". Clicking the "Advanced" button in this action reveals granular settings that can set the build to fail if, for example, there are pending Cucumber steps. Which of these do you think could be useful for different phases of a development cycle?
 1. Click "Apply" then "Save" to ensure the changes are reflected, then rebuild the project with the "Build Now" button in the job page or on the homepage.
-
-
-Now using the BDD knowledge gained in the morning presentations, implement the following example feature request:
-```
-	"We would like to add a feature where bands and orchestras cannot perform at a venue on the same day"
-```
-Attempt to add this functionality to your local master branch, or your working branch from yesterday.
-
 
 ##Day 5 - Breakfix Playground##
 ###Goals###
