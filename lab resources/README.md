@@ -1,9 +1,10 @@
 # Associate Consultant Bootcamp Lab Extra Materials #
 
 ##Helpful links overall##
-[BRMS 6.1 docs] (https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BRMS/) |
-[Cucumber] (https://cucumber.io/) |
-[Camel] (http://camel.apache.org/) |
+[BRMS 6.1 docs](https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BRMS/)  
+[Cucumber](https://cucumber.io/)  
+[Camel](http://camel.apache.org/)  
+[Basic Architecture of Lab Content](http://redhat.slides.com/jcohler/nchbootcamplaboverview/live#/)
 
 
 ##How to Add Print Statments##
