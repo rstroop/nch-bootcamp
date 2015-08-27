@@ -5,6 +5,18 @@
 [Cucumber] (https://cucumber.io/) |
 [Camel] (http://camel.apache.org/) |
 
+
+##How to Add Print Statments##
+
+#### Java ####
+normal System.out.println() works find log4j has not been set up properly yet
+
+#### Cucumber ####
+add System.out.println() statements within the step code (the java classes)
+
+#### DRL ####
+add System.out.println() statements in the then step of a rule to print out after a rule has fired
+
 ## Day 2 Supplimental Agile/BDD Materials ##
 
 ###Business Requirements Gathering ###
