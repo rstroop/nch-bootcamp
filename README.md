@@ -11,13 +11,14 @@ Each new hire will need the following installations downloaded and unzipped prio
 
 Install				| URL
 ------------------------------- | ----------
-Java Development Kit 7 			| [OpenJDK](http://openjdk.java.net/install/), [Oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
+Java Development Kit 7 (We aren't using Java 8 for this lab)		| [OpenJDK](http://openjdk.java.net/install/), [Oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
 Apache Maven (Latest) 			| [link](http://maven.apache.org/download.cgi)
 Git 							| [link](https://git-scm.com/downloads)
 Tomcat 7.0				| [link](http://apache.mirrors.lucidnetworks.net/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.zip) [link2](https://tomcat.apache.org/download-70.cgi)
-JBoss BPM Suite 6.1.0 			| [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&productChanged=yes)
+JBoss Enterprise Application Platform 6.4	| [link](https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=37393)
+JBoss Developer Studio 8.1			| [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=jbossdeveloperstudio&version=8.1.0)
 OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/managing-client-tools.html)
-MongoDB 2.6			| [link](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/)
+MongoDB 2.6			| [link](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/) [fedora22] (http://unix.stackexchange.com/questions/208493/problem-installing-mongodb-on-fedora)
 
 ##Day 1 - OpenShift Application Management##
 ###Goals###
@@ -28,7 +29,7 @@ MongoDB 2.6			| [link](http://docs.mongodb.org/manual/tutorial/install-mongodb-o
 ###Instructions###
 1. Run the following commands on the command line to create a new EWS (Enterprise Web Server) project called "nchlab" with large gears in OpenShift:
 ```
-	rhc app-create nchlab jbossews-2.0 -g large 
+	rhc app-create nchlab jbossews-2.0 -g large -s
 ```
 These commands will output the generated credentials and locations for the OpenShift Git repository our application will use. Save this information in a text file for safekeeping.
 
@@ -120,22 +121,23 @@ The JUnit tests which implement these features are found at the following locati
 ```
 	* In the Junit window, the features should still fail, but the "Given" steps should all pass successfully. Why is this the case?
 
-The second goal of the day is to get some practice writing business rules in the Drools Rules Language.
+The second goal of the day is to get some practice writing business rules in the Drools Rules Language. You will implement the rules and process that will confirm or revoke a venue booking request. 
 
-2. You will implement the rules that will confirm or revoke a venue booking request. Locate the business rules at the following location:  
+2. Take a look at the Business Process Model found at the following location to ensure the ruleflow groups used in the project are defined correctly. You can open the file if you have successfully installed the BPMS tooling and look in the 'Properties' view of JBDS.
+```
+	lab-knowledge/src/main/resources/rules/bookingProcess.bpmn2
+```
+3. Locate the business rules at the following location:  
 ```
 	lab-knowledge/src/main/resources/rules/createBooking.drl
 ```
 
-3. Several empty rules have to be implemented. They are marked by the 'XXX' comments. Fill in each of these rules according to the instructions in the comments, and run RunCukesTest.java to verify the rules pass the features written. At this point the rules will not pass. Take a look at the Business Process Model found at the following location to ensure the ruleflow groups are defined correctly:
-```
-	lab-knowledge/src/main/resources/rules/bookingProcess.bpmn2
-```
+4. Several empty rules have to be implemented. They are marked by the 'XXX' comments. Fill in each of these rules according to the instructions in the comments, and run RunCukesTest.java to verify the rules pass the features written.
 
-4. Run the RunCukesTest.java again to make sure all features are passing, and throw in some log print lines to ensure your steps are executing as expected.
-5. Verify the project builds successfully by running a Maven build.
-6. Once the project builds, make sure that your local application can save booking requests. 
-7. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance: 
+5. Run the RunCukesTest.java again to make sure all features are passing, and throw in some log print lines to ensure your steps are executing as expected.
+6. Verify the project builds successfully by running a Maven build.
+7. Once the project builds, make sure that your local application can save booking requests. 
+8. Then run the following Git commands to commit the files to your local repository and push the new code to your OpenShift instance: 
 ```
 	git add . 
 	git commit -m "YOUR COMMIT MESSAGE" 
