@@ -45,17 +45,17 @@ Behavior Driven Development (BDD) allows for a common language/framework for bus
 Cucumber is a BDD tool developed as a way to use documentation of system behavior as actual tests. It takes a gherkin feature file (with Given, When, Then scenarios) and uses a Step definition class as code to run it. The scenarios act as living documentation as it provides clear specific examples of the behavior and its also used as unit and system regression tests. 
 
 #####500ft View#####
-Cucumber.xml - Spring File that defines the Application Context and any necessary beans
-*Steps.java - Java code that maps to the english in the feature file
-*.feature - Gherkin that reads almost like plain english
-Runner(Junit) - java class that pieces the code together (use these features files with this step code
+Cucumber.xml - Spring File that defines the Application Context and any necessary beans  
+*Steps.java - Java code that maps to the english in the feature file  
+*.feature - Gherkin that reads almost like plain english  
+Runner(Junit) - java class that pieces the code together (use these features files with this step code)  
 
 #####100ft View#####
-Annotation Driven(@Given, @And, @When, @Then)
-Tests can be separated out into different runners by tags (@wip, @ignore)
-Tests only work as tests if you have Asserts in your @Then
-Reusing the same pattern in a feature files = less java code needed and faster scenario writing
-Setting up a background will allow easy base line for all scenarios in a file (think @Before in junit)
+Annotation Driven(@Given, @And, @When, @Then)  
+Tests can be separated out into different runners by tags (@wip, @ignore)  
+Tests only work as tests if you have Asserts in your @Then  
+Reusing the same pattern in a feature files = less java code needed and faster scenario writing  
+Setting up a background will allow easy base line for all scenarios in a file (think @Before in junit)  
 
 
 
