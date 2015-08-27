@@ -21,7 +21,7 @@ misinformation
  You are on a project at a client site and get called into a meeting. The Red Hat team has been working hard to put one of their applications up on Open Shift and now they have brought in new consultants to build out some new features. The new feature can be summed up into a single line “I don’t want a band and an orchestra to play on the same night”. Your job is to transform that request into an actionable story. 
 
 
-####Established Process####  
+####Established Process####
 Story: As a _______, I need ____________ in order to _______________. (who, what, why)  
 Acceptance Criteria: Given, When , Then (english description of the system)  
 Cucumber Specification By Example: Given, When, Then (specific examples)  
