@@ -86,8 +86,9 @@ Now let's set up a local server to test out our application. An overview of the 
 
 ##Day 2 - Business Rules and Process Modeling##
 ###Goals###
-1. To get familiar with BDD (Behavior-Driven-Development) by using the Cucumber test Framework
-1. Learn how to write Business Rules, and touch integration endpoints in Business Processes
+1. To get familiar with BDD (Behavior-Driven-Development) and Buisness Requirements Gathering
+2. Learn how to use the Cucumber framework to build scenarios
+3. Learn how to write Business Rules, and touch integration endpoints in Business Processes
 
 ###Note###
 All exercises in the code are marked by the 'XXX' label, which shows up by default in the JBDS Tasks view. To expose this view in JBDS, in the top toolbar, click Window->Show View->Other..., and under "General", open "Tasks".
@@ -105,7 +106,12 @@ You can also search for 'XXX' in the File Search. In JBDS, in the top toolbar, c
 ```
 1. Open JBDS and build the project as you did yesterday. Note that the tests run in the project are skipped during the build. 
 
-The first goal of the day is to learn some basic concepts of BDD. Cucumber is a popular BDD tool we use frequently on projects. The framework uses text files containing application "features", and connects the steps of each feature to a corresponding JUnit test, called a "step". There are a number of test features found in the following location:  
+The first part of today will be a mock client situation. We will work together in order to help define new functionality for our application.  
+
+The specifics for this activity can be found in the [lab resource section](https://github.com/justincohler/nch-bootcamp/blob/master/lab%20resources/README.md) of the github  
+
+
+The second goal of the day is to learn some basic way of working with Cucumber, a popular BDD tool we use frequently on projects. The framework uses text files containing application "features", and connects the steps of each feature to a corresponding JUnit test, called a "step". There are a number of test features found in the following location:  
 ```
 	lab-test-harness/src/test/resources/features/lab.feature  
 ```
@@ -114,6 +120,7 @@ The JUnit tests which implement these features are found at the following locati
 ```
 	lab-test-harness/src/test/java/com/rhc/lab/test/cucumber/BaseSteps.java
 ```
+A very brief overview can been found as part of the [lab resource section](https://github.com/justincohler/nch-bootcamp/blob/master/lab%20resources/README.md) of the github  
 
 1. To start today's exercises inside of BaseSteps.java, there are two methods which have to be implemented. They are marked by the 'XXX' comment. Fill in each of these methods according to the instructions in the comments, and run the following Cucumber test to verify your results: 
 ```
