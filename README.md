@@ -19,6 +19,7 @@ JBoss Enterprise Application Platform 6.4	| [link](https://access.redhat.com/jbo
 JBoss Developer Studio 8.1			| [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=jbossdeveloperstudio&version=8.1.0)
 OpenShift Command Line Tools 	| [link](https://developers.openshift.com/en/managing-client-tools.html)
 MongoDB 2.6			| [link](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/) [fedora22] (http://unix.stackexchange.com/questions/208493/problem-installing-mongodb-on-fedora)
+Nodejs and NPM                    	| [link](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager)
 
 ##Day 1 - OpenShift Application Management##
 ###Goals###
