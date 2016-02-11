@@ -18,6 +18,12 @@ import com.rhc.lab.domain.BookingResponse;
 import com.rhc.lab.domain.BookingStatus;
 import com.rhc.lab.domain.Venue;
 
+/**
+ * 
+ * This service is used by Camel to execute rules and call saves in the various
+ * DAO repositories.
+ * 
+ */
 @Service("requestService")
 public class BookingRequestService {
 
@@ -49,15 +55,16 @@ public class BookingRequestService {
 	}
 
 	public boolean saveBooking(@Body BookingResponse response) {
-		// TODO: logger not Sys out
-		System.out.println("Session returned: " + response.toString());
+
+		// Attempt to implement logger
+		logger.info("Session returned: " + response.toString());
+
 		Booking booking = response.generateBooking();
 		try {
 			// attempting to save the bookings returned
 			if (response.getBookingStatus().iterator().next() == BookingStatus.CONFIRMED) {
-				// TODO: logger not Sys out
-				System.out.println("attempting to save booking: "
-						+ booking.toString());
+
+				logger.info("Attempting to save booking: " + booking.toString());
 				bookingRepo.save(booking);
 			}
 		} catch (Exception e) {
@@ -75,11 +82,11 @@ public class BookingRequestService {
 	 * @return
 	 */
 	public List<Object> collectSingleVenueForSession(BookingRequest request) {
-		// TODO: logger not sys out
-		System.out.println("collect venue:" + request.getVenueName());
+
+		logger.info("collect venue: " + request.getVenueName());
 		List<Venue> venue = venueRepo.findByName(request.getVenueName());
-		// TODO: logger not sys out
-		System.out.println("venue found:" + venue);
+
+		logger.info("venue found:" + venue);
 		List<Booking> bookings = bookingRepo.findByVenueName(request
 				.getVenueName());
 

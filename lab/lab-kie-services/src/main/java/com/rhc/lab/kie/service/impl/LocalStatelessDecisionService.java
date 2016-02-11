@@ -47,7 +47,7 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 		try {
 			kieBase.newStatelessKieSession();
 		} catch (Exception e) {
-			System.out.println("could not find kie module");
+			logger.error("Could not find kie module");
 		}
 
 		commandFactory = KieServices.Factory.get().getCommands();
@@ -116,10 +116,11 @@ public class LocalStatelessDecisionService implements StatelessDecisionService {
 		return execute(facts, null, responseClazz);
 	}
 
-	public Object executeForClass(Collection<Object> facts, String clazzName) {
+	public Object executeForClass(Collection<Object> facts, String processId,
+			String clazzName) {
 		try {
 			Class<?> clazz = Class.forName(clazzName);
-			return execute(facts, null, clazz);
+			return execute(facts, processId, clazz);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

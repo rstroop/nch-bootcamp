@@ -7,7 +7,6 @@ import com.rhc.lab.domain.BookingStatus;
 query "getBookingRequests"
 	
 	$bookingRequest : BookingRequest()
-	//$premium : Premium( name == "foo" )
 	
 end
 
@@ -20,6 +19,5 @@ end
 query "getStatus"
 	
 	$status : BookingStatus()
-	//$premium : Premium( name == "foo" )
 	
 end
